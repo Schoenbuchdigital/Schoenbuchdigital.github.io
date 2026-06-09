@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blumenstube Suse Nuber — Ihr Blumenladen in Weil im Schönbuch | Hauptstraße 61</title>
+<meta name="description" content="Blumenstube Suse Nuber in Weil im Schönbuch: Sträuße, Hochzeitsfloristik, Trauerfloristik, Pflanzen und Fleurop-Blumenversand. Hauptstraße 61 — Telefon 07157 61929.">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root{
+    --leinen:#faf8f3;
+    --salbei:#5d7257;
+    --salbei-tief:#3d5039;
+    --moos:#76906c;
+    --rose:#c98a7d;
+    --creme:#f1ecdf;
+    --ink:#2c332a;
+    --linie:#dfd9c8;
+    --weiss:#fffefb;
+    --display:"Cormorant Garamond",Georgia,serif;
+    --text:"Karla",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--text);background:var(--leinen);color:var(--ink);line-height:1.65;overflow-x:hidden}
+  ::selection{background:var(--rose);color:var(--weiss)}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+
+  /* ENTWURF-Band */
+  .entwurf-band{
+    position:fixed;top:18px;right:-44px;z-index:1000;transform:rotate(40deg);
+    background:var(--salbei-tief);color:var(--leinen);font-weight:800;font-size:.72rem;
+    letter-spacing:.22em;text-transform:uppercase;padding:7px 56px;opacity:.9;pointer-events:none;
+  }
+
+  /* Topbar */
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:1px solid var(--linie)}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+  .logo svg{flex-shrink:0}
+  .logo .name{font-family:var(--display);font-size:1.5rem;font-weight:600;letter-spacing:.02em}
+  .logo .name em{font-style:italic;color:var(--salbei)}
+  .topbar nav{display:flex;gap:26px;align-items:center}
+  .topbar nav a{color:var(--ink);text-decoration:none;font-weight:700;font-size:.92rem}
+  .topbar nav a:hover{color:var(--salbei)}
+  @media(max-width:760px){.topbar nav a:not(.cta){display:none}}
+  .cta{background:var(--salbei);color:var(--weiss)!important;border-radius:999px;padding:11px 22px;transition:background .2s ease}
+  .cta:hover{background:var(--salbei-tief)}
+
+  /* Hero */
+  .hero{position:relative;padding:84px 0 96px;overflow:hidden}
+  .hero .zweig{position:absolute;pointer-events:none;opacity:.6}
+  .hero .zweig.rechts{right:-60px;top:-30px;width:420px;height:520px}
+  .hero .zweig.links{left:-80px;bottom:-60px;width:340px;height:400px;transform:scaleX(-1)}
+  .hero .zweig path,.hero .zweig circle,.hero .zweig ellipse{
+    stroke:var(--moos);fill:none;stroke-width:1.3;
+  }
+  .hero .zweig ellipse{fill:rgba(118,144,108,.12)}
+  .vorzeile{display:inline-block;font-weight:800;font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:var(--salbei);margin-bottom:20px;animation:sanft .8s ease both}
+  .hero h1{
+    font-family:var(--display);font-weight:500;font-size:clamp(2.8rem,7.5vw,5rem);
+    line-height:1.06;max-width:16ch;margin-bottom:24px;animation:sanft .8s .1s ease both;
+  }
+  .hero h1 em{font-style:italic;color:var(--salbei)}
+  .hero p{font-size:1.13rem;max-width:48ch;color:#54604f;animation:sanft .8s .2s ease both}
+  .hero-aktionen{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;animation:sanft .8s .3s ease both}
+  .knopf{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1rem;border-radius:999px;padding:16px 30px;transition:all .2s ease}
+  .knopf-voll{background:var(--salbei);color:var(--weiss);box-shadow:0 12px 26px -12px rgba(93,114,87,.6)}
+  .knopf-voll:hover{background:var(--salbei-tief);transform:translateY(-2px)}
+  .knopf-zart{border:1.5px solid var(--salbei-tief);color:var(--salbei-tief)}
+  .knopf-zart:hover{background:var(--salbei-tief);color:var(--leinen)}
+  .hero .fleurop{margin-top:30px;font-size:.92rem;font-weight:700;color:#54604f;display:flex;align-items:center;gap:9px;animation:sanft .8s .4s ease both}
+  .hero .fleurop .punkt{width:9px;height:9px;border-radius:50%;background:var(--rose)}
+  @keyframes sanft{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+  /* Leistungen */
+  .abschnitt{padding:90px 0}
+  .kopf{text-align:center;max-width:60ch;margin:0 auto 52px}
+  .kopf h2{font-family:var(--display);font-weight:500;font-size:clamp(2rem,5vw,3rem);line-height:1.1;margin-bottom:12px}
+  .kopf h2 em{font-style:italic;color:var(--salbei)}
+  .kopf p{color:#54604f;font-size:1.05rem}
+  .leistungen-hg{background:var(--creme);border-top:1px solid var(--linie);border-bottom:1px solid var(--linie)}
+  .karten{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:840px){.karten{grid-template-columns:1fr;max-width:460px;margin:0 auto}}
+  .karte{
+    background:var(--weiss);border:1px solid var(--linie);border-radius:16px;padding:32px 28px;
+    transition:transform .2s ease,box-shadow .2s ease;position:relative;
+  }
+  .karte:hover{transform:translateY(-5px);box-shadow:0 18px 36px -18px rgba(44,51,42,.22)}
+  .karte .ikon{
+    width:52px;height:52px;border-radius:50%;background:var(--leinen);border:1px solid var(--linie);
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+  }
+  .karte h3{font-family:var(--display);font-weight:600;font-size:1.45rem;margin-bottom:8px}
+  .karte p{font-size:.96rem;color:#54604f}
+  .karte .tag{
+    display:inline-block;margin-top:14px;background:var(--leinen);border:1px dashed var(--rose);
+    border-radius:8px;padding:5px 12px;font-weight:700;font-size:.82rem;color:var(--rose);
+  }
+
+  /* Fleurop-Band */
+  .band{background:var(--salbei-tief);color:var(--leinen);padding:56px 0;text-align:center}
+  .band .wrap{max-width:720px}
+  .band h2{font-family:var(--display);font-weight:500;font-size:clamp(1.7rem,4vw,2.4rem);line-height:1.2;margin-bottom:12px}
+  .band h2 em{font-style:italic;color:var(--rose)}
+  .band p{color:#cfd8c9;font-size:1.04rem}
+
+  /* Über */
+  .ueber .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+  @media(max-width:820px){.ueber .wrap{grid-template-columns:1fr}}
+  .ueber h2{font-family:var(--display);font-weight:500;font-size:clamp(2rem,4.5vw,2.8rem);line-height:1.12;margin-bottom:16px}
+  .ueber h2 em{font-style:italic;color:var(--salbei)}
+  .ueber p{color:#54604f;margin-bottom:12px}
+  .werte{display:grid;gap:14px;margin-top:26px}
+  .wert{display:flex;gap:14px;align-items:flex-start}
+  .wert .blatt{flex-shrink:0;width:38px;height:38px;border-radius:50% 0 50% 50%;background:var(--creme);border:1px solid var(--linie);display:flex;align-items:center;justify-content:center;transform:rotate(45deg)}
+  .wert .blatt span{transform:rotate(-45deg);font-weight:800;color:var(--salbei);font-size:.95rem}
+  .wert b{display:block;font-size:1rem}
+  .wert span.t{font-size:.92rem;color:#54604f}
+  .ueber-bild{
+    position:relative;border-radius:16px;min-height:420px;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 80% 15%,rgba(201,138,125,.25) 0%,transparent 55%),
+      radial-gradient(110% 100% at 15% 85%,rgba(118,144,108,.3) 0%,transparent 55%),
+      var(--creme);
+    border:1px solid var(--linie);display:flex;align-items:flex-end;
+  }
+  .ueber-bild .platzhalter{
+    position:relative;margin:22px;background:rgba(255,254,251,.88);border:1px dashed var(--salbei);
+    border-radius:10px;padding:14px 18px;font-size:.85rem;color:#54604f;
+  }
+
+  /* Zeiten & Kontakt */
+  .kontakt .wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media(max-width:820px){.kontakt .wrap{grid-template-columns:1fr}}
+  .tafel{background:var(--weiss);border:1px solid var(--linie);border-radius:16px;padding:42px 38px}
+  .tafel h3{font-family:var(--display);font-weight:600;font-size:1.7rem;margin-bottom:22px}
+  .zeiten{width:100%;border-collapse:collapse}
+  .zeiten td{padding:11px 0;font-size:.98rem;border-bottom:1px dashed var(--linie)}
+  .zeiten tr:last-child td{border-bottom:none}
+  .zeiten td:last-child{text-align:right;font-weight:700}
+  .zeiten .zu td{color:#9aa294}
+  .kontakt-liste{list-style:none;display:grid;gap:20px}
+  .kontakt-liste li{display:flex;gap:16px;align-items:flex-start}
+  .kontakt-liste .ikon{flex-shrink:0;width:42px;height:42px;border-radius:50%;background:var(--creme);border:1px solid var(--linie);display:flex;align-items:center;justify-content:center}
+  .kontakt-liste b{display:block;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--salbei);margin-bottom:2px}
+  .kontakt-liste a{color:var(--ink);text-decoration:none;font-weight:700;font-size:1.04rem}
+  .kontakt-liste a:hover{color:var(--salbei)}
+  .kontakt-liste span{font-size:1rem}
+
+  /* Schluss */
+  .schluss{text-align:center;padding:90px 24px}
+  .schluss .ornament{font-family:var(--display);font-style:italic;color:var(--rose);font-size:1.5rem;margin-bottom:18px}
+  .schluss h2{font-family:var(--display);font-weight:500;font-size:clamp(2.1rem,5.5vw,3.3rem);line-height:1.1;max-width:22ch;margin:0 auto 16px}
+  .schluss p{color:#54604f;font-size:1.06rem;margin-bottom:32px}
+
+  /* Footer */
+  footer{background:var(--salbei-tief);color:#aebfa7;padding:32px 0;font-size:.88rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px 30px;justify-content:space-between;align-items:center}
+  footer a{color:#dde6d7;text-decoration:none}
+  footer a:hover{color:var(--rose)}
+  .demo-hinweis{background:var(--rose);color:var(--weiss);text-align:center;padding:13px 20px;font-size:.92rem;font-weight:700}
+
+  .zeigen{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .zeigen.sichtbar{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.zeigen{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="entwurf-band">Entwurf</div>
+
+<header class="wrap topbar">
+  <a class="logo" href="#">
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+      <circle cx="15" cy="11" r="4.5" stroke="#c98a7d" stroke-width="1.5"/>
+      <circle cx="10" cy="14" r="4.5" stroke="#c98a7d" stroke-width="1.5"/>
+      <circle cx="20" cy="14" r="4.5" stroke="#c98a7d" stroke-width="1.5"/>
+      <path d="M15 18 V27 M15 22 C12 21 10.5 19.5 10 17.5 M15 24 C18 23 19.5 21.5 20 19.5" stroke="#5d7257" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <span class="name">Blumenstube <em>Suse Nuber</em></span>
+  </a>
+  <nav>
+    <a href="#leistungen">Leistungen</a>
+    <a href="#ueber">Über uns</a>
+    <a href="#kontakt">Kontakt</a>
+    <a class="cta" href="tel:+49715761929">07157 61929</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <svg class="zweig rechts" viewBox="0 0 420 520" aria-hidden="true">
+      <path d="M390 30 C320 140 300 260 280 480" stroke-linecap="round"/>
+      <path d="M345 130 C320 150 300 155 282 152" stroke-linecap="round"/>
+      <ellipse cx="350" cy="120" rx="26" ry="11" transform="rotate(-35 350 120)"/>
+      <path d="M320 230 C345 245 360 262 366 282" stroke-linecap="round"/>
+      <ellipse cx="318" cy="225" rx="24" ry="10" transform="rotate(28 318 225)"/>
+      <path d="M295 330 C270 345 255 362 249 382" stroke-linecap="round"/>
+      <ellipse cx="297" cy="325" rx="24" ry="10" transform="rotate(-30 297 325)"/>
+      <circle cx="392" cy="28" r="7"/>
+      <circle cx="380" cy="18" r="4"/>
+    </svg>
+    <svg class="zweig links" viewBox="0 0 340 400" aria-hidden="true">
+      <path d="M310 20 C260 120 245 220 230 380" stroke-linecap="round"/>
+      <ellipse cx="280" cy="100" rx="22" ry="9" transform="rotate(-32 280 100)"/>
+      <ellipse cx="255" cy="190" rx="22" ry="9" transform="rotate(25 255 190)"/>
+      <ellipse cx="240" cy="280" rx="20" ry="8" transform="rotate(-28 240 280)"/>
+    </svg>
+    <div class="wrap">
+      <span class="vorzeile">Blumenladen · Weil im Schönbuch · Fleurop-Partner</span>
+      <h1>Blumen, die <em>Geschichten</em> erzählen.</h1>
+      <p>Ob Strauß zum Geburtstag, Hochzeitsfloristik oder ein stiller Abschiedsgruß — in der Blumenstube an der Hauptstraße binden wir jedes Stück von Hand. Frisch, saisonal und mit Herz.</p>
+      <div class="hero-aktionen">
+        <a class="knopf knopf-voll" href="tel:+49715761929">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          Strauß bestellen
+        </a>
+        <a class="knopf knopf-zart" href="#leistungen">Was wir machen</a>
+      </div>
+      <p class="fleurop"><span class="punkt"></span>Offizieller Fleurop-Partner — wir verschicken Blumengrüße in die ganze Welt</p>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <section class="leistungen-hg abschnitt" id="leistungen">
+    <div class="wrap">
+      <div class="kopf">
+        <h2>Handgebunden, <em>von Herzen.</em></h2>
+        <p>Jeder Anlass hat seine Blumen — wir finden die richtigen.</p>
+      </div>
+      <div class="karten">
+        <div class="karte zeigen">
+          <div class="ikon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5d7257" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><circle cx="8" cy="10.5" r="3.5"/><circle cx="16" cy="10.5" r="3.5"/><path d="M12 13v8M12 17c-2.5-.8-4-2-4.5-3.8M12 19c2.5-.8 4-2 4.5-3.8"/></svg></div>
+          <h3>Sträuße &amp; Gestecke</h3>
+          <p>Frisch gebunden für Geburtstag, Dankeschön oder einfach so — sagen Sie uns Anlass und Budget, wir machen daraus etwas Schönes.</p>
+        </div>
+        <div class="karte zeigen">
+          <div class="ikon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5d7257" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-9-9c-1.2-2.8.5-6 3.5-6 1.8 0 3.2 1 4 2.5C11.3 7 12.7 6 14.5 6c3 0 4.7 3.2 3.5 6-2 4.5-9 9-9 9z" transform="translate(1.5 -1.5)"/></svg></div>
+          <h3>Hochzeitsfloristik</h3>
+          <p>Brautstrauß, Anstecker, Tischschmuck, Kirchendeko — wir begleiten Ihren großen Tag von der ersten Idee bis zur letzten Blüte.</p>
+          <span class="tag">Mit persönlichem Vorgespräch</span>
+        </div>
+        <div class="karte zeigen">
+          <div class="ikon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5d7257" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3C9 7 7.5 10 7.5 13a4.5 4.5 0 0 0 9 0c0-3-1.5-6-4.5-10z"/><path d="M12 21v-3.5"/></svg></div>
+          <h3>Trauerfloristik</h3>
+          <p>Würdevolle Kränze, Herzen und Gestecke für den Abschied — einfühlsam beraten, sorgfältig gearbeitet, pünktlich geliefert.</p>
+        </div>
+        <div class="karte zeigen">
+          <div class="ikon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5d7257" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21h10M9 21V11a3 3 0 0 1 6 0v10M5 11h14M12 3v2M6.5 4.5 8 6M17.5 4.5 16 6"/></svg></div>
+          <h3>Zimmerpflanzen</h3>
+          <p>Grünes für Wohnung, Büro und Terrasse — inklusive ehrlicher Beratung, welche Pflanze zu Ihrem Standort passt.</p>
+        </div>
+        <div class="karte zeigen">
+          <div class="ikon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5d7257" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 14 15l-4-4-7 7M21 8h-6M21 8v6"/></svg></div>
+          <h3>Fleurop-Versand</h3>
+          <p>Blumengrüße nach Hamburg, Wien oder New York? Als Fleurop-Partner liefern wir deutschland- und weltweit — frisch vor Ort gebunden.</p>
+          <span class="tag">Auch kurzfristig</span>
+        </div>
+        <div class="karte zeigen">
+          <div class="ikon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5d7257" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8V6a2 2 0 0 1 2-2h0M7.5 8C6 6 6.5 3.5 9 3c2 .5 2.5 3 3 5M16.5 8C18 6 17.5 3.5 15 3"/></svg></div>
+          <h3>Saisonales &amp; Geschenke</h3>
+          <p>Adventskränze, Frühlingszwiebeln, kleine Aufmerksamkeiten — das ganze Jahr wechselnd, immer frisch aus der Region wo möglich.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLEUROP BAND -->
+  <section class="band">
+    <div class="wrap">
+      <h2>Ein Anruf genügt — <em>wir binden, Sie schenken.</em></h2>
+      <p>Strauß telefonisch bestellen und einfach abholen: 07157 61929. Oder per Fleurop verschicken lassen, wohin Sie möchten.</p>
+    </div>
+  </section>
+
+  <!-- ÜBER -->
+  <section class="abschnitt ueber" id="ueber">
+    <div class="wrap">
+      <div class="zeigen">
+        <span class="vorzeile">Über die Blumenstube</span>
+        <h2>Mitten im Ort. <em>Mitten im Leben.</em></h2>
+        <p>Seit vielen Jahren gehört die Blumenstube zur Hauptstraße wie der Kirchturm zum Ortsbild. Bei Suse Nuber bekommen Sie keine Ware von der Stange, sondern Floristik mit Auge, Erfahrung und einem offenen Ohr.</p>
+        <p>Wir kennen unsere Kundinnen und Kunden — und oft auch den Anlass, bevor er ausgesprochen ist.</p>
+        <div class="werte">
+          <div class="wert"><span class="blatt"><span>1</span></span><div><b>Frische zuerst</b><span class="t">Was nicht frisch ist, verkaufen wir nicht. Punkt.</span></div></div>
+          <div class="wert"><span class="blatt"><span>2</span></span><div><b>Beratung mit Herz</b><span class="t">Anlass, Budget, Geschmack — wir hören zu und binden passend.</span></div></div>
+          <div class="wert"><span class="blatt"><span>3</span></span><div><b>Verlässlich seit Jahren</b><span class="t">Pünktlich zur Trauerfeier, perfekt zur Hochzeit — darauf können Sie sich verlassen.</span></div></div>
+        </div>
+      </div>
+      <div class="ueber-bild zeigen">
+        <div class="platzhalter">📷 Hier kommen Fotos aus Ihrem Laden hin — Sträuße, Schaufenster, Werkbank. 3–5 Handybilder genügen.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZEITEN & KONTAKT -->
+  <section class="abschnitt kontakt" id="kontakt" style="padding-top:0">
+    <div class="wrap">
+      <div class="tafel zeigen">
+        <h3>Öffnungszeiten</h3>
+        <table class="zeiten">
+          <tr><td>Montag &amp; Dienstag</td><td>8:30–12:00 &amp; 14:30–18:00</td></tr>
+          <tr><td>Mittwoch</td><td>8:30–12:00</td></tr>
+          <tr><td>Donnerstag &amp; Freitag</td><td>8:30–12:00 &amp; 14:30–18:00</td></tr>
+          <tr><td>Samstag</td><td>8:30–13:00</td></tr>
+          <tr class="zu"><td>Sonntag</td><td>geschlossen</td></tr>
+        </table>
+      </div>
+      <div class="tafel zeigen">
+        <h3>So erreichen Sie uns</h3>
+        <ul class="kontakt-liste">
+          <li>
+            <span class="ikon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#5d7257" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></span>
+            <div><b>Bestellung &amp; Beratung</b><a href="tel:+49715761929">07157 61929</a></div>
+          </li>
+          <li>
+            <span class="ikon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#5d7257" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><b>Adresse</b><span>Hauptstraße 61, 71093 Weil im Schönbuch</span></div>
+          </li>
+          <li>
+            <span class="ikon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#5d7257" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></span>
+            <div><b>Anfahrt</b><a href="https://www.google.com/maps/search/?api=1&query=Blumenstube+Suse+Nuber+Hauptstra%C3%9Fe+61+71093+Weil+im+Sch%C3%B6nbuch" target="_blank" rel="noopener">Route mit Google Maps planen ↗</a></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHLUSS -->
+  <section class="schluss">
+    <p class="ornament">❀ ❀ ❀</p>
+    <h2 class="zeigen">Schauen Sie vorbei — es blüht schon.</h2>
+    <p class="zeigen">Hauptstraße 61 · oder rufen Sie an, wir bereiten alles vor.</p>
+    <a class="knopf knopf-voll zeigen" href="tel:+49715761929">07157 61929 anrufen</a>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Blumenstube Suse Nuber · Hauptstraße 61, 71093 Weil im Schönbuch</span>
+    <span><a href="https://schoenbuchdigital.github.io/impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="https://schoenbuchdigital.github.io/datenschutz.html">Datenschutz</a> <em style="opacity:.6">(Entwurf — eigenes Impressum folgt bei Beauftragung)</em></span>
+  </div>
+</footer>
+
+<div class="demo-hinweis">
+  Unverbindlicher Entwurf — erstellt von Schönbuch Digital, Weil im Schönbuch. Gefällt er Ihnen nicht, wird er gelöscht.
+</div>
+
+<script>
+  const beobachter = new IntersectionObserver(eintraege => {
+    eintraege.forEach(e => { if (e.isIntersecting) { e.target.classList.add('sichtbar'); beobachter.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.zeigen').forEach(el => beobachter.observe(el));
+</script>
+</body>
+</html>
