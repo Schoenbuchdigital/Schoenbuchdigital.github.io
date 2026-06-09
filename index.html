@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schönbuch Digital — Websites für Betriebe in Weil im Schönbuch | ab 349 €</title>
+<meta name="description" content="Ihre Website, fertig bevor Sie zahlen. Websites für Handwerker, Läden & Gastronomie in Weil im Schönbuch, Holzgerlingen & Umgebung. Ab 349 €, fertig in 48 Stunden, keine Abo-Falle.">
+<!--
+  VOR VERÖFFENTLICHUNG: Impressum mit vollständiger Adresse ergänzen (PFLICHT!)
+  Kontaktdaten eingesetzt am 09.06.2026: Emir Cobanoglu · 0176 30121664 · schoenbuch.digital@gmail.com
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400;9..144,600;9..144,900,100&family=Hanken+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f1e7;
+    --paper-deep:#efe7d7;
+    --ink:#1e2a23;
+    --wald:#1f4733;
+    --wald-tief:#143425;
+    --tanne:#2c5e43;
+    --amber:#c97b2d;
+    --amber-hell:#e9a455;
+    --linie:#d8cdb8;
+    --weiss:#fffdf8;
+    --serif:"Fraunces",Georgia,serif;
+    --sans:"Hanken Grotesk",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);color:var(--ink);background:var(--paper);
+    line-height:1.6;overflow-x:hidden;
+  }
+  /* Papierkorn über allem */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.35;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  ::selection{background:var(--amber);color:var(--weiss)}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+
+  /* ───── Topbar ───── */
+  .topbar{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:20px 0;border-bottom:1px solid var(--linie);
+  }
+  .marke{font-family:var(--serif);font-weight:900;font-size:1.35rem;color:var(--wald);letter-spacing:-.02em;display:flex;align-items:center;gap:10px;text-decoration:none}
+  .marke svg{flex-shrink:0}
+  .topbar .tel{
+    font-weight:800;color:var(--wald);text-decoration:none;font-size:1.02rem;
+    border:2px solid var(--wald);border-radius:999px;padding:8px 18px;
+    transition:all .2s ease;
+  }
+  .topbar .tel:hover{background:var(--wald);color:var(--paper)}
+
+  /* ───── Hero ───── */
+  .hero{position:relative;padding:72px 0 0}
+  .hero-griff{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--weiss);border:1px solid var(--linie);border-radius:999px;
+    padding:7px 16px;font-weight:700;font-size:.85rem;color:var(--tanne);
+    animation:auftauchen .7s ease both;
+  }
+  .hero-griff .punkt{width:8px;height:8px;border-radius:50%;background:var(--amber);animation:pulsieren 2s infinite}
+  @keyframes pulsieren{0%,100%{box-shadow:0 0 0 0 rgba(201,123,45,.5)}50%{box-shadow:0 0 0 7px rgba(201,123,45,0)}}
+  .hero h1{
+    font-family:var(--serif);font-weight:900;font-size:clamp(2.6rem,7vw,4.6rem);
+    line-height:1.04;letter-spacing:-.03em;color:var(--wald-tief);
+    margin:26px 0 22px;max-width:13ch;
+    animation:auftauchen .7s .1s ease both;
+  }
+  .hero h1 em{
+    font-style:italic;color:var(--amber);position:relative;white-space:nowrap;
+  }
+  .hero h1 em svg{position:absolute;left:0;bottom:-.12em;width:100%;height:.22em;overflow:visible}
+  .hero h1 em svg path{stroke:var(--amber);stroke-width:5;fill:none;stroke-linecap:round;
+    stroke-dasharray:600;stroke-dashoffset:600;animation:zeichnen 1s 1s ease forwards}
+  @keyframes zeichnen{to{stroke-dashoffset:0}}
+  .hero .unterzeile{font-size:1.2rem;max-width:54ch;color:#42514a;animation:auftauchen .7s .2s ease both}
+  .hero .unterzeile strong{color:var(--wald)}
+  @keyframes auftauchen{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+  .hero-aktionen{display:flex;flex-wrap:wrap;gap:14px;margin:34px 0 30px;animation:auftauchen .7s .3s ease both}
+  .knopf{
+    display:inline-flex;align-items:center;gap:10px;text-decoration:none;
+    font-weight:800;font-size:1.05rem;border-radius:14px;padding:16px 28px;
+    transition:transform .15s ease,box-shadow .15s ease;
+  }
+  .knopf-voll{background:var(--wald);color:var(--paper);box-shadow:0 10px 24px -10px rgba(20,52,37,.55)}
+  .knopf-voll:hover{transform:translateY(-2px);box-shadow:0 16px 30px -10px rgba(20,52,37,.6)}
+  .knopf-rand{border:2px solid var(--wald);color:var(--wald)}
+  .knopf-rand:hover{background:rgba(31,71,51,.07)}
+
+  .hero-fakten{display:flex;flex-wrap:wrap;gap:10px 26px;padding-bottom:56px;animation:auftauchen .7s .4s ease both}
+  .hero-fakten span{display:flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;color:var(--tanne)}
+  .hero-fakten svg{flex-shrink:0}
+
+  /* Stempel */
+  .stempel{
+    position:absolute;right:24px;top:64px;width:148px;height:148px;
+    border:3px double var(--amber);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    font-family:var(--serif);font-weight:900;color:var(--amber);
+    font-size:1.02rem;line-height:1.2;letter-spacing:.02em;
+    transform:rotate(9deg);animation:stempeln .5s .9s cubic-bezier(.2,2.2,.5,1) both;
+    background:rgba(255,253,248,.6);
+  }
+  @keyframes stempeln{from{opacity:0;transform:rotate(9deg) scale(2.2)}to{opacity:1;transform:rotate(9deg) scale(1)}}
+  @media(max-width:900px){.stempel{display:none}}
+
+  /* Tannen-Silhouette */
+  .tannen{display:block;width:100%;height:90px;margin-bottom:-1px}
+
+  /* ───── Dunkler Problemblock ───── */
+  .problem{background:var(--wald-tief);color:var(--paper);padding:84px 0}
+  .problem .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+  @media(max-width:820px){.problem .wrap{grid-template-columns:1fr}}
+  .problem h2{font-family:var(--serif);font-weight:900;font-size:clamp(1.9rem,4.5vw,2.8rem);line-height:1.12;letter-spacing:-.02em;margin-bottom:18px}
+  .problem h2 em{font-style:italic;color:var(--amber-hell)}
+  .problem p{color:#cfdcd2;font-size:1.08rem;max-width:48ch}
+  .zahlen{display:grid;gap:16px}
+  .zahl-karte{
+    background:rgba(246,241,231,.06);border:1px solid rgba(246,241,231,.14);
+    border-radius:16px;padding:22px 26px;display:flex;align-items:baseline;gap:18px;
+  }
+  .zahl-karte b{font-family:var(--serif);font-size:2.4rem;font-weight:900;color:var(--amber-hell);line-height:1}
+  .zahl-karte span{color:#cfdcd2;font-size:.98rem;line-height:1.45}
+
+  /* ───── Ablauf ───── */
+  .abschnitt{padding:88px 0}
+  .vorzeile{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;color:var(--amber);margin-bottom:12px}
+  .abschnitt h2{font-family:var(--serif);font-weight:900;font-size:clamp(1.9rem,4.5vw,2.7rem);letter-spacing:-.02em;color:var(--wald-tief);line-height:1.12;margin-bottom:14px}
+  .abschnitt .einleitung{font-size:1.1rem;color:#42514a;max-width:58ch}
+
+  .schritte{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px;counter-reset:schritt}
+  @media(max-width:820px){.schritte{grid-template-columns:1fr}}
+  .schritt{
+    background:var(--weiss);border:1px solid var(--linie);border-radius:18px;
+    padding:30px 26px 28px;position:relative;counter-increment:schritt;
+    transition:transform .2s ease,box-shadow .2s ease;
+  }
+  .schritt:hover{transform:translateY(-5px);box-shadow:0 18px 36px -18px rgba(30,42,35,.25)}
+  .schritt::before{
+    content:counter(schritt,decimal-leading-zero);
+    font-family:var(--serif);font-weight:900;font-size:3rem;line-height:1;
+    color:var(--paper-deep);-webkit-text-stroke:1.5px var(--amber);
+    display:block;margin-bottom:14px;
+  }
+  .schritt h3{font-family:var(--serif);font-weight:600;font-size:1.3rem;color:var(--wald);margin-bottom:8px}
+  .schritt p{font-size:.98rem;color:#42514a}
+  .schritt .merker{margin-top:14px;display:inline-block;background:var(--paper);border:1px dashed var(--amber);border-radius:8px;padding:5px 12px;font-weight:700;font-size:.85rem;color:var(--amber)}
+
+  /* ───── Pakete ───── */
+  .pakete-hg{background:var(--paper-deep);border-top:1px solid var(--linie);border-bottom:1px solid var(--linie)}
+  .pakete{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px;align-items:start}
+  @media(max-width:880px){.pakete{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto}}
+  .paket{
+    background:var(--weiss);border:1px solid var(--linie);border-radius:18px;padding:32px 28px;
+    position:relative;transition:transform .2s ease,box-shadow .2s ease;
+  }
+  .paket:hover{transform:translateY(-5px);box-shadow:0 18px 36px -18px rgba(30,42,35,.25)}
+  .paket.beliebt{
+    border:2px solid var(--wald);transform:rotate(-.6deg) translateY(-8px);
+    box-shadow:0 24px 48px -20px rgba(20,52,37,.35);
+  }
+  .paket.beliebt:hover{transform:rotate(0) translateY(-12px)}
+  .paket .banderole{
+    position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+    background:var(--amber);color:var(--weiss);font-weight:800;font-size:.8rem;
+    letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:6px 16px;white-space:nowrap;
+  }
+  .paket .pname{font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:.8rem;color:var(--amber);margin-bottom:6px}
+  .paket h3{font-family:var(--serif);font-weight:900;font-size:1.5rem;color:var(--wald-tief);margin-bottom:4px}
+  .paket .fuer{font-size:.9rem;color:#6b7a71;margin-bottom:18px}
+  .paket .preis{font-family:var(--serif);font-weight:900;font-size:3rem;color:var(--wald);line-height:1;margin-bottom:2px}
+  .paket .preis small{font-size:1.1rem;font-weight:600}
+  .paket .einmalig{font-size:.85rem;color:#6b7a71;margin-bottom:20px}
+  .paket ul{list-style:none;display:grid;gap:10px;margin-bottom:24px}
+  .paket li{display:flex;gap:10px;font-size:.95rem;align-items:flex-start}
+  .paket li svg{flex-shrink:0;margin-top:4px}
+  .paket .knopf{width:100%;justify-content:center;font-size:.98rem;padding:14px 18px}
+
+  /* ───── Lokal ───── */
+  .lokal .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+  @media(max-width:820px){.lokal .wrap{grid-template-columns:1fr}}
+  .lokal-karte{
+    background:var(--wald);color:var(--paper);border-radius:20px;padding:40px 36px;
+    transform:rotate(-1deg);box-shadow:14px 14px 0 var(--paper-deep),14px 14px 0 1px var(--linie);
+  }
+  .lokal-karte .ort{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--amber-hell);margin-bottom:10px}
+  .lokal-karte h3{font-family:var(--serif);font-weight:900;font-size:1.9rem;line-height:1.15;letter-spacing:-.01em;margin-bottom:14px}
+  .lokal-karte p{color:#cfdcd2;font-size:1rem}
+  .lokal ul{list-style:none;display:grid;gap:18px}
+  .lokal ul li{display:flex;gap:16px;align-items:flex-start}
+  .lokal ul .ikon{
+    flex-shrink:0;width:46px;height:46px;border-radius:12px;background:var(--weiss);
+    border:1px solid var(--linie);display:flex;align-items:center;justify-content:center;
+  }
+  .lokal ul h4{font-size:1.05rem;font-weight:800;color:var(--wald-tief)}
+  .lokal ul p{font-size:.95rem;color:#42514a}
+
+  /* ───── FAQ ───── */
+  .faq{max-width:760px;margin:46px auto 0}
+  .faq details{border-bottom:1px solid var(--linie)}
+  .faq summary{
+    cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;
+    gap:20px;padding:22px 4px;font-weight:800;font-size:1.05rem;color:var(--wald-tief);
+  }
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{
+    content:"+";font-family:var(--serif);font-size:1.6rem;color:var(--amber);
+    transition:transform .25s ease;line-height:1;
+  }
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq .antwort{padding:0 4px 22px;color:#42514a;font-size:.99rem;max-width:62ch}
+
+  /* ───── Kontakt ───── */
+  .kontakt{background:var(--wald-tief);color:var(--paper);padding:90px 0;position:relative;overflow:hidden}
+  .kontakt::after{
+    content:"";position:absolute;right:-80px;bottom:-80px;width:340px;height:340px;border-radius:50%;
+    background:radial-gradient(circle,rgba(201,123,45,.25),transparent 70%);
+  }
+  .kontakt .wrap{position:relative;z-index:1;text-align:center}
+  .kontakt h2{font-family:var(--serif);font-weight:900;font-size:clamp(2rem,5vw,3rem);letter-spacing:-.02em;line-height:1.1;margin-bottom:16px}
+  .kontakt h2 em{font-style:italic;color:var(--amber-hell)}
+  .kontakt p{color:#cfdcd2;font-size:1.12rem;max-width:52ch;margin:0 auto 34px}
+  .kontakt .wege{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+  .kontakt .knopf-voll{background:var(--amber);box-shadow:0 10px 24px -10px rgba(201,123,45,.6)}
+  .kontakt .knopf-rand{border-color:var(--paper);color:var(--paper)}
+  .kontakt .knopf-rand:hover{background:rgba(246,241,231,.1)}
+  .kontakt .klein{margin-top:26px;font-size:.9rem;color:#9fb3a6}
+
+  /* ───── Footer ───── */
+  footer{background:var(--wald-tief);color:#9fb3a6;border-top:1px solid rgba(246,241,231,.12);padding:28px 0;font-size:.88rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px 30px;justify-content:space-between;align-items:center}
+  footer a{color:#cfdcd2;text-decoration:none}
+  footer a:hover{color:var(--amber-hell)}
+
+  /* Scroll-Reveal */
+  .zeigen{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .zeigen.sichtbar{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .zeigen{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="wrap topbar">
+  <a class="marke" href="#">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+      <path d="M13 2 L20 12 H16.5 L22 20 H4 L9.5 12 H6 Z" fill="#1f4733"/>
+      <rect x="11.5" y="20" width="3" height="4" fill="#c97b2d"/>
+    </svg>
+    Schönbuch Digital
+  </a>
+  <a class="tel" href="tel:+4917630121664">0176&nbsp;30121664</a>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="hero-griff"><span class="punkt"></span>Nimmt neue Aufträge an — Juni 2026</span>
+      <h1>Ihre Website.<br>Fertig, <em>bevor<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 14 Q 75 4 150 12 T 296 10"/></svg></em> Sie zahlen.</h1>
+      <p class="unterzeile">Wir bauen Handwerkern, Läden und Gastronomen aus <strong>Weil im Schönbuch &amp; Umgebung</strong> erst einen fertigen Entwurf — <strong>kostenlos und unverbindlich</strong>. Gefällt er Ihnen, gehört er Ihnen ab 349&nbsp;€. Gefällt er Ihnen nicht, löschen wir ihn wieder. So einfach.</p>
+      <div class="hero-aktionen">
+        <a class="knopf knopf-voll" href="#kontakt">Gratis-Entwurf anfragen
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="knopf knopf-rand" href="#pakete">Preise ansehen</a>
+      </div>
+      <div class="hero-fakten">
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c97b2d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Fertig in 48 Stunden</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c97b2d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Einmalpreis, keine Abo-Falle</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c97b2d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Persönlich, von hier</span>
+      </div>
+    </div>
+    <div class="stempel">Entwurf<br>100&nbsp;%<br>gratis</div>
+    <!-- Tannenlinie -->
+    <svg class="tannen" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="#143425" d="M0,90 L0,70 L30,70 L55,40 L80,70 L95,70 L120,25 L148,70 L170,70 L196,45 L222,70 L260,70 L292,18 L326,70 L352,70 L375,48 L398,70 L430,70 L462,30 L494,70 L520,70 L545,52 L570,70 L610,70 L645,12 L682,70 L710,70 L734,44 L758,70 L790,70 L820,28 L852,70 L880,70 L905,50 L930,70 L965,70 L998,20 L1032,70 L1060,70 L1085,46 L1110,70 L1145,70 L1178,26 L1212,70 L1240,70 L1265,52 L1290,70 L1322,70 L1352,34 L1384,70 L1410,70 L1440,55 L1440,90 Z"/>
+    </svg>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="wrap">
+      <div>
+        <h2>Wer bei Google nicht auftaucht, <em>existiert nicht.</em></h2>
+        <p>Auch in Weil im Schönbuch sucht man den Friseur, den Maler oder die Pizzeria zuerst mit dem Handy. Wer dort nur mit einem nackten Branchenbuch-Eintrag erscheint, verliert Kunden an den Betrieb im Nachbarort — jeden Tag.</p>
+      </div>
+      <div class="zahlen">
+        <div class="zahl-karte zeigen"><b>76&nbsp;%</b><span>der lokalen Suchen führen innerhalb von 24&nbsp;Stunden zu einem Besuch oder Anruf.</span></div>
+        <div class="zahl-karte zeigen"><b>2×</b><span>mehr Vertrauen: Betriebe mit eigener Website wirken doppelt so glaubwürdig wie ein bloßer Verzeichnis-Eintrag.</span></div>
+        <div class="zahl-karte zeigen"><b>0&nbsp;€</b><span>kostet Sie unser Entwurf. Sie zahlen erst, wenn er Ihnen gefällt.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABLAUF -->
+  <section class="abschnitt" id="ablauf">
+    <div class="wrap">
+      <p class="vorzeile">So läuft's</p>
+      <h2>Drei Schritte. Kein Risiko.</h2>
+      <p class="einleitung">Andere Agenturen verkaufen Ihnen ein Versprechen. Wir zeigen Ihnen das fertige Ergebnis — und Sie entscheiden danach.</p>
+      <div class="schritte">
+        <div class="schritt zeigen">
+          <h3>Wir bauen den Entwurf</h3>
+          <p>Sie melden sich — oder wir Sie. Innerhalb von 48 Stunden steht ein kompletter Entwurf Ihrer Website im Netz: Ihre Leistungen, Ihre Öffnungszeiten, optimiert fürs Handy.</p>
+          <span class="merker">Kostenlos &amp; unverbindlich</span>
+        </div>
+        <div class="schritt zeigen">
+          <h3>Sie schauen in Ruhe</h3>
+          <p>Sie bekommen einen Link und schauen sich alles an — am Handy, am Rechner, mit der Familie. Änderungswünsche? Setzen wir um, bevor Sie sich entscheiden.</p>
+          <span class="merker">Kein Termin, kein Druck</span>
+        </div>
+        <div class="schritt zeigen">
+          <h3>Sie entscheiden</h3>
+          <p>Gefällt's? Dann gehört die Seite Ihnen — ab 349&nbsp;€ einmalig, mit eigener Adresse (z.&nbsp;B. ihr-betrieb.de). Gefällt's nicht? Wir löschen den Entwurf. Kein Haken.</p>
+          <span class="merker">Einmalpreis, fertig</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAKETE -->
+  <section class="pakete-hg abschnitt" id="pakete">
+    <div class="wrap">
+      <p class="vorzeile">Ehrliche Preise</p>
+      <h2>Ein Preis. Einmal. Fertig.</h2>
+      <p class="einleitung">Keine monatlichen Gebühren, keine versteckten Kosten. Nur die Internetadresse (~12&nbsp;€/Jahr) läuft direkt auf Ihren Namen — Sie bleiben unabhängig von uns.</p>
+      <div class="pakete">
+        <div class="paket zeigen">
+          <p class="pname">Paket S</p>
+          <h3>Online-Visitenkarte</h3>
+          <p class="fuer">Für Friseure, Läden, kleine Betriebe</p>
+          <p class="preis">349<small>&nbsp;€</small></p>
+          <p class="einmalig">einmalig</p>
+          <ul>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2c5e43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Komplette Seite: Leistungen, Fotos, Öffnungszeiten, Kontakt, Anfahrt</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2c5e43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Perfekt am Handy, lädt blitzschnell</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2c5e43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Impressum &amp; Datenschutz (DSGVO) inklusive</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2c5e43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Bei Google auffindbar</li>
+          </ul>
+          <a class="knopf knopf-rand" href="#kontakt">Entwurf anfragen</a>
+        </div>
+        <div class="paket beliebt zeigen">
+          <span class="banderole">Am häufigsten gewählt</span>
+          <p class="pname">Paket M</p>
+          <h3>Business</h3>
+          <p class="fuer">Für Handwerker &amp; wachsende Betriebe</p>
+          <p class="preis">649<small>&nbsp;€</small></p>
+          <p class="einmalig">einmalig</p>
+          <ul>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2c5e43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Alles aus Paket S</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2c5e43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>3–5 Unterseiten (Leistungen, Galerie, Team …)</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2c5e43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>WhatsApp-Knopf + Kontaktformular</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2c5e43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Google-Unternehmensprofil eingerichtet</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2c5e43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>1 Korrekturrunde inklusive</li>
+          </ul>
+          <a class="knopf knopf-voll" href="#kontakt">Entwurf anfragen</a>
+        </div>
+        <div class="paket zeigen">
+          <p class="pname">Paket L</p>
+          <h3>Premium</h3>
+          <p class="fuer">Für Gastronomie &amp; Terminbetriebe</p>
+          <p class="preis">949<small>&nbsp;€</small></p>
+          <p class="einmalig">einmalig</p>
+          <ul>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2c5e43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Alles aus Paket M</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2c5e43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Online-Terminanfrage oder Online-Speisekarte</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2c5e43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Wir schreiben alle Texte für Sie</li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2c5e43" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Bildergalerie + 2 Korrekturrunden</li>
+          </ul>
+          <a class="knopf knopf-rand" href="#kontakt">Entwurf anfragen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOKAL -->
+  <section class="abschnitt lokal">
+    <div class="wrap">
+      <div class="lokal-karte zeigen">
+        <p class="ort">Weil im Schönbuch · Holzgerlingen · Dettenhausen · Waldenbuch</p>
+        <h3>Kein Callcenter.<br>Kein Anonym-Support.<br>Einfach von hier.</h3>
+        <p>Wir sitzen nicht in Berlin und nicht in Übersee — sondern hier im Schönbuch. Wenn etwas ist, trinken wir einen Kaffee zusammen und klären es.</p>
+      </div>
+      <ul>
+        <li class="zeigen">
+          <span class="ikon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1f4733" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div><h4>Wir kennen Ihre Kunden</h4><p>Weil es auch unsere Nachbarn sind. Ihre Website spricht die Sprache von hier — nicht Marketing-Blabla.</p></div>
+        </li>
+        <li class="zeigen">
+          <span class="ikon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1f4733" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+          <div><h4>48 Stunden statt 8 Wochen</h4><p>Eine klassische Agentur braucht Monate und nimmt Tausende. Wir liefern in zwei Tagen — zum Bruchteil des Preises.</p></div>
+        </li>
+        <li class="zeigen">
+          <span class="ikon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1f4733" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></span>
+          <div><h4>Alles gehört Ihnen</h4><p>Domain auf Ihren Namen, kein Abo bei uns. Sie können jederzeit alles mitnehmen — deshalb bleiben unsere Kunden freiwillig.</p></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="abschnitt" id="fragen" style="padding-top:0">
+    <div class="wrap">
+      <p class="vorzeile" style="text-align:center">Häufige Fragen</p>
+      <h2 style="text-align:center">Kurz und ehrlich beantwortet.</h2>
+      <div class="faq">
+        <details>
+          <summary>Was kostet mich der Entwurf?</summary>
+          <p class="antwort">Nichts. Wirklich nichts. Wir bauen den Entwurf auf eigenes Risiko, weil wir wissen, dass die meisten ihn behalten wollen. Wenn nicht: Wir löschen ihn, und Sie schulden uns keinen Cent.</p>
+        </details>
+        <details>
+          <summary>Kommen monatliche Kosten auf mich zu?</summary>
+          <p class="antwort">Von uns: nein. Sie zahlen einmal für die Erstellung. Nur die Internetadresse (Domain, z.&nbsp;B. ihr-betrieb.de) kostet ca. 12&nbsp;€ im Jahr — die läuft direkt auf Ihren Namen. Wer mag, bucht optional unsere Pflege für 19&nbsp;€/Monat (Änderungen, Updates), das ist aber freiwillig und monatlich kündbar.</p>
+        </details>
+        <details>
+          <summary>Ich habe schon eine Website, aber sie ist alt …</summary>
+          <p class="antwort">Perfekt — dann bauen wir Ihnen einen Entwurf, wie sie modern aussehen würde. Der direkte Vergleich alt/neu überzeugt meistens in 10 Sekunden.</p>
+        </details>
+        <details>
+          <summary>Ich habe keine Fotos und kann keine Texte schreiben.</summary>
+          <p class="antwort">Kein Problem. Texte schreiben wir aus ein paar Stichworten am Telefon. Für Fotos reicht oft das Handy — wir sagen Ihnen genau, welche 5 Bilder wir brauchen. Im Premium-Paket übernehmen wir die Texte komplett.</p>
+        </details>
+        <details>
+          <summary>Was ist mit Impressum und Datenschutz?</summary>
+          <p class="antwort">Ist bei jedem Paket dabei. Impressumspflicht und DSGVO-Grundlagen (Datenschutzerklärung, keine heimlichen Tracker) setzen wir standardmäßig um.</p>
+        </details>
+        <details>
+          <summary>Und wenn ich später etwas ändern will?</summary>
+          <p class="antwort">Kleinigkeiten (Öffnungszeiten, Preise) ändern wir für Pflege-Kunden sofort. Ohne Pflege-Abo zahlen Sie einfach pro Änderung einen kleinen Festpreis. Oder Sie ändern selbst — die Seite gehört ja Ihnen.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="kontakt" id="kontakt">
+    <div class="wrap">
+      <h2>Lust auf Ihren <em>Gratis-Entwurf?</em></h2>
+      <p>Ein Anruf oder eine kurze Nachricht genügt — Name des Betriebs reicht uns schon. In 48 Stunden steht Ihr Entwurf.</p>
+      <div class="wege">
+        <a class="knopf knopf-voll" href="tel:+4917630121664">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          0176 30121664
+        </a>
+        <a class="knopf knopf-rand" href="mailto:schoenbuch.digital@gmail.com?subject=Gratis-Entwurf%20für%20meinen%20Betrieb">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          schoenbuch.digital@gmail.com
+        </a>
+      </div>
+      <p class="klein">Mo–Sa erreichbar · Emir Cobanoglu · Weil im Schönbuch</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Schönbuch Digital · Emir Cobanoglu, Weil im Schönbuch</span>
+    <span><a href="#impressum">Impressum</a> &nbsp;·&nbsp; <a href="#datenschutz">Datenschutz</a></span>
+  </div>
+</footer>
+
+<script>
+  // Scroll-Reveal
+  const beobachter = new IntersectionObserver(eintraege => {
+    eintraege.forEach(e => { if (e.isIntersecting) { e.target.classList.add('sichtbar'); beobachter.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.zeigen').forEach(el => beobachter.observe(el));
+</script>
+</body>
+</html>
