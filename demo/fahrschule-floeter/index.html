@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fahrschule Flöter — Dein Führerschein in Weil im Schönbuch &amp; Altdorf</title>
+<meta name="description" content="Fahrschule Flöter: Führerschein Klasse B, B197 und BE in Weil im Schönbuch und Altdorf. Begleitetes Fahren ab 17, Ausbildung auch im Automatik-Fahrzeug. Telefon 07031 632475.">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root{
+    --nacht:#101c2e;
+    --nacht-hell:#1a2a42;
+    --asphalt:#22344f;
+    --signal:#ffd23f;
+    --signal-tief:#e6b211;
+    --himmel:#f4f6f9;
+    --wolke:#e8edf3;
+    --linie:#d8dfe8;
+    --ink:#16243a;
+    --blau:#2563c4;
+    --display:"Space Grotesk",Arial,sans-serif;
+    --text:"Manrope",Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--text);background:var(--himmel);color:var(--ink);line-height:1.65;overflow-x:hidden}
+  ::selection{background:var(--signal);color:var(--nacht)}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+
+  /* ENTWURF-Band */
+  .entwurf-band{
+    position:fixed;top:18px;right:-44px;z-index:1000;transform:rotate(40deg);
+    background:var(--nacht);color:var(--signal);font-weight:800;font-size:.72rem;
+    letter-spacing:.22em;text-transform:uppercase;padding:7px 56px;opacity:.92;pointer-events:none;
+  }
+
+  /* Topbar */
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid var(--linie)}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+  .logo .schild{width:40px;height:40px;flex-shrink:0;border-radius:10px;background:var(--signal);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:1.1rem;color:var(--nacht);border:2px solid var(--nacht)}
+  .logo .name{font-family:var(--display);font-size:1.4rem;font-weight:700;letter-spacing:-.01em}
+  .logo .name em{font-style:normal;color:var(--blau)}
+  .topbar nav{display:flex;gap:24px;align-items:center}
+  .topbar nav a{color:var(--ink);text-decoration:none;font-weight:700;font-size:.92rem}
+  .topbar nav a:hover{color:var(--blau)}
+  @media(max-width:760px){.topbar nav a:not(.cta){display:none}}
+  .cta{background:var(--nacht);color:#fff!important;border-radius:10px;padding:11px 20px;transition:background .2s ease}
+  .cta:hover{background:var(--asphalt)}
+
+  /* Hero */
+  .hero{position:relative;background:var(--nacht);color:#fff;padding:90px 0 110px;overflow:hidden}
+  .hero .strasse{
+    position:absolute;left:0;right:0;bottom:0;height:10px;background:var(--asphalt);
+  }
+  .hero .strasse::before{
+    content:"";position:absolute;top:4px;left:0;right:0;height:2px;
+    background:repeating-linear-gradient(90deg,var(--signal) 0 40px,transparent 40px 80px);
+    animation:fahren 2.4s linear infinite;
+  }
+  @keyframes fahren{from{background-position:0 0}to{background-position:80px 0}}
+  .hero .glow{position:absolute;border-radius:50%;pointer-events:none;filter:blur(70px);opacity:.4}
+  .hero .glow.eins{width:420px;height:420px;background:var(--blau);top:-160px;right:-100px}
+  .hero .glow.zwei{width:300px;height:300px;background:var(--signal);bottom:-160px;left:-80px;opacity:.18}
+  .vorzeile{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:var(--signal);margin-bottom:22px;animation:anrollen .8s ease both}
+  .vorzeile .strich{width:34px;height:2px;background:var(--signal)}
+  .hero h1{
+    font-family:var(--display);font-weight:700;font-size:clamp(2.6rem,7.5vw,4.6rem);
+    line-height:1.04;letter-spacing:-.02em;max-width:17ch;margin-bottom:24px;animation:anrollen .8s .1s ease both;
+  }
+  .hero h1 em{font-style:normal;color:var(--signal)}
+  .hero p{font-size:1.12rem;max-width:50ch;color:#b9c4d4;animation:anrollen .8s .2s ease both}
+  .hero-aktionen{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px;animation:anrollen .8s .3s ease both}
+  .knopf{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1rem;border-radius:12px;padding:16px 30px;transition:all .2s ease}
+  .knopf-voll{background:var(--signal);color:var(--nacht);box-shadow:0 14px 30px -12px rgba(255,210,63,.5)}
+  .knopf-voll:hover{background:var(--signal-tief);transform:translateY(-2px)}
+  .knopf-zart{border:1.5px solid #fff;color:#fff}
+  .knopf-zart:hover{background:#fff;color:var(--nacht)}
+  .hero .orte{margin-top:30px;font-size:.92rem;font-weight:700;color:#b9c4d4;display:flex;align-items:center;gap:9px;animation:anrollen .8s .4s ease both}
+  .hero .orte .punkt{width:9px;height:9px;border-radius:50%;background:var(--signal)}
+  @keyframes anrollen{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+  /* Klassen */
+  .abschnitt{padding:90px 0}
+  .kopf{text-align:center;max-width:62ch;margin:0 auto 52px}
+  .kopf h2{font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,5vw,2.9rem);letter-spacing:-.02em;line-height:1.1;margin-bottom:12px}
+  .kopf h2 em{font-style:normal;color:var(--blau)}
+  .kopf p{color:#5a6679;font-size:1.05rem}
+  .karten{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:840px){.karten{grid-template-columns:1fr;max-width:460px;margin:0 auto}}
+  .karte{
+    background:#fff;border:1px solid var(--linie);border-radius:16px;padding:32px 28px;
+    transition:transform .2s ease,box-shadow .2s ease;position:relative;
+  }
+  .karte:hover{transform:translateY(-5px);box-shadow:0 18px 36px -18px rgba(22,36,58,.22)}
+  .karte .klasse{
+    display:inline-flex;align-items:center;justify-content:center;min-width:64px;height:40px;padding:0 14px;
+    border-radius:10px;background:var(--nacht);color:var(--signal);font-family:var(--display);
+    font-weight:700;font-size:1.15rem;margin-bottom:18px;
+  }
+  .karte h3{font-family:var(--display);font-weight:700;font-size:1.3rem;letter-spacing:-.01em;margin-bottom:8px}
+  .karte p{font-size:.96rem;color:#5a6679}
+  .karte .tag{
+    display:inline-block;margin-top:14px;background:var(--himmel);border:1px dashed var(--blau);
+    border-radius:8px;padding:5px 12px;font-weight:700;font-size:.82rem;color:var(--blau);
+  }
+
+  /* Theorie-Band */
+  .band{background:var(--blau);color:#fff;padding:60px 0}
+  .band .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  @media(max-width:820px){.band .wrap{grid-template-columns:1fr}}
+  .band h2{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,4vw,2.3rem);letter-spacing:-.02em;line-height:1.15;margin-bottom:12px}
+  .band p{color:#cfdef5;font-size:1.02rem}
+  .theorie-tafel{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:16px;padding:28px 30px;backdrop-filter:blur(4px)}
+  .theorie-tafel table{width:100%;border-collapse:collapse}
+  .theorie-tafel td{padding:10px 0;font-size:.97rem;border-bottom:1px dashed rgba(255,255,255,.25)}
+  .theorie-tafel tr:last-child td{border-bottom:none}
+  .theorie-tafel td:last-child{text-align:right;font-weight:800}
+  .theorie-tafel .ort{color:var(--signal);font-weight:800;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+
+  /* Über */
+  .ueber .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+  @media(max-width:820px){.ueber .wrap{grid-template-columns:1fr}}
+  .ueber h2{font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,4.5vw,2.7rem);letter-spacing:-.02em;line-height:1.12;margin-bottom:16px}
+  .ueber h2 em{font-style:normal;color:var(--blau)}
+  .ueber p{color:#5a6679;margin-bottom:12px}
+  .werte{display:grid;gap:14px;margin-top:26px}
+  .wert{display:flex;gap:14px;align-items:flex-start}
+  .wert .ikon{flex-shrink:0;width:38px;height:38px;border-radius:10px;background:#fff;border:1px solid var(--linie);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--blau)}
+  .wert b{display:block;font-size:1rem}
+  .wert span.t{font-size:.92rem;color:#5a6679}
+  .ueber-bild{
+    position:relative;border-radius:16px;min-height:420px;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 80% 15%,rgba(37,99,196,.3) 0%,transparent 55%),
+      radial-gradient(110% 100% at 15% 85%,rgba(255,210,63,.32) 0%,transparent 55%),
+      var(--nacht);
+    border:1px solid var(--linie);display:flex;align-items:flex-end;
+  }
+  .ueber-bild .platzhalter{
+    position:relative;margin:22px;background:rgba(255,255,255,.92);border:1px dashed var(--blau);
+    border-radius:10px;padding:14px 18px;font-size:.85rem;color:#5a6679;
+  }
+
+  /* Standorte & Kontakt */
+  .kontakt .wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media(max-width:820px){.kontakt .wrap{grid-template-columns:1fr}}
+  .tafel{background:#fff;border:1px solid var(--linie);border-radius:16px;padding:42px 38px}
+  .tafel h3{font-family:var(--display);font-weight:700;font-size:1.5rem;letter-spacing:-.01em;margin-bottom:22px}
+  .standort{padding:16px 0;border-bottom:1px dashed var(--linie)}
+  .standort:last-of-type{border-bottom:none}
+  .standort b{display:block;font-size:1.05rem;margin-bottom:3px}
+  .standort span{font-size:.95rem;color:#5a6679;display:block}
+  .standort .badge{display:inline-block;margin-top:8px;background:var(--himmel);border:1px dashed var(--blau);border-radius:8px;padding:4px 10px;font-weight:700;font-size:.8rem;color:var(--blau)}
+  .kontakt-liste{list-style:none;display:grid;gap:20px}
+  .kontakt-liste li{display:flex;gap:16px;align-items:flex-start}
+  .kontakt-liste .ikon{flex-shrink:0;width:42px;height:42px;border-radius:10px;background:var(--himmel);border:1px solid var(--linie);display:flex;align-items:center;justify-content:center}
+  .kontakt-liste b{display:block;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blau);margin-bottom:2px}
+  .kontakt-liste a{color:var(--ink);text-decoration:none;font-weight:700;font-size:1.04rem}
+  .kontakt-liste a:hover{color:var(--blau)}
+  .kontakt-liste span{font-size:1rem}
+
+  /* Schluss */
+  .schluss{text-align:center;padding:90px 24px;background:var(--nacht);color:#fff;position:relative;overflow:hidden}
+  .schluss .strasse{position:absolute;left:0;right:0;bottom:0;height:10px;background:var(--asphalt)}
+  .schluss .strasse::before{content:"";position:absolute;top:4px;left:0;right:0;height:2px;background:repeating-linear-gradient(90deg,var(--signal) 0 40px,transparent 40px 80px)}
+  .schluss h2{font-family:var(--display);font-weight:700;font-size:clamp(2rem,5.5vw,3.2rem);letter-spacing:-.02em;line-height:1.08;max-width:22ch;margin:0 auto 16px}
+  .schluss h2 em{font-style:normal;color:var(--signal)}
+  .schluss p{color:#b9c4d4;font-size:1.06rem;margin-bottom:32px}
+
+  /* Footer */
+  footer{background:#0a1322;color:#7f8da1;padding:32px 0;font-size:.88rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px 30px;justify-content:space-between;align-items:center}
+  footer a{color:#c3cedd;text-decoration:none}
+  footer a:hover{color:var(--signal)}
+  .demo-hinweis{background:var(--signal);color:var(--nacht);text-align:center;padding:13px 20px;font-size:.92rem;font-weight:800}
+
+  .zeigen{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .zeigen.sichtbar{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.zeigen{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="entwurf-band">Entwurf</div>
+
+<header class="wrap topbar">
+  <a class="logo" href="#">
+    <span class="schild">L</span>
+    <span class="name">Fahrschule <em>Flöter</em></span>
+  </a>
+  <nav>
+    <a href="#klassen">Führerscheinklassen</a>
+    <a href="#theorie">Theorie</a>
+    <a href="#kontakt">Kontakt</a>
+    <a class="cta" href="tel:+497031632475">07031 632475</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <span class="glow eins"></span>
+    <span class="glow zwei"></span>
+    <div class="wrap">
+      <span class="vorzeile"><span class="strich"></span>Fahrschule · Weil im Schönbuch &amp; Altdorf</span>
+      <h1>Dein Führerschein beginnt <em>vor der Haustür.</em></h1>
+      <p>Klasse B, B197 oder BE — bei Fahrschule Flöter lernst du fahren, wo du zuhause bist: mit Theorie in Weil im Schönbuch und Altdorf, flexiblen Fahrstunden und einem Fahrlehrer, der dich bis zur bestandenen Prüfung begleitet.</p>
+      <div class="hero-aktionen">
+        <a class="knopf knopf-voll" href="#kontakt">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          Jetzt anmelden
+        </a>
+        <a class="knopf knopf-zart" href="#klassen">Welche Klasse passt?</a>
+      </div>
+      <p class="orte"><span class="punkt"></span>Begleitetes Fahren ab 17 — anmelden geht schon mit 16½.</p>
+    </div>
+    <span class="strasse"></span>
+  </section>
+
+  <!-- KLASSEN -->
+  <section class="abschnitt" id="klassen">
+    <div class="wrap">
+      <div class="kopf">
+        <h2>Vom ersten Gang bis zum <em>Anhänger.</em></h2>
+        <p>Diese Führerscheinklassen bilden wir aus — fair, gründlich und ohne Zeitdruck.</p>
+      </div>
+      <div class="karten">
+        <div class="karte zeigen">
+          <span class="klasse">B</span>
+          <h3>Der Autoführerschein</h3>
+          <p>Der Klassiker: Pkw bis 3,5 Tonnen. Theorie im Ort, Fahrstunden flexibel nach deinem Stundenplan oder Schichtplan.</p>
+          <span class="tag">Ab 17 mit Begleitung</span>
+        </div>
+        <div class="karte zeigen">
+          <span class="klasse">B197</span>
+          <h3>Automatik ohne Nachteil</h3>
+          <p>Lernen und Prüfung im Automatik-Auto, fahren darfst du trotzdem beides — die clevere Variante, mit der sich viele leichter tun.</p>
+          <span class="tag">Entspannter lernen</span>
+        </div>
+        <div class="karte zeigen">
+          <span class="klasse">BE</span>
+          <h3>Mit Anhänger</h3>
+          <p>Pferdeanhänger, Wohnwagen, Baumaschinen: Mit BE ziehst du schwere Anhänger — die sinnvolle Erweiterung für Beruf und Hobby.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THEORIE -->
+  <section class="band" id="theorie">
+    <div class="wrap">
+      <div class="zeigen">
+        <h2>Theorie? Zweimal pro Woche — in deinem Ort.</h2>
+        <p>Kein Pendeln nach Böblingen: Der Unterricht findet direkt in Weil im Schönbuch und in Altdorf statt. Komm einfach zum nächsten Block dazu.</p>
+      </div>
+      <div class="theorie-tafel zeigen">
+        <table>
+          <tr><td><span class="ort">Weil im Schönbuch</span><br>Montag &amp; Mittwoch</td><td>19:30 – 21:00</td></tr>
+          <tr><td><span class="ort">Altdorf</span><br>Dienstag &amp; Donnerstag</td><td>19:30 – 21:00</td></tr>
+          <tr><td>Beratung &amp; Anmeldung (Altdorf, Finkenstr. 1)<br>Dienstag</td><td>19:00 – 19:30</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÜBER -->
+  <section class="abschnitt ueber" id="ueber">
+    <div class="wrap">
+      <div class="zeigen">
+        <span class="vorzeile" style="color:var(--blau)"><span class="strich" style="background:var(--blau)"></span>Deine Fahrschule</span>
+        <h2>Fahren lernt man <em>beim Fahren.</em></h2>
+        <p>Bei Fahrschule Flöter bist du keine Nummer in einer Großfahrschule: Roland Flöter kennt seine Fahrschüler beim Namen, die Strecken rund um den Schönbuch auswendig — und die Prüfstrecken sowieso.</p>
+        <p>Fahrstunden legen wir flexibel — nach Schule, Ausbildung oder Schicht.</p>
+        <div class="werte">
+          <div class="wert"><span class="ikon">1</span><div><b>Flexible Fahrstunden</b><span class="t">Termine, die in deinen Alltag passen — nicht umgekehrt.</span></div></div>
+          <div class="wert"><span class="ikon">2</span><div><b>Faire Bezahlung</b><span class="t">Überweisung, Bankeinzug oder bar — wie es für dich passt.</span></div></div>
+          <div class="wert"><span class="ikon">3</span><div><b>Gutscheine</b><span class="t">Der Führerschein-Zuschuss als Geschenk — gibt&rsquo;s bei uns im Büro.</span></div></div>
+        </div>
+      </div>
+      <div class="ueber-bild zeigen">
+        <div class="platzhalter">📷 Hier kommen Ihre Fotos hin — das Fahrschulauto, der Schulungsraum, Sie selbst. 3–5 Handybilder genügen.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STANDORTE & KONTAKT -->
+  <section class="abschnitt kontakt" id="kontakt" style="padding-top:0">
+    <div class="wrap">
+      <div class="tafel zeigen">
+        <h3>Unsere Standorte</h3>
+        <div class="standort">
+          <b>Weil im Schönbuch</b>
+          <span>Hauptstraße 75 — mitten im Ort</span>
+          <span class="badge">Theorie: Mo &amp; Mi, 19:30–21:00</span>
+        </div>
+        <div class="standort">
+          <b>Altdorf</b>
+          <span>Finkenstraße 1, 71155 Altdorf — Bus 752, Haltestelle Holzgerlinger Straße</span>
+          <span class="badge">Theorie: Di &amp; Do, 19:30–21:00</span>
+        </div>
+      </div>
+      <div class="tafel zeigen">
+        <h3>Anmeldung &amp; Fragen</h3>
+        <ul class="kontakt-liste">
+          <li>
+            <span class="ikon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2563c4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></span>
+            <div><b>Festnetz</b><a href="tel:+497031632475">07031 632475</a></div>
+          </li>
+          <li>
+            <span class="ikon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2563c4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+            <div><b>Mobil</b><a href="tel:+491755615960">0175 5615960</a></div>
+          </li>
+          <li>
+            <span class="ikon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2563c4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+            <div><b>E-Mail</b><a href="mailto:info@fahrschule-floeter.de">info@fahrschule-floeter.de</a></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHLUSS -->
+  <section class="schluss">
+    <h2 class="zeigen">Bereit für die <em>erste Fahrstunde?</em></h2>
+    <p class="zeigen">Ruf kurz an oder schreib eine Mail — wir melden uns und planen deinen Start.</p>
+    <a class="knopf knopf-voll zeigen" href="tel:+497031632475">07031 632475 anrufen</a>
+    <span class="strasse"></span>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Fahrschule Flöter · Weil im Schönbuch &amp; Altdorf</span>
+    <span><a href="https://schoenbuchdigital.github.io/impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="https://schoenbuchdigital.github.io/datenschutz.html">Datenschutz</a> <em style="opacity:.6">(Entwurf — eigenes Impressum folgt bei Beauftragung)</em></span>
+  </div>
+</footer>
+
+<div class="demo-hinweis">
+  Unverbindlicher Entwurf — erstellt von Schönbuch Digital, Weil im Schönbuch. Gefällt er Ihnen nicht, wird er gelöscht.
+</div>
+
+<script>
+  const beobachter = new IntersectionObserver(eintraege => {
+    eintraege.forEach(e => { if (e.isIntersecting) { e.target.classList.add('sichtbar'); beobachter.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.zeigen').forEach(el => beobachter.observe(el));
+</script>
+</body>
+</html>
