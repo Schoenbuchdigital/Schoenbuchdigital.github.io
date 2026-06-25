@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JK-Friseur — Ihr Friseursalon in Weil im Schönbuch | Hauptstraße 102</title>
+<meta name="description" content="JK-Friseur in Weil im Schönbuch: Damen- & Herrenschnitte, Farbe, Strähnen, Styling und Beratung. Hauptstraße 102 — Termin nach Vereinbarung: 07157 66583.">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root{
+    --papier:#f6f4f1;
+    --nebel:#eceae5;
+    --tinte:#1f2421;
+    --messing:#a98a52;
+    --messing-hell:#cdab73;
+    --salbei:#dfe2da;
+    --linie:#dedbd3;
+    --weiss:#fffefb;
+    --display:"Italiana",serif;
+    --text:"Mulish",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--text);background:var(--papier);color:var(--tinte);line-height:1.65;overflow-x:hidden}
+  ::selection{background:var(--messing);color:var(--weiss)}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+
+  /* ── ENTWURF-Kennzeichnung ── */
+  .entwurf-band{
+    position:fixed;top:18px;right:-44px;z-index:1000;transform:rotate(40deg);
+    background:var(--tinte);color:var(--papier);font-weight:800;font-size:.72rem;
+    letter-spacing:.22em;text-transform:uppercase;padding:7px 56px;opacity:.88;pointer-events:none;
+  }
+
+  /* ── Topbar ── */
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:1px solid var(--linie)}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--tinte)}
+  .logo .mono{
+    width:46px;height:46px;border-radius:10px;border:1.5px solid var(--messing);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--display);font-size:1.3rem;color:var(--messing);letter-spacing:.02em;
+  }
+  .logo .name{font-family:var(--display);font-size:1.5rem;letter-spacing:.06em}
+  .topbar nav{display:flex;gap:26px;align-items:center}
+  .topbar nav a{color:var(--tinte);text-decoration:none;font-weight:700;font-size:.92rem;letter-spacing:.02em}
+  .topbar nav a:hover{color:var(--messing)}
+  @media(max-width:760px){.topbar nav a:not(.cta){display:none}}
+  .cta{
+    background:var(--tinte);color:var(--papier)!important;border-radius:999px;
+    padding:11px 22px;transition:background .2s ease,transform .15s ease;
+  }
+  .cta:hover{background:var(--messing);transform:translateY(-1px)}
+
+  /* ── Hero ── */
+  .hero{position:relative;padding:90px 0 110px;overflow:hidden}
+  .hero .schere{position:absolute;right:-120px;top:-20px;width:600px;height:600px;opacity:.5;pointer-events:none}
+  .hero .schere path,.hero .schere circle{fill:none;stroke:var(--messing-hell);stroke-width:1.4;
+    stroke-dasharray:1600;stroke-dashoffset:1600;animation:fliessen 2.4s ease forwards}
+  .hero .schere *:nth-child(2){animation-delay:.25s;opacity:.7}
+  .hero .schere *:nth-child(3){animation-delay:.5s;opacity:.45}
+  @keyframes fliessen{to{stroke-dashoffset:0}}
+  .vorzeile{
+    display:inline-block;font-weight:800;font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;
+    color:var(--messing);margin-bottom:22px;animation:sanft .8s ease both;
+  }
+  .hero h1{
+    font-family:var(--display);font-weight:400;font-size:clamp(2.9rem,8vw,5.4rem);
+    line-height:1.04;letter-spacing:.01em;max-width:15ch;margin-bottom:26px;
+    animation:sanft .8s .1s ease both;
+  }
+  .hero h1 em{font-style:normal;color:var(--messing)}
+  .hero p{font-size:1.14rem;max-width:46ch;color:#54584f;animation:sanft .8s .2s ease both}
+  .hero-aktionen{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px;animation:sanft .8s .3s ease both}
+  .knopf{
+    display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;
+    font-size:1rem;border-radius:999px;padding:16px 30px;transition:all .2s ease;
+  }
+  .knopf-voll{background:var(--messing);color:var(--weiss);box-shadow:0 12px 26px -12px rgba(169,138,82,.65)}
+  .knopf-voll:hover{background:var(--tinte);transform:translateY(-2px)}
+  .knopf-zart{border:1.5px solid var(--tinte);color:var(--tinte)}
+  .knopf-zart:hover{background:var(--tinte);color:var(--papier)}
+  .hero .offen{margin-top:30px;font-size:.92rem;font-weight:700;color:#54584f;display:flex;align-items:center;gap:9px;animation:sanft .8s .4s ease both}
+  .hero .offen .punkt{width:9px;height:9px;border-radius:50%;background:#5a9a6f;animation:atmen 2.2s infinite}
+  @keyframes atmen{0%,100%{box-shadow:0 0 0 0 rgba(90,154,111,.45)}50%{box-shadow:0 0 0 8px rgba(90,154,111,0)}}
+  @keyframes sanft{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+  /* ── Leistungen: Salonkarte ── */
+  .abschnitt{padding:92px 0}
+  .kopf{text-align:center;max-width:60ch;margin:0 auto 54px}
+  .kopf .vorzeile{margin-bottom:14px}
+  .kopf h2{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,5vw,3.2rem);line-height:1.1;margin-bottom:14px}
+  .kopf p{color:#54584f;font-size:1.05rem}
+  .leistungen-hg{background:var(--nebel);border-top:1px solid var(--linie);border-bottom:1px solid var(--linie)}
+  .karte{
+    background:var(--weiss);border:1px solid var(--linie);border-radius:4px;
+    max-width:720px;margin:0 auto;padding:58px clamp(24px,6vw,72px);position:relative;
+    box-shadow:0 30px 60px -30px rgba(31,36,33,.18);
+  }
+  .karte::before,.karte::after{
+    content:"";position:absolute;left:18px;right:18px;height:1px;background:var(--linie);
+  }
+  .karte::before{top:18px}
+  .karte::after{bottom:18px}
+  .karte .titel{
+    font-family:var(--display);text-align:center;font-size:1.9rem;margin-bottom:8px;
+  }
+  .karte .untertitel{text-align:center;font-size:.85rem;letter-spacing:.22em;text-transform:uppercase;font-weight:800;color:var(--messing);margin-bottom:42px}
+  .posten{display:flex;align-items:baseline;gap:14px;padding:17px 0}
+  .posten + .posten{border-top:1px dashed var(--linie)}
+  .posten h3{font-size:1.06rem;font-weight:800;white-space:nowrap}
+  .posten .fueller{flex:1;border-bottom:1px dotted #c3bdb0;transform:translateY(-4px)}
+  .posten p{font-size:.92rem;color:#736d60;text-align:right;max-width:28ch}
+  @media(max-width:560px){
+    .posten{flex-direction:column;gap:4px}
+    .posten .fueller{display:none}
+    .posten p{text-align:left;max-width:none}
+  }
+  .karte .hinweis{margin-top:40px;text-align:center;font-size:.9rem;color:#736d60;font-style:italic}
+
+  /* ── Über uns ── */
+  .ueber .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  @media(max-width:820px){.ueber .wrap{grid-template-columns:1fr}}
+  .ueber h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,4.5vw,2.9rem);line-height:1.12;margin-bottom:18px}
+  .ueber p{color:#54584f;margin-bottom:14px}
+  .werte{display:grid;gap:14px;margin-top:28px}
+  .wert{display:flex;gap:14px;align-items:flex-start}
+  .wert .ring{
+    flex-shrink:0;width:38px;height:38px;border-radius:50%;border:1.5px solid var(--messing);
+    display:flex;align-items:center;justify-content:center;color:var(--messing);
+    font-family:var(--display);font-size:1.05rem;
+  }
+  .wert b{display:block;font-size:1rem}
+  .wert span{font-size:.92rem;color:#736d60}
+  .ueber-bild{
+    position:relative;border-radius:4px;background:
+      radial-gradient(120% 90% at 20% 10%,var(--salbei) 0%,transparent 55%),
+      radial-gradient(110% 100% at 85% 90%,#cdb98f 0%,transparent 50%),
+      var(--nebel);
+    border:1px solid var(--linie);min-height:420px;display:flex;align-items:flex-end;overflow:hidden;
+  }
+  .ueber-bild svg{position:absolute;inset:0;width:100%;height:100%}
+  .ueber-bild .platzhalter{
+    position:relative;margin:22px;background:rgba(255,254,251,.85);border:1px dashed var(--messing);
+    border-radius:4px;padding:14px 18px;font-size:.85rem;color:#736d60;backdrop-filter:blur(3px);
+  }
+
+  /* ── Zeiten & Kontakt ── */
+  .kontakt .wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media(max-width:820px){.kontakt .wrap{grid-template-columns:1fr}}
+  .tafel{background:var(--weiss);border:1px solid var(--linie);border-radius:4px;padding:44px 40px}
+  .tafel h3{font-family:var(--display);font-weight:400;font-size:1.7rem;margin-bottom:24px}
+  .termin-box{text-align:center;padding:8px 0}
+  .termin-box .gross{font-family:var(--display);font-size:2rem;color:var(--messing);margin-bottom:10px}
+  .termin-box p{color:#54584f;font-size:1rem;margin-bottom:24px}
+  .termin-box .platzhalter-zeit{margin-top:22px;font-size:.84rem;color:#9a9486;font-style:italic;border-top:1px dashed var(--linie);padding-top:16px}
+  .kontakt-liste{list-style:none;display:grid;gap:20px}
+  .kontakt-liste li{display:flex;gap:16px;align-items:flex-start}
+  .kontakt-liste .ikon{
+    flex-shrink:0;width:42px;height:42px;border-radius:50%;background:var(--nebel);
+    border:1px solid var(--linie);display:flex;align-items:center;justify-content:center;
+  }
+  .kontakt-liste b{display:block;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--messing);margin-bottom:2px}
+  .kontakt-liste a{color:var(--tinte);text-decoration:none;font-weight:700;font-size:1.05rem}
+  .kontakt-liste a:hover{color:var(--messing)}
+  .kontakt-liste span{font-size:1.02rem}
+
+  /* ── Schlussaufruf ── */
+  .schluss{text-align:center;padding:96px 24px}
+  .schluss h2{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.08;max-width:20ch;margin:0 auto 18px}
+  .schluss p{color:#54584f;font-size:1.08rem;margin-bottom:34px}
+  .schluss .ornament{font-family:var(--display);color:var(--messing);font-size:1.6rem;letter-spacing:.6em;margin-bottom:24px}
+
+  /* ── Footer ── */
+  footer{background:var(--tinte);color:#a59f90;padding:34px 0;font-size:.88rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:14px 30px;justify-content:space-between;align-items:center}
+  footer a{color:#e3dccd;text-decoration:none}
+  footer a:hover{color:var(--messing-hell)}
+  .demo-hinweis{
+    background:var(--messing);color:var(--weiss);text-align:center;padding:13px 20px;font-size:.92rem;font-weight:700;
+  }
+  .demo-hinweis a{color:var(--weiss)}
+
+  /* Scroll-Reveal */
+  .zeigen{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .zeigen.sichtbar{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .zeigen{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="entwurf-band">Entwurf</div>
+
+<header class="wrap topbar">
+  <a class="logo" href="#">
+    <span class="mono">JK</span>
+    <span class="name">JK-Friseur</span>
+  </a>
+  <nav>
+    <a href="#leistungen">Leistungen</a>
+    <a href="#ueber">Über uns</a>
+    <a href="#kontakt">Kontakt</a>
+    <a class="cta" href="tel:+49715766583">07157 66583</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <svg class="schere" viewBox="0 0 600 600" aria-hidden="true">
+      <path d="M560,40 C420,110 470,260 350,320 C230,380 270,520 130,580"/>
+      <path d="M590,110 C460,170 500,300 380,360 C260,420 300,540 170,600"/>
+      <circle cx="120" cy="470" r="40"/>
+    </svg>
+    <div class="wrap">
+      <span class="vorzeile">Friseursalon · Weil im Schönbuch</span>
+      <h1>Ihr Schnitt. Ihr Stil. <em>Mitten im Ort.</em></h1>
+      <p>Willkommen bei JK-Friseur an der Hauptstraße 102. Für Sie und Ihn — vom klassischen Schnitt bis zur frischen Farbe, in Ruhe und mit ehrlicher Beratung.</p>
+      <div class="hero-aktionen">
+        <a class="knopf knopf-voll" href="tel:+49715766583">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          Termin vereinbaren
+        </a>
+        <a class="knopf knopf-zart" href="#leistungen">Unsere Leistungen</a>
+      </div>
+      <p class="offen"><span class="punkt"></span>Termine nach telefonischer Vereinbarung — ein Anruf genügt</p>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <section class="leistungen-hg abschnitt" id="leistungen">
+    <div class="wrap">
+      <div class="kopf">
+        <span class="vorzeile">Unsere Leistungen</span>
+        <h2>Für Damen und Herren — Schnitt, Farbe, Styling.</h2>
+      </div>
+      <div class="karte zeigen">
+        <p class="titel">Salonkarte</p>
+        <p class="untertitel">Damen · Herren · Kinder</p>
+        <div class="posten"><h3>Schnitt &amp; Föhnen</h3><span class="fueller"></span><p>Waschen, Schneiden, Styling — für sie und ihn</p></div>
+        <div class="posten"><h3>Herrenschnitt</h3><span class="fueller"></span><p>Klassisch oder modern, sauber konturiert</p></div>
+        <div class="posten"><h3>Farbe &amp; Strähnen</h3><span class="fueller"></span><p>Frische Farbe und natürliche Akzente</p></div>
+        <div class="posten"><h3>Styling &amp; Beratung</h3><span class="fueller"></span><p>Was zu Typ, Haar und Alltag passt</p></div>
+        <div class="posten"><h3>Kinderschnitt</h3><span class="fueller"></span><p>Geduldig und entspannt — auch für die Kleinen</p></div>
+        <p class="hinweis">Diese Übersicht ist ein Vorschlag — Ihre genauen Leistungen und Preise tragen wir gerne nach Ihren Angaben ein.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÜBER UNS -->
+  <section class="abschnitt ueber" id="ueber">
+    <div class="wrap">
+      <div class="zeigen">
+        <span class="vorzeile">Über uns</span>
+        <h2>Persönlich. Ehrlich. Zum Wohlfühlen.</h2>
+        <p>Bei JK-Friseur nehmen wir uns Zeit für Sie. Wir hören zu, bevor wir zur Schere greifen — und beraten so, wie wir selbst beraten werden möchten: ehrlich und ohne Schnickschnack.</p>
+        <p>Sie finden uns mitten in Weil im Schönbuch an der Hauptstraße 102 — gut erreichbar und zentral.</p>
+        <div class="werte">
+          <div class="wert"><span class="ring">1</span><div><b>Zeit für jeden Termin</b><span>Kein Fließband — Ihr Termin bekommt den Raum, den er braucht.</span></div></div>
+          <div class="wert"><span class="ring">2</span><div><b>Für die ganze Familie</b><span>Damen, Herren und Kinder unter einem Dach.</span></div></div>
+          <div class="wert"><span class="ring">3</span><div><b>Beratung vor Trend</b><span>Schön ist, was zu Ihnen passt — nicht, was gerade jeder trägt.</span></div></div>
+        </div>
+      </div>
+      <div class="ueber-bild zeigen">
+        <svg viewBox="0 0 400 460" aria-hidden="true">
+          <path d="M390,30 C290,70 320,180 230,230 C140,280 170,390 70,440" fill="none" stroke="#a98a52" stroke-width="1.3" opacity=".55"/>
+          <path d="M410,80 C310,120 340,230 250,280 C160,330 190,430 90,480" fill="none" stroke="#a98a52" stroke-width="1.3" opacity=".35"/>
+          <rect x="42" y="50" width="92" height="92" rx="14" fill="none" stroke="#a98a52" stroke-width="1.2" opacity=".5"/>
+          <text x="88" y="112" text-anchor="middle" font-family="Italiana,serif" font-size="40" fill="#a98a52" opacity=".75">JK</text>
+        </svg>
+        <div class="platzhalter">📷 Hier kommen Ihre Salon-Fotos hin — 3–5 Handybilder genügen, den Rest übernehmen wir.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZEITEN & KONTAKT -->
+  <section class="abschnitt kontakt" id="kontakt">
+    <div class="wrap">
+      <div class="tafel zeigen">
+        <h3>Termin &amp; Öffnungszeiten</h3>
+        <div class="termin-box">
+          <p class="gross">Termin nach Vereinbarung</p>
+          <p>Rufen Sie kurz an — wir finden gemeinsam einen Termin, der zu Ihnen passt.</p>
+          <a class="knopf knopf-voll" href="tel:+49715766583">07157 66583 anrufen</a>
+          <p class="platzhalter-zeit">Ihre festen Öffnungszeiten tragen wir hier gerne ein, sobald Sie uns Bescheid geben.</p>
+        </div>
+      </div>
+      <div class="tafel zeigen">
+        <h3>So erreichen Sie uns</h3>
+        <ul class="kontakt-liste">
+          <li>
+            <span class="ikon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#a98a52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></span>
+            <div><b>Termin per Telefon</b><a href="tel:+49715766583">07157 66583</a></div>
+          </li>
+          <li>
+            <span class="ikon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#a98a52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><b>Adresse</b><span>Hauptstraße 102, 71093 Weil im Schönbuch</span></div>
+          </li>
+          <li>
+            <span class="ikon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#a98a52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></span>
+            <div><b>Anfahrt</b><a href="https://www.google.com/maps/search/?api=1&query=JK-Friseur+Hauptstra%C3%9Fe+102+71093+Weil+im+Sch%C3%B6nbuch" target="_blank" rel="noopener">Route mit Google Maps planen ↗</a></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHLUSS -->
+  <section class="schluss">
+    <p class="ornament">· · ·</p>
+    <h2 class="zeigen">Wir freuen uns auf Ihren Besuch.</h2>
+    <p class="zeigen">Ein Anruf genügt — wir finden einen Termin, der zu Ihnen passt.</p>
+    <a class="knopf knopf-voll zeigen" href="tel:+49715766583">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+      07157 66583 anrufen
+    </a>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 JK-Friseur · Hauptstraße 102, 71093 Weil im Schönbuch</span>
+    <span><a href="https://schoenbuchdigital.github.io/impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="https://schoenbuchdigital.github.io/datenschutz.html">Datenschutz</a> <em style="opacity:.6">(Entwurf — eigenes Impressum folgt bei Beauftragung)</em></span>
+  </div>
+</footer>
+
+<div class="demo-hinweis">
+  Unverbindlicher Entwurf — erstellt von Schönbuch Digital, Weil im Schönbuch. Gefällt er Ihnen nicht, wird er gelöscht.
+</div>
+
+<script>
+  const beobachter = new IntersectionObserver(eintraege => {
+    eintraege.forEach(e => { if (e.isIntersecting) { e.target.classList.add('sichtbar'); beobachter.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.zeigen').forEach(el => beobachter.observe(el));
+</script>
+</body>
+</html>
