@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capillus HAIRSTYLE — Ihr Friseur in Schönaich | Termin: 07031 6929518</title>
+<meta name="description" content="Capillus HAIRSTYLE in Schönaich (Inh. Maria Pagliazzo): Damen- & Herrenschnitt, Farbe & Strähnen, Hochsteck- & Anlassfrisuren. Termin nach Vereinbarung: 07031 6929518.">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root{
+    --aubergine:#2e1b29;
+    --aubergine-soft:#3c2336;
+    --rose:#c87f93;
+    --rose-hell:#e7bcc7;
+    --blush:#f6ebe9;
+    --creme:#fbf6f3;
+    --gold:#b08d57;
+    --gold-hell:#cdad7c;
+    --linie:#ecdcd9;
+    --weiss:#ffffff;
+    --grau:#7c6a72;
+    --display:"Fraunces",Georgia,serif;
+    --text:"Hanken Grotesk",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--text);background:var(--creme);color:var(--aubergine);line-height:1.65;overflow-x:hidden}
+  ::selection{background:var(--rose);color:var(--weiss)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 26px}
+
+  /* ENTWURF-Kennzeichnung */
+  .entwurf-band{
+    position:fixed;top:20px;right:-46px;z-index:1000;transform:rotate(40deg);
+    background:var(--aubergine);color:var(--creme);font-weight:800;font-size:.72rem;
+    letter-spacing:.24em;text-transform:uppercase;padding:7px 58px;opacity:.92;pointer-events:none;
+  }
+
+  /* Topbar */
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:24px 0}
+  .logo{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--aubergine)}
+  .logo .mono{
+    width:50px;height:50px;border-radius:50%;
+    background:linear-gradient(140deg,var(--aubergine),var(--rose));
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--display);font-weight:900;font-size:1.5rem;color:var(--creme);
+  }
+  .logo .name{font-family:var(--display);font-weight:600;font-size:1.5rem;letter-spacing:.02em;line-height:1}
+  .logo .name small{display:block;font-family:var(--text);font-size:.6rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--rose);margin-top:4px}
+  .topbar nav{display:flex;gap:30px;align-items:center}
+  .topbar nav a{color:var(--aubergine);text-decoration:none;font-weight:600;font-size:.92rem}
+  .topbar nav a:hover{color:var(--rose)}
+  @media(max-width:820px){.topbar nav a:not(.cta){display:none}}
+  .cta{
+    background:var(--aubergine);color:var(--creme)!important;border-radius:999px;
+    padding:12px 24px;font-weight:700;transition:background .2s,transform .15s;
+  }
+  .cta:hover{background:var(--rose);transform:translateY(-1px)}
+
+  /* Hero */
+  .hero{position:relative;padding:70px 0 92px}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:54px;align-items:center}
+  @media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:38px}}
+  .vorzeile{
+    display:inline-block;font-weight:800;font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--rose);margin-bottom:22px;
+  }
+  .hero h1{
+    font-family:var(--display);font-weight:600;font-size:clamp(2.7rem,6.5vw,4.6rem);
+    line-height:1.04;letter-spacing:-.01em;margin-bottom:24px;
+  }
+  .hero h1 em{font-style:italic;color:var(--rose)}
+  .hero p.lead{font-size:1.14rem;max-width:46ch;color:var(--grau)}
+  .hero-aktionen{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+  .knopf{
+    display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;
+    font-size:1rem;border-radius:999px;padding:16px 30px;transition:all .2s;
+  }
+  .knopf-voll{background:var(--rose);color:var(--weiss);box-shadow:0 14px 30px -14px rgba(200,127,147,.85)}
+  .knopf-voll:hover{background:var(--aubergine);transform:translateY(-2px)}
+  .knopf-zart{border:1.5px solid var(--aubergine);color:var(--aubergine)}
+  .knopf-zart:hover{background:var(--aubergine);color:var(--creme)}
+  .hero .offen{margin-top:30px;font-size:.92rem;font-weight:600;color:var(--grau);display:flex;align-items:center;gap:9px}
+  .hero .offen .punkt{width:9px;height:9px;border-radius:50%;background:#5a9a6f;box-shadow:0 0 0 0 rgba(90,154,111,.5);animation:atmen 2.2s infinite}
+  @keyframes atmen{50%{box-shadow:0 0 0 8px rgba(90,154,111,0)}}
+
+  .hero-karte{
+    position:relative;border-radius:14px;min-height:380px;overflow:hidden;
+    background:
+      radial-gradient(130% 80% at 80% 10%,rgba(231,188,199,.9) 0%,transparent 55%),
+      radial-gradient(120% 90% at 12% 95%,rgba(176,141,87,.45) 0%,transparent 50%),
+      var(--aubergine);
+    display:flex;align-items:flex-end;padding:26px;
+  }
+  .hero-karte .glyph{position:absolute;top:24px;left:28px;font-family:var(--display);font-weight:900;font-size:8rem;color:rgba(255,255,255,.12);line-height:.8}
+  .hero-karte .platz{
+    position:relative;background:rgba(251,246,243,.92);border:1px dashed var(--rose);
+    border-radius:8px;padding:14px 18px;font-size:.85rem;color:var(--grau);backdrop-filter:blur(3px);
+  }
+
+  /* Abschnitte */
+  .abschnitt{padding:88px 0}
+  .kopf{text-align:center;max-width:58ch;margin:0 auto 52px}
+  .kopf h2{font-family:var(--display);font-weight:600;font-size:clamp(2rem,5vw,3.1rem);line-height:1.1;margin:12px 0 12px}
+  .kopf p{color:var(--grau);font-size:1.05rem}
+  .leistungen-hg{background:var(--blush);border-top:1px solid var(--linie);border-bottom:1px solid var(--linie)}
+  .karten{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;margin:0 auto}
+  @media(max-width:780px){.karten{grid-template-columns:1fr}}
+  .lk{
+    background:var(--weiss);border:1px solid var(--linie);border-radius:12px;padding:30px 28px;
+    transition:transform .2s,box-shadow .2s;
+  }
+  .lk:hover{transform:translateY(-5px);box-shadow:0 26px 52px -30px rgba(46,27,41,.5)}
+  .lk .nr{font-family:var(--display);font-weight:900;font-size:1.5rem;color:var(--rose)}
+  .lk h3{font-size:1.12rem;font-weight:800;margin:8px 0 8px}
+  .lk p{font-size:.95rem;color:var(--grau)}
+  .karten-hinweis{text-align:center;font-size:.92rem;color:var(--grau);font-style:italic;margin-top:34px}
+
+  /* Anlass-Banner */
+  .anlass{background:var(--aubergine);color:var(--creme);text-align:center;padding:78px 24px}
+  .anlass .vorzeile{color:var(--gold-hell)}
+  .anlass h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,5vw,2.9rem);max-width:22ch;margin:0 auto 16px;line-height:1.12}
+  .anlass p{color:#e3d2d6;max-width:50ch;margin:0 auto;font-size:1.06rem}
+
+  /* Über uns */
+  .ueber .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  @media(max-width:820px){.ueber .wrap{grid-template-columns:1fr;gap:34px}}
+  .ueber h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,4.5vw,2.8rem);line-height:1.14;margin-bottom:18px}
+  .ueber p{color:var(--grau);margin-bottom:14px}
+  .werte{display:grid;gap:14px;margin-top:26px}
+  .wert{display:flex;gap:14px;align-items:flex-start}
+  .wert .ring{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:var(--blush);border:1.5px solid var(--rose);display:flex;align-items:center;justify-content:center;color:var(--rose);font-family:var(--display);font-weight:900}
+  .wert b{display:block;font-size:1rem}
+  .wert span{font-size:.92rem;color:var(--grau)}
+  .ueber-bild{position:relative;border-radius:14px;min-height:400px;border:1px solid var(--linie);overflow:hidden;
+    background:radial-gradient(120% 90% at 20% 15%,var(--rose-hell) 0%,transparent 55%),var(--blush);display:flex;align-items:flex-end;padding:22px}
+  .ueber-bild .glyph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:900;font-size:9rem;color:rgba(200,127,147,.22)}
+  .ueber-bild .platz{position:relative;background:rgba(255,255,255,.9);border:1px dashed var(--rose);border-radius:8px;padding:14px 18px;font-size:.85rem;color:var(--grau)}
+
+  /* Kontakt */
+  .kontakt .wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media(max-width:820px){.kontakt .wrap{grid-template-columns:1fr}}
+  .tafel{background:var(--weiss);border:1px solid var(--linie);border-radius:12px;padding:42px 38px}
+  .tafel h3{font-family:var(--display);font-weight:600;font-size:1.6rem;margin-bottom:6px}
+  .tafel .mini{font-size:.8rem;color:var(--rose);font-weight:800;letter-spacing:.05em;text-transform:uppercase;margin-bottom:22px}
+  .zeiten{width:100%;border-collapse:collapse}
+  .zeiten td{padding:11px 0;font-size:.99rem;border-bottom:1px dashed var(--linie)}
+  .zeiten tr:last-child td{border-bottom:none}
+  .zeiten td:last-child{text-align:right;font-weight:700}
+  .zeiten .zu td{color:#b6a4ac}
+  .bestaetigen{margin-top:18px;font-size:.82rem;color:var(--grau);font-style:italic}
+  .kontakt-liste{list-style:none;display:grid;gap:20px}
+  .kontakt-liste li{display:flex;gap:16px;align-items:flex-start}
+  .kontakt-liste .ikon{flex-shrink:0;width:42px;height:42px;border-radius:50%;background:var(--blush);border:1px solid var(--linie);display:flex;align-items:center;justify-content:center}
+  .kontakt-liste b{display:block;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);margin-bottom:2px}
+  .kontakt-liste a{color:var(--aubergine);text-decoration:none;font-weight:700;font-size:1.05rem}
+  .kontakt-liste a:hover{color:var(--rose)}
+  .kontakt-liste span{font-size:1.02rem}
+
+  /* Schluss */
+  .schluss{text-align:center;padding:92px 24px;background:linear-gradient(160deg,var(--aubergine),var(--aubergine-soft));color:var(--creme)}
+  .schluss .ornament{color:var(--rose-hell);font-size:1.5rem;letter-spacing:.6em;margin-bottom:22px}
+  .schluss h2{font-family:var(--display);font-weight:600;font-size:clamp(2rem,5.5vw,3.3rem);max-width:20ch;margin:0 auto 16px;line-height:1.1}
+  .schluss p{color:#e3d2d6;font-size:1.06rem;margin-bottom:32px}
+
+  /* Footer */
+  footer{background:#1f1219;color:#b29ba4;padding:34px 0;font-size:.88rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:14px 30px;justify-content:space-between;align-items:center}
+  footer a{color:#e7ccd4;text-decoration:none}
+  footer a:hover{color:var(--rose-hell)}
+  .demo-hinweis{background:var(--rose);color:var(--weiss);text-align:center;padding:13px 20px;font-size:.92rem;font-weight:700}
+  .demo-hinweis a{color:var(--weiss)}
+
+  .zeigen{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+  .zeigen.sichtbar{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.zeigen{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="entwurf-band">Entwurf</div>
+
+<header class="wrap topbar">
+  <a class="logo" href="#">
+    <span class="mono">C</span>
+    <span class="name">Capillus<small>Hairstyle · Schönaich</small></span>
+  </a>
+  <nav>
+    <a href="#leistungen">Leistungen</a>
+    <a href="#ueber">Über uns</a>
+    <a href="#kontakt">Kontakt</a>
+    <a class="cta" href="tel:+4970316929518">07031 6929518</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="vorzeile">Friseursalon · Schönaich</span>
+        <h1>Ihr Typ. Ihr Stil. <em>Mit Gefühl gemacht.</em></h1>
+        <p class="lead">Willkommen bei Capillus HAIRSTYLE. Wir nehmen uns Zeit, beraten typgerecht und schneiden mit Handwerk — für Damen und Herren, jeden Tag aufs Neue.</p>
+        <div class="hero-aktionen">
+          <a class="knopf knopf-voll" href="tel:+4970316929518">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+            Termin vereinbaren
+          </a>
+          <a class="knopf knopf-zart" href="#leistungen">Unsere Leistungen</a>
+        </div>
+        <p class="offen"><span class="punkt"></span>Termine nach Vereinbarung — ein Anruf genügt</p>
+      </div>
+      <div class="hero-karte">
+        <span class="glyph">C</span>
+        <div class="platz">📷 Hier kommt ein Foto aus Ihrem Salon hin — 3–5 Handybilder genügen, den Rest übernehmen wir.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <section class="leistungen-hg abschnitt" id="leistungen">
+    <div class="wrap">
+      <div class="kopf">
+        <span class="vorzeile">Unsere Leistungen</span>
+        <h2>Für Damen und Herren.</h2>
+        <p>Vom klassischen Schnitt bis zur Frisur für den großen Tag — mit Beratung statt Fließband.</p>
+      </div>
+      <div class="karten">
+        <div class="lk zeigen"><div class="nr">I</div><h3>Damenschnitt &amp; Styling</h3><p>Waschen, Schneiden, Föhnen — abgestimmt auf Haar, Typ und Alltag.</p></div>
+        <div class="lk zeigen"><div class="nr">II</div><h3>Herren- &amp; Bartschnitt</h3><p>Klassischer Herrenschnitt und gepflegte Kontur.</p></div>
+        <div class="lk zeigen"><div class="nr">III</div><h3>Farbe, Strähnen &amp; Glanz</h3><p>Von dezent bis ausdrucksstark — Farbe, die zu Ihnen passt.</p></div>
+        <div class="lk zeigen"><div class="nr">IV</div><h3>Hochsteck- &amp; Anlassfrisuren</h3><p>Für Hochzeit, Feier und besondere Tage — mit Probetermin.</p></div>
+        <div class="lk zeigen"><div class="nr">V</div><h3>Typ- &amp; Farbberatung</h3><p>Ehrlicher Rat, was zu Ihnen passt — bevor es losgeht.</p></div>
+        <div class="lk zeigen"><div class="nr">VI</div><h3>Pflege für zuhause</h3><p>Das Richtige für Ihr Haar — ohne Verkaufsdruck.</p></div>
+      </div>
+      <p class="karten-hinweis">Beispiel-Auswahl — sagen Sie uns am Telefon, was Sie sich wünschen, wir planen genug Zeit für Sie ein.</p>
+    </div>
+  </section>
+
+  <!-- ANLASS -->
+  <section class="anlass">
+    <span class="vorzeile">Hochzeits- &amp; Anlassfrisuren</span>
+    <h2>Der große Tag verdient den passenden Look.</h2>
+    <p>Brautfrisuren und Anlass-Stylings werden im ganzen Kreis Böblingen online gesucht. Mit einem Probetermin sind Sie am Tag selbst entspannt — und sehen aus, wie Sie sich fühlen möchten.</p>
+  </section>
+
+  <!-- ÜBER UNS -->
+  <section class="abschnitt ueber" id="ueber">
+    <div class="wrap">
+      <div class="zeigen">
+        <span class="vorzeile">Über uns</span>
+        <h2>Mitten in Schönaich, persönlich geführt.</h2>
+        <p>Bei Capillus HAIRSTYLE sind Sie keine Nummer mit Termin, sondern Gast. Inhaberin Maria Pagliazzo und ihr Team hören zu, bevor sie loslegen — und beraten so, wie man selbst beraten werden möchte: ehrlich.</p>
+        <p>Termine vereinbaren Sie am einfachsten kurz per Telefon.</p>
+        <div class="werte">
+          <div class="wert"><span class="ring">1</span><div><b>Zeit statt Fließband</b><span>Jeder Termin bekommt den Raum, den er braucht.</span></div></div>
+          <div class="wert"><span class="ring">2</span><div><b>Typgerecht beraten</b><span>Schön ist, was zu Ihnen passt — nicht, was gerade jeder trägt.</span></div></div>
+          <div class="wert"><span class="ring">3</span><div><b>Faires Handwerk</b><span>Sauberes Friseurhandwerk zu fairen Preisen.</span></div></div>
+        </div>
+      </div>
+      <div class="ueber-bild zeigen">
+        <span class="glyph">✦</span>
+        <div class="platz">📷 Platz für ein Bild von Maria Pagliazzo &amp; Team oder vom Salon.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZEITEN & KONTAKT -->
+  <section class="abschnitt kontakt" id="kontakt">
+    <div class="wrap">
+      <div class="tafel zeigen">
+        <h3>Öffnungszeiten</h3>
+        <p class="mini">Bitte bestätigen</p>
+        <table class="zeiten">
+          <tr class="zu"><td>Montag</td><td>geschlossen</td></tr>
+          <tr><td>Dienstag – Freitag</td><td>9:00 – 18:00 Uhr</td></tr>
+          <tr><td>Samstag</td><td>9:00 – 14:00 Uhr</td></tr>
+          <tr class="zu"><td>Sonntag</td><td>geschlossen</td></tr>
+        </table>
+        <p class="bestaetigen">Diese Zeiten stammen aus Online-Verzeichnissen. Sagen Sie uns Ihre genauen Zeiten — wir tragen sie sofort richtig ein.</p>
+      </div>
+      <div class="tafel zeigen">
+        <h3>So erreichen Sie uns</h3>
+        <p class="mini">Termin am liebsten per Telefon</p>
+        <ul class="kontakt-liste">
+          <li>
+            <span class="ikon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#c87f93" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></span>
+            <div><b>Termin per Telefon</b><a href="tel:+4970316929518">07031 6929518</a></div>
+          </li>
+          <li>
+            <span class="ikon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#c87f93" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><b>Adresse</b><span>71101 Schönaich — genaue Anschrift bitte bestätigen</span></div>
+          </li>
+          <li>
+            <span class="ikon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#c87f93" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+            <div><b>Termine</b><span>nach Vereinbarung</span></div>
+          </li>
+        </ul>
+        <p class="bestaetigen">Hinweis: In den Online-Verzeichnissen stehen aktuell mehrere verschiedene Adressen für Ihren Salon. Auf der fertigen Seite steht Ihre richtige Anschrift — und Google findet Sie wieder eindeutig.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHLUSS -->
+  <section class="schluss">
+    <p class="ornament">· · ·</p>
+    <h2 class="zeigen">Wir freuen uns auf Ihren Besuch.</h2>
+    <p class="zeigen">Ein Anruf genügt — wir finden einen Termin, der zu Ihnen passt.</p>
+    <a class="knopf knopf-voll zeigen" href="tel:+4970316929518">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+      07031 6929518 anrufen
+    </a>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Capillus HAIRSTYLE · Inh. Maria Pagliazzo · Schönaich</span>
+    <span><a href="https://schoenbuchdigital.github.io/impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="https://schoenbuchdigital.github.io/datenschutz.html">Datenschutz</a> <em style="opacity:.6">(Entwurf — eigenes Impressum folgt bei Beauftragung)</em></span>
+  </div>
+</footer>
+
+<div class="demo-hinweis">
+  Unverbindlicher Entwurf — erstellt von Schönbuch Digital, Weil im Schönbuch. Gefällt er Ihnen nicht, wird er gelöscht.
+</div>
+
+<script>
+  const beobachter = new IntersectionObserver(eintraege => {
+    eintraege.forEach(e => { if (e.isIntersecting) { e.target.classList.add('sichtbar'); beobachter.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.zeigen').forEach(el => beobachter.observe(el));
+</script>
+</body>
+</html>
