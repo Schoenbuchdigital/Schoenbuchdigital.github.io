@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HolzArt Roland Blessing — Zimmerei &amp; Energieberatung in Weil im Schönbuch</title>
+<meta name="description" content="HolzArt Roland Blessing: Zimmerei und Holzbau aus Weil im Schönbuch — Dächer, Carports, Balkone, Dämmung und Energieberatung (Energieausweis &amp; Energiespar-Check) aus einer Hand. Telefon 07157 705987.">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root{
+    --wald:#223a2a;
+    --wald-tief:#162619;
+    --moos:#3c5a40;
+    --holz:#9c6233;
+    --holz-hell:#c08a4e;
+    --honig:#d8a14a;
+    --leinen:#f6f0e4;
+    --leinen-tief:#ece2cf;
+    --linie:#ddd2bd;
+    --rinde:#2b2419;
+    --grau:#6c6253;
+    --display:"Fraunces",Georgia,serif;
+    --text:"Hanken Grotesk",Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--text);background:var(--leinen);color:var(--rinde);line-height:1.66;overflow-x:hidden}
+  ::selection{background:var(--honig);color:var(--wald-tief)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  /* ENTWURF-Band */
+  .entwurf-band{
+    position:fixed;top:20px;right:-46px;z-index:1000;transform:rotate(40deg);
+    background:var(--holz);color:#fff;font-weight:800;font-size:.72rem;
+    letter-spacing:.22em;text-transform:uppercase;padding:7px 58px;opacity:.94;pointer-events:none;
+    box-shadow:0 6px 18px -8px rgba(0,0,0,.4);
+  }
+
+  /* Topbar */
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+  .logo{display:flex;align-items:center;gap:13px;text-decoration:none;color:var(--rinde)}
+  .logo .mark{width:44px;height:44px;flex-shrink:0;border-radius:12px;background:var(--wald);display:flex;align-items:center;justify-content:center}
+  .logo .mark svg{width:24px;height:24px}
+  .logo .name{font-family:var(--display);font-size:1.5rem;font-weight:600;letter-spacing:-.01em;line-height:1}
+  .logo .name em{font-style:normal;color:var(--holz)}
+  .logo .name small{display:block;font-family:var(--text);font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--grau);margin-top:3px}
+  .topbar nav{display:flex;gap:26px;align-items:center}
+  .topbar nav a{color:var(--rinde);text-decoration:none;font-weight:700;font-size:.92rem}
+  .topbar nav a:hover{color:var(--holz)}
+  @media(max-width:780px){.topbar nav a:not(.cta){display:none}}
+  .cta{background:var(--wald);color:#fff!important;border-radius:10px;padding:11px 20px;transition:background .2s ease}
+  .cta:hover{background:var(--moos)}
+
+  /* Hero */
+  .hero{position:relative;background:var(--wald);color:#f3ead9;padding:96px 0 108px;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;inset:0;opacity:.10;pointer-events:none;
+    background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.5) 0 1px,transparent 1px 7px);
+  }
+  .hero .glow{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px);opacity:.5}
+  .hero .glow.eins{width:440px;height:440px;background:var(--holz);top:-180px;right:-120px;opacity:.4}
+  .hero .glow.zwei{width:320px;height:320px;background:var(--honig);bottom:-180px;left:-90px;opacity:.16}
+  .hero .wrap{position:relative;z-index:2}
+  .vorzeile{display:inline-flex;align-items:center;gap:11px;font-weight:800;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--honig);margin-bottom:22px;animation:auf .8s ease both}
+  .vorzeile .strich{width:32px;height:2px;background:var(--honig)}
+  .hero h1{
+    font-family:var(--display);font-weight:600;font-size:clamp(2.6rem,7vw,4.7rem);
+    line-height:1.05;letter-spacing:-.02em;max-width:16ch;margin-bottom:22px;animation:auf .8s .1s ease both;
+  }
+  .hero h1 em{font-style:italic;color:var(--honig)}
+  .hero p.lead{font-size:1.14rem;max-width:52ch;color:#d8ccba;animation:auf .8s .2s ease both}
+  .hero-aktionen{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;animation:auf .8s .3s ease both}
+  .knopf{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1rem;border-radius:12px;padding:16px 30px;transition:all .2s ease}
+  .knopf-voll{background:var(--honig);color:var(--wald-tief);box-shadow:0 14px 30px -12px rgba(216,161,74,.6)}
+  .knopf-voll:hover{background:var(--holz-hell);transform:translateY(-2px)}
+  .knopf-zart{border:1.5px solid rgba(243,234,217,.6);color:#f3ead9}
+  .knopf-zart:hover{background:#f3ead9;color:var(--wald-tief)}
+  .hero .marke{margin-top:30px;font-size:.92rem;font-weight:700;color:#d8ccba;display:flex;flex-wrap:wrap;align-items:center;gap:9px 18px;animation:auf .8s .4s ease both}
+  .hero .marke span{display:inline-flex;align-items:center;gap:8px}
+  .hero .marke .punkt{width:8px;height:8px;border-radius:50%;background:var(--honig)}
+  @keyframes auf{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+  /* Abschnitt */
+  .abschnitt{padding:92px 0}
+  .kopf{max-width:60ch;margin:0 auto 52px;text-align:center}
+  .kopf .vorzeile{color:var(--holz)}
+  .kopf .vorzeile .strich{background:var(--holz)}
+  .kopf h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,5vw,2.9rem);letter-spacing:-.02em;line-height:1.1;margin-bottom:12px}
+  .kopf h2 em{font-style:italic;color:var(--holz)}
+  .kopf p{color:var(--grau);font-size:1.05rem}
+
+  /* Leistungs-Karten */
+  .karten{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:860px){.karten{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.karten{grid-template-columns:1fr;max-width:440px;margin:0 auto}}
+  .karte{
+    background:#fff;border:1px solid var(--linie);border-radius:16px;padding:30px 26px;
+    transition:transform .2s ease,box-shadow .2s ease;
+  }
+  .karte:hover{transform:translateY(-5px);box-shadow:0 18px 36px -18px rgba(43,36,25,.25)}
+  .karte .ikon{width:48px;height:48px;border-radius:12px;background:var(--leinen);display:flex;align-items:center;justify-content:center;margin-bottom:18px;border:1px solid var(--linie)}
+  .karte .ikon svg{width:25px;height:25px;stroke:var(--holz)}
+  .karte h3{font-family:var(--display);font-weight:600;font-size:1.28rem;letter-spacing:-.01em;margin-bottom:8px}
+  .karte p{font-size:.96rem;color:var(--grau)}
+
+  /* Energie-Band (Branchen-Chance) */
+  .band{background:var(--leinen-tief);padding:78px 0;border-top:1px solid var(--linie);border-bottom:1px solid var(--linie)}
+  .band .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:52px;align-items:center}
+  @media(max-width:840px){.band .wrap{grid-template-columns:1fr}}
+  .band h2{font-family:var(--display);font-weight:600;font-size:clamp(1.8rem,4.4vw,2.6rem);letter-spacing:-.02em;line-height:1.14;margin-bottom:14px}
+  .band h2 em{font-style:italic;color:var(--holz)}
+  .band p{color:var(--grau);font-size:1.03rem;margin-bottom:14px}
+  .energie-tafel{display:grid;gap:14px}
+  .energie-zeile{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--linie);border-radius:14px;padding:20px 22px}
+  .energie-zeile .nr{flex-shrink:0;width:38px;height:38px;border-radius:10px;background:var(--wald);color:var(--honig);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:600;font-size:1.05rem}
+  .energie-zeile b{display:block;font-size:1.04rem;margin-bottom:2px}
+  .energie-zeile span{font-size:.93rem;color:var(--grau)}
+
+  /* Über */
+  .ueber .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  @media(max-width:840px){.ueber .wrap{grid-template-columns:1fr}}
+  .ueber h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,4.5vw,2.7rem);letter-spacing:-.02em;line-height:1.12;margin-bottom:16px}
+  .ueber h2 em{font-style:italic;color:var(--holz)}
+  .ueber p{color:var(--grau);margin-bottom:13px}
+  .werte{display:grid;gap:14px;margin-top:24px}
+  .wert{display:flex;gap:14px;align-items:flex-start}
+  .wert .ikon{flex-shrink:0;width:40px;height:40px;border-radius:11px;background:#fff;border:1px solid var(--linie);display:flex;align-items:center;justify-content:center}
+  .wert .ikon svg{width:21px;height:21px;stroke:var(--holz)}
+  .wert b{display:block;font-size:1rem}
+  .wert span.t{font-size:.92rem;color:var(--grau)}
+  .ueber-bild{
+    position:relative;border-radius:18px;min-height:420px;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 80% 12%,rgba(156,98,51,.5) 0%,transparent 55%),
+      radial-gradient(110% 100% at 12% 88%,rgba(216,161,74,.4) 0%,transparent 55%),
+      var(--wald);
+    border:1px solid var(--linie);display:flex;align-items:flex-end;
+  }
+  .ueber-bild::before{
+    content:"";position:absolute;inset:0;opacity:.12;
+    background-image:repeating-linear-gradient(35deg,rgba(255,255,255,.6) 0 1px,transparent 1px 11px);
+  }
+  .ueber-bild .platzhalter{
+    position:relative;margin:22px;background:rgba(255,255,255,.94);border:1px dashed var(--holz);
+    border-radius:11px;padding:15px 18px;font-size:.85rem;color:var(--grau);line-height:1.5;
+  }
+
+  /* Kontakt */
+  .kontakt .wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media(max-width:840px){.kontakt .wrap{grid-template-columns:1fr}}
+  .tafel{background:#fff;border:1px solid var(--linie);border-radius:18px;padding:42px 38px}
+  .tafel h3{font-family:var(--display);font-weight:600;font-size:1.5rem;letter-spacing:-.01em;margin-bottom:24px}
+  .kontakt-liste{list-style:none;display:grid;gap:20px}
+  .kontakt-liste li{display:flex;gap:16px;align-items:flex-start}
+  .kontakt-liste .ikon{flex-shrink:0;width:44px;height:44px;border-radius:11px;background:var(--leinen);border:1px solid var(--linie);display:flex;align-items:center;justify-content:center}
+  .kontakt-liste .ikon svg{width:20px;height:20px;stroke:var(--holz)}
+  .kontakt-liste b{display:block;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--holz);margin-bottom:3px}
+  .kontakt-liste a{color:var(--rinde);text-decoration:none;font-weight:700;font-size:1.05rem}
+  .kontakt-liste a:hover{color:var(--holz)}
+  .kontakt-liste span.t{font-size:1rem;color:var(--rinde)}
+  .hinweis-zeile{margin-top:22px;font-size:.84rem;color:var(--grau);background:var(--leinen);border:1px dashed var(--linie);border-radius:10px;padding:12px 15px}
+
+  /* Schluss */
+  .schluss{text-align:center;padding:92px 24px;background:var(--wald-tief);color:#f3ead9;position:relative;overflow:hidden}
+  .schluss::before{content:"";position:absolute;inset:0;opacity:.08;background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.6) 0 1px,transparent 1px 8px)}
+  .schluss .inner{position:relative;z-index:2}
+  .schluss h2{font-family:var(--display);font-weight:600;font-size:clamp(2rem,5.5vw,3.1rem);letter-spacing:-.02em;line-height:1.1;max-width:20ch;margin:0 auto 16px}
+  .schluss h2 em{font-style:italic;color:var(--honig)}
+  .schluss p{color:#d8ccba;font-size:1.06rem;margin-bottom:30px}
+
+  /* Footer */
+  footer{background:#11190f;color:#8a8472;padding:34px 0;font-size:.88rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px 30px;justify-content:space-between;align-items:center}
+  footer a{color:#cfc6b2;text-decoration:none}
+  footer a:hover{color:var(--honig)}
+  .demo-hinweis{background:var(--honig);color:var(--wald-tief);text-align:center;padding:13px 20px;font-size:.92rem;font-weight:800}
+
+  .zeigen{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .zeigen.sichtbar{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.zeigen{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="entwurf-band">Entwurf</div>
+
+<header class="wrap topbar">
+  <a class="logo" href="#">
+    <span class="mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#d8a14a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 9-15 9 15z"/><path d="M9 21V13h6v8"/></svg>
+    </span>
+    <span class="name">Holz<em>Art</em><small>Roland Blessing</small></span>
+  </a>
+  <nav>
+    <a href="#leistungen">Holzbau</a>
+    <a href="#energie">Energieberatung</a>
+    <a href="#kontakt">Kontakt</a>
+    <a class="cta" href="tel:+497157705987">07157 705987</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <span class="glow eins"></span>
+    <span class="glow zwei"></span>
+    <div class="wrap">
+      <span class="vorzeile"><span class="strich"></span>Zimmerei &amp; Energieberatung · Weil im Schönbuch</span>
+      <h1>Alles aus <em>Holz</em> — und alles aus einer Hand.</h1>
+      <p class="lead">Von der Dachsanierung über Carport und Balkon bis zur Dämmung: HolzArt baut mit Holz, was hält. Und weil gutes Bauen heute auch heißt, Energie zu sparen, kommt die Energieberatung gleich vom selben Handwerker dazu.</p>
+      <div class="hero-aktionen">
+        <a class="knopf knopf-voll" href="tel:+497157705987">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          Termin anfragen
+        </a>
+        <a class="knopf knopf-zart" href="#leistungen">Was wir bauen</a>
+      </div>
+      <p class="marke">
+        <span><span class="punkt"></span>Holzbau &amp; Zimmerei</span>
+        <span><span class="punkt"></span>Energieausweis &amp; Energiespar-Check</span>
+        <span><span class="punkt"></span>aus Weil im Schönbuch</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <section class="abschnitt" id="leistungen">
+    <div class="wrap">
+      <div class="kopf">
+        <span class="vorzeile"><span class="strich"></span>Holzbau</span>
+        <h2>Was wir aus <em>Holz</em> machen.</h2>
+        <p>Ob Neubau, Anbau oder Sanierung — diese Arbeiten übernimmt HolzArt für Sie, sauber und termintreu.</p>
+      </div>
+      <div class="karten">
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-7 9 7"/><path d="M5 10v10h14V10"/></svg></span>
+          <h3>Dächer &amp; Dachausbau</h3>
+          <p>Dachstühle, Aufsparrendämmung, Dachausbau und Dachfenster — vom Sturmschaden bis zum neuen Zimmer unterm Dach.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 12h16M9 21V12h6v9"/></svg></span>
+          <h3>Carports &amp; Pergolen</h3>
+          <p>Überdachung fürs Auto, Pergola für die Terrasse: maßgefertigt aus Holz, passend zu Haus und Grundstück.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M3 14h18M9 4v16"/></svg></span>
+          <h3>Böden, Wände &amp; Decken</h3>
+          <p>Dielen, Holzdecken, Wandverkleidungen und Trockenbau — innen wie außen, vom Material bis zur fertigen Fläche.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/></svg></span>
+          <h3>Balkone &amp; Terrassen</h3>
+          <p>Neue Balkone, Terrassendielen und Geländer aus Holz — wetterfest gebaut und schön anzusehen.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></span>
+          <h3>Dämmung</h3>
+          <p>Dach, Fassade und Decke gut gedämmt — das senkt die Heizkosten und macht das Haus das ganze Jahr behaglicher.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 12h16M12 4v16"/></svg></span>
+          <h3>Dachfenster</h3>
+          <p>Mehr Licht unterm Dach: Einbau und Austausch von Dachfenstern, sauber eingedichtet und gedämmt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENERGIE-BAND -->
+  <section class="band" id="energie">
+    <div class="wrap">
+      <div class="zeigen">
+        <span class="vorzeile"><span class="strich"></span>Branchen-Chance</span>
+        <h2>Der Handwerker, der auch die <em>Energie</em> rechnet.</h2>
+        <p>Energieausweis, Förderung, Sanierungsfahrplan — beim Hauskauf, beim Verkauf und vor jeder größeren Sanierung wird heute danach gefragt. HolzArt bietet die Energieberatung selbst an, und das ist ein seltener Vorteil: Wer berät und baut, spricht dieselbe Sprache.</p>
+        <p>Das ist das Pfund, mit dem dieser Betrieb online wuchern sollte — und das auf der heutigen Seite praktisch unsichtbar ist.</p>
+      </div>
+      <div class="energie-tafel zeigen">
+        <div class="energie-zeile">
+          <span class="nr">1</span>
+          <div><b>Energiespar-Check</b><span>Wo geht die Wärme verloren? Ein Blick aufs Haus zeigt, welche Maßnahme sich zuerst lohnt.</span></div>
+        </div>
+        <div class="energie-zeile">
+          <span class="nr">2</span>
+          <div><b>Energieausweis</b><span>Pflicht bei Verkauf und Vermietung — von der Aufnahme bis zum fertigen Ausweis aus einer Hand.</span></div>
+        </div>
+        <div class="energie-zeile">
+          <span class="nr">3</span>
+          <div><b>Energiebericht</b><span>Ein verständlicher Bericht, der Schritt für Schritt sagt, was Heizkosten spart — und was es bringt.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÜBER -->
+  <section class="abschnitt ueber" id="ueber">
+    <div class="wrap">
+      <div class="zeigen">
+        <span class="vorzeile"><span class="strich"></span>Der Betrieb</span>
+        <h2>Holz ist <em>ehrliche</em> Arbeit.</h2>
+        <p>HolzArt ist der Holzbau-Betrieb von Roland Blessing aus Weil im Schönbuch. Seit Jahren entstehen hier Dächer, Carports, Balkone und gedämmte, behagliche Räume — und dazu die Energieberatung, die zu ehrlichem Bauen heute dazugehört.</p>
+        <p>Ein Ansprechpartner vom ersten Gespräch bis zum letzten Nagel, Termine, die halten, und Holz, das man anfassen kann: Das ist der Unterschied zum anonymen Großbetrieb.</p>
+        <div class="werte">
+          <div class="wert"><span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Holzbau &amp; Energie aus einer Hand</b><span class="t">Beraten und bauen beim selben Handwerker — ohne Schnittstellen-Ärger.</span></div></div>
+          <div class="wert"><span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b>Termintreu &amp; sauber</b><span class="t">Was vereinbart ist, wird gehalten — und die Baustelle bleibt ordentlich.</span></div></div>
+          <div class="wert"><span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 21V11l6-5 6 5v10"/></svg></span><div><b>Aus dem Ort, für den Ort</b><span class="t">Regional verwurzelt in Weil im Schönbuch und der Umgebung.</span></div></div>
+        </div>
+      </div>
+      <div class="ueber-bild zeigen">
+        <div class="platzhalter">📷 Hier kommen Ihre Fotos hin — eine fertige Dachsanierung, ein Carport, die Werkstatt oder Sie auf der Baustelle. 4–6 Handybilder genügen, dann wirkt die Seite sofort echt.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="abschnitt kontakt" id="kontakt" style="padding-top:0">
+    <div class="wrap">
+      <div class="tafel zeigen">
+        <h3>So erreichen Sie HolzArt</h3>
+        <ul class="kontakt-liste">
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></span>
+            <div><b>Telefon</b><a href="tel:+497157705987">07157 705987</a></div>
+          </li>
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+            <div><b>E-Mail</b><a href="mailto:info@holzart-weil.de">info@holzart-weil.de</a></div>
+          </li>
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><b>Adresse</b><span class="t">Hauptstraße 77, 71093 Weil im Schönbuch</span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="tafel zeigen">
+        <h3>Anfrage &amp; Termin</h3>
+        <ul class="kontakt-liste">
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+            <div><b>Termine</b><span class="t">Nach telefonischer Absprache — kurz anrufen genügt.</span></div>
+          </li>
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-6 0v4"/><rect x="4" y="9" width="16" height="11" rx="2"/></svg></span>
+            <div><b>Kostenlos &amp; unverbindlich</b><span class="t">Erst schauen wir uns die Sache an, dann gibt es ein klares Angebot.</span></div>
+          </li>
+        </ul>
+        <div class="hinweis-zeile">Öffnungszeiten und genaue Erreichbarkeit tragen wir nach Ihrer Rückmeldung ein — damit hier nichts Falsches steht.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHLUSS -->
+  <section class="schluss">
+    <div class="inner">
+      <h2 class="zeigen">Ein Projekt aus <em>Holz</em> im Kopf?</h2>
+      <p class="zeigen">Ob Dach, Carport oder Energieausweis — rufen Sie kurz an, dann schauen wir es uns gemeinsam an.</p>
+      <a class="knopf knopf-voll zeigen" href="tel:+497157705987">07157 705987 anrufen</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 HolzArt Roland Blessing · Hauptstraße 77 · Weil im Schönbuch</span>
+    <span><a href="https://schoenbuchdigital.github.io/impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="https://schoenbuchdigital.github.io/datenschutz.html">Datenschutz</a> <em style="opacity:.6">(Entwurf — eigenes Impressum folgt bei Beauftragung)</em></span>
+  </div>
+</footer>
+
+<div class="demo-hinweis">
+  Unverbindlicher Entwurf — erstellt von Schönbuch Digital, Weil im Schönbuch. Gefällt er Ihnen nicht, wird er gelöscht.
+</div>
+
+<script>
+  const beobachter = new IntersectionObserver(eintraege => {
+    eintraege.forEach(e => { if (e.isIntersecting) { e.target.classList.add('sichtbar'); beobachter.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.zeigen').forEach(el => beobachter.observe(el));
+</script>
+</body>
+</html>
