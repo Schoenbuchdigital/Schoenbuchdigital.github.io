@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Die Käsmacher — Bioland-Hofladen &amp; Hofkäserei Binder in Weil im Schönbuch</title>
+<meta name="description" content="Die Käsmacher — Bioland-Hof Binder aus Weil im Schönbuch: Ziegenkäse aus eigener Hofkäserei, Brot aus der Backstube, Gemüse, Eier, Honig und Linsen vom Hof. Hofladen und 24-Stunden-Automat. Telefon 07157 64932.">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root{
+    --wiese:#42632f;
+    --wiese-tief:#2b421d;
+    --moos:#5a7d3f;
+    --korn:#d9a441;
+    --korn-tief:#c58e2c;
+    --erde:#7a5533;
+    --creme:#f7f1e2;
+    --creme-tief:#ece2cc;
+    --linie:#ddd0b4;
+    --tinte:#2c2417;
+    --grau:#6d6350;
+    --display:"Fraunces",Georgia,serif;
+    --text:"Hanken Grotesk",Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--text);background:var(--creme);color:var(--tinte);line-height:1.66;overflow-x:hidden}
+  ::selection{background:var(--korn);color:var(--wiese-tief)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  /* ENTWURF-Band */
+  .entwurf-band{
+    position:fixed;top:20px;right:-46px;z-index:1000;transform:rotate(40deg);
+    background:var(--erde);color:#fff;font-weight:800;font-size:.72rem;
+    letter-spacing:.22em;text-transform:uppercase;padding:7px 58px;opacity:.94;pointer-events:none;
+    box-shadow:0 6px 18px -8px rgba(0,0,0,.4);
+  }
+
+  /* Topbar */
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+  .logo{display:flex;align-items:center;gap:13px;text-decoration:none;color:var(--tinte)}
+  .logo .mark{width:44px;height:44px;flex-shrink:0;border-radius:50%;background:var(--wiese);display:flex;align-items:center;justify-content:center}
+  .logo .mark svg{width:24px;height:24px}
+  .logo .name{font-family:var(--display);font-size:1.42rem;font-weight:600;letter-spacing:-.01em;line-height:1}
+  .logo .name em{font-style:italic;color:var(--korn-tief)}
+  .logo .name small{display:block;font-family:var(--text);font-size:.64rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--grau);margin-top:3px}
+  .topbar nav{display:flex;gap:26px;align-items:center}
+  .topbar nav a{color:var(--tinte);text-decoration:none;font-weight:700;font-size:.92rem}
+  .topbar nav a:hover{color:var(--wiese)}
+  @media(max-width:820px){.topbar nav a:not(.cta){display:none}}
+  .cta{background:var(--wiese);color:#fff!important;border-radius:10px;padding:11px 20px;transition:background .2s ease}
+  .cta:hover{background:var(--moos)}
+
+  /* Hero */
+  .hero{position:relative;background:var(--wiese);color:#f3ecda;padding:96px 0 108px;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;inset:0;opacity:.12;pointer-events:none;
+    background-image:repeating-linear-gradient(115deg,rgba(255,255,255,.5) 0 2px,transparent 2px 26px);
+  }
+  .hero .glow{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px)}
+  .hero .glow.eins{width:440px;height:440px;background:var(--korn);top:-190px;right:-120px;opacity:.32}
+  .hero .glow.zwei{width:320px;height:320px;background:var(--moos);bottom:-180px;left:-90px;opacity:.4}
+  .hero .wrap{position:relative;z-index:2}
+  .vorzeile{display:inline-flex;align-items:center;gap:11px;font-weight:800;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--korn);margin-bottom:22px;animation:auf .8s ease both}
+  .vorzeile .strich{width:32px;height:2px;background:var(--korn)}
+  .hero h1{
+    font-family:var(--display);font-weight:600;font-size:clamp(2.6rem,7vw,4.6rem);
+    line-height:1.05;letter-spacing:-.02em;max-width:16ch;margin-bottom:22px;animation:auf .8s .1s ease both;
+  }
+  .hero h1 em{font-style:italic;color:var(--korn)}
+  .hero p.lead{font-size:1.14rem;max-width:53ch;color:#e2d7bf;animation:auf .8s .2s ease both}
+  .hero-aktionen{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;animation:auf .8s .3s ease both}
+  .knopf{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1rem;border-radius:12px;padding:16px 30px;transition:all .2s ease}
+  .knopf-voll{background:var(--korn);color:var(--wiese-tief);box-shadow:0 14px 30px -12px rgba(217,164,65,.55)}
+  .knopf-voll:hover{background:var(--korn-tief);transform:translateY(-2px)}
+  .knopf-zart{border:1.5px solid rgba(243,236,218,.55);color:#f3ecda}
+  .knopf-zart:hover{background:#f3ecda;color:var(--wiese-tief)}
+  .hero .marke{margin-top:30px;font-size:.92rem;font-weight:700;color:#e2d7bf;display:flex;flex-wrap:wrap;align-items:center;gap:9px 18px;animation:auf .8s .4s ease both}
+  .hero .marke span{display:inline-flex;align-items:center;gap:8px}
+  .hero .marke .punkt{width:8px;height:8px;border-radius:50%;background:var(--korn)}
+  @keyframes auf{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+  /* Abschnitt */
+  .abschnitt{padding:92px 0}
+  .kopf{max-width:62ch;margin:0 auto 52px;text-align:center}
+  .kopf .vorzeile{color:var(--wiese)}
+  .kopf .vorzeile .strich{background:var(--wiese)}
+  .kopf h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,5vw,2.9rem);letter-spacing:-.02em;line-height:1.1;margin-bottom:12px}
+  .kopf h2 em{font-style:italic;color:var(--wiese)}
+  .kopf p{color:var(--grau);font-size:1.05rem}
+
+  /* Produkt-Karten */
+  .karten{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:860px){.karten{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.karten{grid-template-columns:1fr;max-width:440px;margin:0 auto}}
+  .karte{
+    background:#fff;border:1px solid var(--linie);border-radius:16px;padding:30px 26px;
+    transition:transform .2s ease,box-shadow .2s ease;
+  }
+  .karte:hover{transform:translateY(-5px);box-shadow:0 18px 36px -18px rgba(44,36,23,.25)}
+  .karte .ikon{width:48px;height:48px;border-radius:12px;background:var(--creme);display:flex;align-items:center;justify-content:center;margin-bottom:18px;border:1px solid var(--linie)}
+  .karte .ikon svg{width:25px;height:25px;stroke:var(--wiese)}
+  .karte h3{font-family:var(--display);font-weight:600;font-size:1.28rem;letter-spacing:-.01em;margin-bottom:8px}
+  .karte p{font-size:.96rem;color:var(--grau)}
+
+  /* Bio-Band */
+  .band{background:var(--creme-tief);padding:78px 0;border-top:1px solid var(--linie);border-bottom:1px solid var(--linie)}
+  .band .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:52px;align-items:center}
+  @media(max-width:840px){.band .wrap{grid-template-columns:1fr}}
+  .band h2{font-family:var(--display);font-weight:600;font-size:clamp(1.8rem,4.4vw,2.6rem);letter-spacing:-.02em;line-height:1.14;margin-bottom:14px}
+  .band h2 em{font-style:italic;color:var(--wiese)}
+  .band p{color:var(--grau);font-size:1.03rem;margin-bottom:14px}
+  .tafel-liste{display:grid;gap:14px}
+  .tafel-zeile{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--linie);border-radius:14px;padding:20px 22px}
+  .tafel-zeile .nr{flex-shrink:0;width:38px;height:38px;border-radius:10px;background:var(--wiese);color:var(--korn);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:600;font-size:1.05rem}
+  .tafel-zeile b{display:block;font-size:1.04rem;margin-bottom:2px}
+  .tafel-zeile span{font-size:.93rem;color:var(--grau)}
+
+  /* Über */
+  .ueber .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  @media(max-width:840px){.ueber .wrap{grid-template-columns:1fr}}
+  .ueber h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,4.5vw,2.7rem);letter-spacing:-.02em;line-height:1.12;margin-bottom:16px}
+  .ueber h2 em{font-style:italic;color:var(--wiese)}
+  .ueber p{color:var(--grau);margin-bottom:13px}
+  .werte{display:grid;gap:14px;margin-top:24px}
+  .wert{display:flex;gap:14px;align-items:flex-start}
+  .wert .ikon{flex-shrink:0;width:40px;height:40px;border-radius:11px;background:#fff;border:1px solid var(--linie);display:flex;align-items:center;justify-content:center}
+  .wert .ikon svg{width:21px;height:21px;stroke:var(--wiese)}
+  .wert b{display:block;font-size:1rem}
+  .wert span.t{font-size:.92rem;color:var(--grau)}
+  .ueber-bild{
+    position:relative;border-radius:18px;min-height:440px;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 80% 12%,rgba(217,164,65,.45) 0%,transparent 55%),
+      radial-gradient(110% 100% at 12% 88%,rgba(90,125,63,.5) 0%,transparent 55%),
+      var(--wiese);
+    border:1px solid var(--linie);display:flex;align-items:flex-end;
+  }
+  .ueber-bild::before{
+    content:"";position:absolute;inset:0;opacity:.12;
+    background-image:repeating-linear-gradient(35deg,rgba(255,255,255,.6) 0 2px,transparent 2px 14px);
+  }
+  .ueber-bild .platzhalter{
+    position:relative;margin:22px;background:rgba(255,255,255,.94);border:1px dashed var(--wiese);
+    border-radius:11px;padding:15px 18px;font-size:.85rem;color:var(--grau);line-height:1.5;
+  }
+
+  /* Öffnungszeiten + Kontakt */
+  .kontakt .wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media(max-width:840px){.kontakt .wrap{grid-template-columns:1fr}}
+  .tafel{background:#fff;border:1px solid var(--linie);border-radius:18px;padding:42px 38px}
+  .tafel h3{font-family:var(--display);font-weight:600;font-size:1.5rem;letter-spacing:-.01em;margin-bottom:24px}
+  .kontakt-liste{list-style:none;display:grid;gap:20px}
+  .kontakt-liste li{display:flex;gap:16px;align-items:flex-start}
+  .kontakt-liste .ikon{flex-shrink:0;width:44px;height:44px;border-radius:11px;background:var(--creme);border:1px solid var(--linie);display:flex;align-items:center;justify-content:center}
+  .kontakt-liste .ikon svg{width:20px;height:20px;stroke:var(--wiese)}
+  .kontakt-liste b{display:block;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--wiese);margin-bottom:3px}
+  .kontakt-liste a{color:var(--tinte);text-decoration:none;font-weight:700;font-size:1.05rem}
+  .kontakt-liste a:hover{color:var(--wiese)}
+  .kontakt-liste span.t{font-size:1rem;color:var(--tinte)}
+  .zeiten{list-style:none;display:grid;gap:9px}
+  .zeiten li{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px dashed var(--linie);font-size:.98rem}
+  .zeiten li:last-child{border-bottom:0}
+  .zeiten li b{color:var(--tinte);font-weight:700}
+  .zeiten li span{color:var(--grau);text-align:right}
+  .hinweis-zeile{margin-top:22px;font-size:.84rem;color:var(--grau);background:var(--creme);border:1px dashed var(--linie);border-radius:10px;padding:12px 15px}
+
+  /* Schluss */
+  .schluss{text-align:center;padding:92px 24px;background:var(--wiese-tief);color:#f3ecda;position:relative;overflow:hidden}
+  .schluss::before{content:"";position:absolute;inset:0;opacity:.09;background-image:repeating-linear-gradient(115deg,rgba(255,255,255,.6) 0 2px,transparent 2px 24px)}
+  .schluss .inner{position:relative;z-index:2}
+  .schluss h2{font-family:var(--display);font-weight:600;font-size:clamp(2rem,5.5vw,3.1rem);letter-spacing:-.02em;line-height:1.1;max-width:20ch;margin:0 auto 16px}
+  .schluss h2 em{font-style:italic;color:var(--korn)}
+  .schluss p{color:#e2d7bf;font-size:1.06rem;margin-bottom:30px}
+
+  /* Footer */
+  footer{background:#1c2913;color:#8f8a76;padding:34px 0;font-size:.88rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px 30px;justify-content:space-between;align-items:center}
+  footer a{color:#d3ccb6;text-decoration:none}
+  footer a:hover{color:var(--korn)}
+  .demo-hinweis{background:var(--korn);color:var(--wiese-tief);text-align:center;padding:13px 20px;font-size:.92rem;font-weight:800}
+
+  .zeigen{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .zeigen.sichtbar{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.zeigen{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="entwurf-band">Entwurf</div>
+
+<header class="wrap topbar">
+  <a class="logo" href="#">
+    <span class="mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#d9a441" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-1 3-4 4-4 8a4 4 0 0 0 8 0c0-4-3-5-4-8Z"/><path d="M7 14c-2 1-3 3-3 6h16c0-3-1-5-3-6"/></svg>
+    </span>
+    <span class="name">Die <em>Käsmacher</em><small>Bioland-Hof Binder</small></span>
+  </a>
+  <nav>
+    <a href="#produkte">Vom Hof</a>
+    <a href="#hof">Der Hof</a>
+    <a href="#kontakt">Öffnungszeiten</a>
+    <a class="cta" href="tel:+49715764932">07157 64932</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <span class="glow eins"></span>
+    <span class="glow zwei"></span>
+    <div class="wrap">
+      <span class="vorzeile"><span class="strich"></span>Bioland-Hof &amp; Hofkäserei · Weil im Schönbuch</span>
+      <h1>Käse, der <em>hier</em> gemacht wird.</h1>
+      <p class="lead">Auf dem Bioland-Hof Binder entsteht Ziegenkäse aus der eigenen Hofkäserei — dazu Brot aus der Backstube, Gemüse, Eier, Honig und Linsen vom Feld nebenan. Im Hofladen oder rund um die Uhr am Automaten.</p>
+      <div class="hero-aktionen">
+        <a class="knopf knopf-voll" href="#kontakt">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          Zum Hofladen
+        </a>
+        <a class="knopf knopf-zart" href="#produkte">Was es gibt</a>
+      </div>
+      <p class="marke">
+        <span><span class="punkt"></span>Bioland</span>
+        <span><span class="punkt"></span>Eigene Hofkäserei</span>
+        <span><span class="punkt"></span>24-Stunden-Automat</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- PRODUKTE -->
+  <section class="abschnitt" id="produkte">
+    <div class="wrap">
+      <div class="kopf">
+        <span class="vorzeile"><span class="strich"></span>Vom Hof</span>
+        <h2>Was bei uns aus der Region auf den <em>Tisch</em> kommt.</h2>
+        <p>Vieles davon wächst und entsteht direkt hier auf dem Hof — ehrlich, bio und ohne lange Wege.</p>
+      </div>
+      <div class="karten">
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 0 1 16 0v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><circle cx="9" cy="15" r="1"/><circle cx="14" cy="17" r="1"/></svg></span>
+          <h3>Ziegenkäse aus eigener Käserei</h3>
+          <p>Aus reiner Ziegenmilch, in der Hofkäserei selbst gemacht — von mild bis gereift, so frisch bekommt man Käse selten.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10c0-3 3-5 8-5s8 2 8 5c0 2-1 3-2 3v4a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-4c-1 0-2-1-2-3Z"/></svg></span>
+          <h3>Brot aus der Backstube</h3>
+          <p>Frisch gebackenes Brot vom Hof — kräftig, bodenständig und der ideale Partner zum eigenen Käse.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4-2 7-6 7-11 0-3-2-5-4-5-1 0-2 .5-3 1.5C11 6.5 10 6 9 6 7 6 5 8 5 11c0 5 3 9 7 11Z"/><path d="M12 8v14"/></svg></span>
+          <h3>Gemüse &amp; Salat</h3>
+          <p>Kartoffeln, Salat und Gemüse der Saison — geerntet, wenn es reif ist, nicht wenn der Lkw kommt.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="9" rx="5" ry="7"/><path d="M12 16v6M9 20h6"/></svg></span>
+          <h3>Eier vom Hof</h3>
+          <p>Frische Eier von Hühnern, die man hier tatsächlich noch scharren sieht — kurze Wege vom Stall in den Laden.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l-1 6a5 5 0 0 1-10 0Z"/><path d="M9 15v3a3 3 0 0 0 6 0v-3"/></svg></span>
+          <h3>Honig, Linsen &amp; mehr</h3>
+          <p>Schwäbische Linsen aus eigenem Anbau, Honig, Apfelsaft und Wein — die kleinen Schätze aus Feld und Umgebung.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M9 22v-4h6v4"/></svg></span>
+          <h3>24-Stunden-Automat</h3>
+          <p>Käse, Eier &amp; Co. auch außerhalb der Öffnungszeiten — der Selbstbedienungs-Automat hat rund um die Uhr geöffnet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIO-BAND -->
+  <section class="band" id="bio">
+    <div class="wrap">
+      <div class="zeigen">
+        <span class="vorzeile"><span class="strich"></span>Warum das online zählt</span>
+        <h2>Regional &amp; bio ist gefragt — man muss Sie nur <em>finden</em>.</h2>
+        <p>Immer mehr Menschen suchen ganz gezielt nach Hofladen, Ziegenkäse und Bioland in der Nähe — am Handy, von unterwegs. Wer dann keine klare, moderne Seite findet, fährt weiter zum nächsten Hof.</p>
+        <p>Ein Hof wie Ihrer mit eigener Käserei, Bioland-Siegel und einem Automaten rund um die Uhr hat genau die Geschichte, die online zieht — sie sollte nur sichtbar und aufs Handy zugeschnitten sein.</p>
+      </div>
+      <div class="tafel-liste zeigen">
+        <div class="tafel-zeile">
+          <span class="nr">1</span>
+          <div><b>„Hofladen in der Nähe"</b><span>Genau danach wird gesucht — mit Öffnungszeiten und Karte landen Sie ganz vorne im Alltag der Kundschaft.</span></div>
+        </div>
+        <div class="tafel-zeile">
+          <span class="nr">2</span>
+          <div><b>Ihre Käserei als Aushängeschild</b><span>Eigener Ziegenkäse ist besonders — eine Seite kann das erzählen, wo ein Verzeichnis-Eintrag es nicht kann.</span></div>
+        </div>
+        <div class="tafel-zeile">
+          <span class="nr">3</span>
+          <div><b>Der Automat rund um die Uhr</b><span>Ein echter Vorteil, der bei Neukunden für den Ausschlag sorgt — wenn er denn online steht.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOF -->
+  <section class="abschnitt ueber" id="hof">
+    <div class="wrap">
+      <div class="zeigen">
+        <span class="vorzeile"><span class="strich"></span>Der Hof</span>
+        <h2>Ein Bioland-Hof mit eigener <em>Handschrift</em>.</h2>
+        <p>Die Käsmacher — das ist der Bioland-Hof von Ulrike und Hartmut Binder in Weil im Schönbuch. Hier werden Ziegen gehalten, Milch zu Käse verarbeitet, Brot gebacken und Gemüse angebaut. Bio ist dabei kein Etikett, sondern die Art, wie hier gewirtschaftet wird.</p>
+        <p>Was im Hofladen steht, kommt zu großen Teilen vom eigenen Hof oder aus der näheren Umgebung — kurze Wege, ehrliche Lebensmittel und Menschen, die man beim Namen kennt.</p>
+        <div class="werte">
+          <div class="wert"><span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Bioland-zertifiziert</b><span class="t">Landwirtschaft nach den strengen Bioland-Richtlinien.</span></div></div>
+          <div class="wert"><span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4-2 7-6 7-11 0-4-3-7-7-9-4 2-7 5-7 9 0 5 3 9 7 11Z"/></svg></span><div><b>Eigene Hofkäserei</b><span class="t">Vom Melken bis zum fertigen Käse alles auf dem Hof.</span></div></div>
+          <div class="wert"><span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 21V11l6-5 6 5v10"/></svg></span><div><b>Hofführungen möglich</b><span class="t">Käserei und Hof aus der Nähe erleben — nach Anmeldung.</span></div></div>
+        </div>
+      </div>
+      <div class="ueber-bild zeigen">
+        <div class="platzhalter">📷 Hier kommen Ihre Fotos hin — die Ziegen auf der Weide, der Käse im Reiferaum, der Hofladen oder Sie beim Käsen. Ein paar echte Bilder machen sofort Appetit.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT / ÖFFNUNGSZEITEN -->
+  <section class="abschnitt kontakt" id="kontakt" style="padding-top:0">
+    <div class="wrap">
+      <div class="tafel zeigen">
+        <h3>Hofladen &amp; Kontakt</h3>
+        <ul class="kontakt-liste">
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><b>Adresse</b><span class="t">Waldenbucher Straße 75, 71093 Weil im Schönbuch</span></div>
+          </li>
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></span>
+            <div><b>Telefon</b><a href="tel:+49715764932">07157 64932</a></div>
+          </li>
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/></svg></span>
+            <div><b>Immer offen</b><span class="t">Selbstbedienungs-Automat rund um die Uhr</span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="tafel zeigen">
+        <h3>Öffnungszeiten</h3>
+        <ul class="zeiten">
+          <li><b>Mo, Di, Do</b><span>9–12 Uhr &amp; 17–18:30 Uhr</span></li>
+          <li><b>Mittwoch</b><span>9–12 Uhr</span></li>
+          <li><b>Freitag</b><span>9–12:30 Uhr &amp; 14:30–18:30 Uhr</span></li>
+          <li><b>Samstag</b><span>9–13 Uhr</span></li>
+          <li><b>Automat</b><span>täglich rund um die Uhr</span></li>
+        </ul>
+        <div class="hinweis-zeile">Die Öffnungszeiten stammen aus einem Online-Verzeichnis — bitte einmal bestätigen oder korrigieren, dann stehen hier garantiert die richtigen.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHLUSS -->
+  <section class="schluss">
+    <div class="inner">
+      <h2 class="zeigen">Frischer Käse, gleich um die <em>Ecke</em>.</h2>
+      <p class="zeigen">Kommen Sie im Hofladen vorbei oder holen Sie sich etwas am Automaten — wir freuen uns auf Sie.</p>
+      <a class="knopf knopf-voll zeigen" href="tel:+49715764932">07157 64932 anrufen</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Die Käsmacher · Bioland-Hof Binder · Waldenbucher Straße 75 · Weil im Schönbuch</span>
+    <span><a href="https://schoenbuchdigital.github.io/impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="https://schoenbuchdigital.github.io/datenschutz.html">Datenschutz</a> <em style="opacity:.6">(Entwurf — eigenes Impressum folgt bei Beauftragung)</em></span>
+  </div>
+</footer>
+
+<div class="demo-hinweis">
+  Unverbindlicher Entwurf — erstellt von Schönbuch Digital, Weil im Schönbuch. Gefällt er Ihnen nicht, wird er gelöscht.
+</div>
+
+<script>
+  const beobachter = new IntersectionObserver(eintraege => {
+    eintraege.forEach(e => { if (e.isIntersecting) { e.target.classList.add('sichtbar'); beobachter.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.zeigen').forEach(el => beobachter.observe(el));
+</script>
+</body>
+</html>
