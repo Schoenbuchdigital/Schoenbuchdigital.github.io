@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>rizzi — Die Fliesenlegerei in Weil im Schönbuch · Fliesen, Platten, Mosaik &amp; Altbausanierung</title>
+<meta name="description" content="rizzi – Die Fliesenlegerei, Inh. Christian Rizzi, Weil im Schönbuch: Fliesen, Platten und Mosaik, Bäder aus einer Hand und Altbausanierung. Familienbetrieb seit 1976. Telefon 07157 7055814.">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root{
+    --ton:#b5532e;
+    --ton-tief:#8a3c1f;
+    --terra:#c9713f;
+    --schiefer:#2f3439;
+    --schiefer-tief:#20252a;
+    --sand:#d9a441;
+    --creme:#f6f2ec;
+    --creme-tief:#eae2d6;
+    --linie:#ded4c5;
+    --tinte:#26221f;
+    --grau:#6a635c;
+    --display:"Fraunces",Georgia,serif;
+    --text:"Hanken Grotesk",Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--text);background:var(--creme);color:var(--tinte);line-height:1.66;overflow-x:hidden}
+  ::selection{background:var(--sand);color:var(--schiefer-tief)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  .entwurf-band{
+    position:fixed;top:20px;right:-46px;z-index:1000;transform:rotate(40deg);
+    background:var(--schiefer);color:#fff;font-weight:800;font-size:.72rem;
+    letter-spacing:.22em;text-transform:uppercase;padding:7px 58px;opacity:.94;pointer-events:none;
+    box-shadow:0 6px 18px -8px rgba(0,0,0,.4);
+  }
+
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+  .logo{display:flex;align-items:center;gap:13px;text-decoration:none;color:var(--tinte)}
+  .logo .mark{width:44px;height:44px;flex-shrink:0;border-radius:12px;background:var(--ton);display:flex;align-items:center;justify-content:center}
+  .logo .mark svg{width:23px;height:23px}
+  .logo .name{font-family:var(--display);font-size:1.42rem;font-weight:600;letter-spacing:-.01em;line-height:1}
+  .logo .name em{font-style:italic;color:var(--ton)}
+  .logo .name small{display:block;font-family:var(--text);font-size:.64rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--grau);margin-top:3px}
+  .topbar nav{display:flex;gap:26px;align-items:center}
+  .topbar nav a{color:var(--tinte);text-decoration:none;font-weight:700;font-size:.92rem}
+  .topbar nav a:hover{color:var(--ton)}
+  @media(max-width:820px){.topbar nav a:not(.cta){display:none}}
+  .cta{background:var(--ton);color:#fff!important;border-radius:10px;padding:11px 20px;transition:background .2s ease}
+  .cta:hover{background:var(--terra)}
+
+  .hero{position:relative;background:var(--schiefer);color:#e9edf0;padding:96px 0 108px;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;inset:0;opacity:.14;pointer-events:none;
+    background-image:
+      linear-gradient(rgba(255,255,255,.14) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.14) 1px,transparent 1px);
+    background-size:46px 46px;
+  }
+  .hero .glow{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px)}
+  .hero .glow.eins{width:440px;height:440px;background:var(--ton);top:-190px;right:-120px;opacity:.36}
+  .hero .glow.zwei{width:320px;height:320px;background:var(--sand);bottom:-180px;left:-90px;opacity:.28}
+  .hero .wrap{position:relative;z-index:2}
+  .vorzeile{display:inline-flex;align-items:center;gap:11px;font-weight:800;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sand);margin-bottom:22px;animation:auf .8s ease both}
+  .vorzeile .strich{width:32px;height:2px;background:var(--sand)}
+  .hero h1{
+    font-family:var(--display);font-weight:600;font-size:clamp(2.6rem,7vw,4.6rem);
+    line-height:1.05;letter-spacing:-.02em;max-width:16ch;margin-bottom:22px;animation:auf .8s .1s ease both;
+  }
+  .hero h1 em{font-style:italic;color:var(--terra)}
+  .hero p.lead{font-size:1.14rem;max-width:54ch;color:#cfd5da;animation:auf .8s .2s ease both}
+  .hero-aktionen{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;animation:auf .8s .3s ease both}
+  .knopf{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1rem;border-radius:12px;padding:16px 30px;transition:all .2s ease}
+  .knopf-voll{background:var(--ton);color:#fff;box-shadow:0 14px 30px -12px rgba(181,83,46,.6)}
+  .knopf-voll:hover{background:var(--terra);transform:translateY(-2px)}
+  .knopf-zart{border:1.5px solid rgba(233,237,240,.5);color:#e9edf0}
+  .knopf-zart:hover{background:#e9edf0;color:var(--schiefer-tief)}
+  .hero .marke{margin-top:30px;font-size:.92rem;font-weight:700;color:#cfd5da;display:flex;flex-wrap:wrap;align-items:center;gap:9px 18px;animation:auf .8s .4s ease both}
+  .hero .marke span{display:inline-flex;align-items:center;gap:8px}
+  .hero .marke .punkt{width:8px;height:8px;border-radius:2px;background:var(--sand)}
+  @keyframes auf{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+  .abschnitt{padding:92px 0}
+  .kopf{max-width:62ch;margin:0 auto 52px;text-align:center}
+  .kopf .vorzeile{color:var(--ton)}
+  .kopf .vorzeile .strich{background:var(--ton)}
+  .kopf h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,5vw,2.9rem);letter-spacing:-.02em;line-height:1.1;margin-bottom:12px}
+  .kopf h2 em{font-style:italic;color:var(--ton)}
+  .kopf p{color:var(--grau);font-size:1.05rem}
+
+  .karten{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:860px){.karten{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.karten{grid-template-columns:1fr;max-width:440px;margin:0 auto}}
+  .karte{background:#fff;border:1px solid var(--linie);border-radius:16px;padding:30px 26px;transition:transform .2s ease,box-shadow .2s ease}
+  .karte:hover{transform:translateY(-5px);box-shadow:0 18px 36px -18px rgba(38,34,31,.25)}
+  .karte .ikon{width:48px;height:48px;border-radius:12px;background:var(--creme);display:flex;align-items:center;justify-content:center;margin-bottom:18px;border:1px solid var(--linie)}
+  .karte .ikon svg{width:25px;height:25px;stroke:var(--ton)}
+  .karte h3{font-family:var(--display);font-weight:600;font-size:1.28rem;letter-spacing:-.01em;margin-bottom:8px}
+  .karte p{font-size:.96rem;color:var(--grau)}
+
+  .band{background:var(--creme-tief);padding:78px 0;border-top:1px solid var(--linie);border-bottom:1px solid var(--linie)}
+  .band .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:52px;align-items:center}
+  @media(max-width:840px){.band .wrap{grid-template-columns:1fr}}
+  .band h2{font-family:var(--display);font-weight:600;font-size:clamp(1.8rem,4.4vw,2.6rem);letter-spacing:-.02em;line-height:1.14;margin-bottom:14px}
+  .band h2 em{font-style:italic;color:var(--ton)}
+  .band p{color:var(--grau);font-size:1.03rem;margin-bottom:14px}
+  .tafel-liste{display:grid;gap:14px}
+  .tafel-zeile{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--linie);border-radius:14px;padding:20px 22px}
+  .tafel-zeile .nr{flex-shrink:0;width:38px;height:38px;border-radius:9px;background:var(--ton);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:600;font-size:1.05rem}
+  .tafel-zeile b{display:block;font-size:1.04rem;margin-bottom:2px}
+  .tafel-zeile span{font-size:.93rem;color:var(--grau)}
+
+  .galerie{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+  @media(max-width:720px){.galerie{grid-template-columns:1fr 1fr}}
+  @media(max-width:480px){.galerie{grid-template-columns:1fr}}
+  .foto{
+    position:relative;border-radius:14px;min-height:200px;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 80% 12%,rgba(217,164,65,.34) 0%,transparent 55%),
+      radial-gradient(110% 100% at 12% 88%,rgba(181,83,46,.5) 0%,transparent 55%),
+      var(--schiefer);
+    border:1px solid var(--linie);display:flex;align-items:flex-end;
+  }
+  .foto::before{content:"";position:absolute;inset:0;opacity:.16;background-image:linear-gradient(rgba(255,255,255,.2) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.2) 1px,transparent 1px);background-size:30px 30px}
+  .foto span{position:relative;margin:14px;background:rgba(255,255,255,.94);border:1px dashed var(--ton);border-radius:9px;padding:9px 12px;font-size:.78rem;color:var(--grau);line-height:1.45}
+
+  .ueber .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  @media(max-width:840px){.ueber .wrap{grid-template-columns:1fr}}
+  .ueber h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,4.5vw,2.7rem);letter-spacing:-.02em;line-height:1.12;margin-bottom:16px}
+  .ueber h2 em{font-style:italic;color:var(--ton)}
+  .ueber p{color:var(--grau);margin-bottom:13px}
+  .werte{display:grid;gap:14px;margin-top:24px}
+  .wert{display:flex;gap:14px;align-items:flex-start}
+  .wert .ikon{flex-shrink:0;width:40px;height:40px;border-radius:11px;background:#fff;border:1px solid var(--linie);display:flex;align-items:center;justify-content:center}
+  .wert .ikon svg{width:21px;height:21px;stroke:var(--ton)}
+  .wert b{display:block;font-size:1rem}
+  .wert span.t{font-size:.92rem;color:var(--grau)}
+  .ueber-bild{
+    position:relative;border-radius:18px;min-height:440px;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 80% 12%,rgba(217,164,65,.32) 0%,transparent 55%),
+      radial-gradient(110% 100% at 12% 88%,rgba(181,83,46,.5) 0%,transparent 55%),
+      var(--schiefer);
+    border:1px solid var(--linie);display:flex;align-items:flex-end;
+  }
+  .ueber-bild::before{content:"";position:absolute;inset:0;opacity:.16;background-image:linear-gradient(rgba(255,255,255,.2) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.2) 1px,transparent 1px);background-size:34px 34px}
+  .ueber-bild .platzhalter{position:relative;margin:22px;background:rgba(255,255,255,.94);border:1px dashed var(--ton);border-radius:11px;padding:15px 18px;font-size:.85rem;color:var(--grau);line-height:1.5}
+
+  .kontakt .wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media(max-width:840px){.kontakt .wrap{grid-template-columns:1fr}}
+  .tafel{background:#fff;border:1px solid var(--linie);border-radius:18px;padding:42px 38px}
+  .tafel h3{font-family:var(--display);font-weight:600;font-size:1.5rem;letter-spacing:-.01em;margin-bottom:24px}
+  .kontakt-liste{list-style:none;display:grid;gap:20px}
+  .kontakt-liste li{display:flex;gap:16px;align-items:flex-start}
+  .kontakt-liste .ikon{flex-shrink:0;width:44px;height:44px;border-radius:11px;background:var(--creme);border:1px solid var(--linie);display:flex;align-items:center;justify-content:center}
+  .kontakt-liste .ikon svg{width:20px;height:20px;stroke:var(--ton)}
+  .kontakt-liste b{display:block;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ton);margin-bottom:3px}
+  .kontakt-liste a{color:var(--tinte);text-decoration:none;font-weight:700;font-size:1.05rem}
+  .kontakt-liste a:hover{color:var(--ton)}
+  .kontakt-liste span.t{font-size:1rem;color:var(--tinte)}
+  .zeiten{list-style:none;display:grid;gap:9px}
+  .zeiten li{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px dashed var(--linie);font-size:.98rem}
+  .zeiten li:last-child{border-bottom:0}
+  .zeiten li b{color:var(--tinte);font-weight:700}
+  .zeiten li span{color:var(--grau);text-align:right}
+  .hinweis-zeile{margin-top:22px;font-size:.84rem;color:var(--grau);background:var(--creme);border:1px dashed var(--linie);border-radius:10px;padding:12px 15px}
+
+  .schluss{text-align:center;padding:92px 24px;background:var(--schiefer-tief);color:#e9edf0;position:relative;overflow:hidden}
+  .schluss::before{content:"";position:absolute;inset:0;opacity:.12;background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);background-size:44px 44px}
+  .schluss .inner{position:relative;z-index:2}
+  .schluss h2{font-family:var(--display);font-weight:600;font-size:clamp(2rem,5.5vw,3.1rem);letter-spacing:-.02em;line-height:1.1;max-width:20ch;margin:0 auto 16px}
+  .schluss h2 em{font-style:italic;color:var(--terra)}
+  .schluss p{color:#cfd5da;font-size:1.06rem;margin-bottom:30px}
+
+  footer{background:#191d20;color:#8a8880;padding:34px 0;font-size:.88rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px 30px;justify-content:space-between;align-items:center}
+  footer a{color:#cfcabb;text-decoration:none}
+  footer a:hover{color:var(--sand)}
+  .demo-hinweis{background:var(--sand);color:var(--schiefer-tief);text-align:center;padding:13px 20px;font-size:.92rem;font-weight:800}
+
+  .zeigen{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .zeigen.sichtbar{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.zeigen{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="entwurf-band">Entwurf</div>
+
+<header class="wrap topbar">
+  <a class="logo" href="#">
+    <span class="mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
+    </span>
+    <span class="name"><em>rizzi</em> Fliesen<small>Die Fliesenlegerei · Weil im Schönbuch</small></span>
+  </a>
+  <nav>
+    <a href="#leistungen">Leistungen</a>
+    <a href="#betrieb">Betrieb</a>
+    <a href="#kontakt">Kontakt</a>
+    <a class="cta" href="tel:+4971577055814">07157 7055814</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <span class="glow eins"></span>
+    <span class="glow zwei"></span>
+    <div class="wrap">
+      <span class="vorzeile"><span class="strich"></span>Fliesen · Platten · Mosaik · seit 1976</span>
+      <h1>Fliesen, die <em>Jahrzehnte</em> halten — sauber gelegt.</h1>
+      <p class="lead">Bad, Küche, Boden oder Terrasse: rizzi – Die Fliesenlegerei legt Fliesen, Platten und Mosaik seit 1976 als Familienbetrieb in Weil im Schönbuch. Von der ersten Fuge bis zur kompletten Altbausanierung — sauber, zuverlässig, aus einer Hand.</p>
+      <div class="hero-aktionen">
+        <a class="knopf knopf-voll" href="tel:+4971577055814">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          Beratung anfragen
+        </a>
+        <a class="knopf knopf-zart" href="#leistungen">Was wir machen</a>
+      </div>
+      <p class="marke">
+        <span><span class="punkt"></span>Familienbetrieb seit 1976</span>
+        <span><span class="punkt"></span>Meisterhafte Verlegung</span>
+        <span><span class="punkt"></span>Region Böblingen</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <section class="abschnitt" id="leistungen">
+    <div class="wrap">
+      <div class="kopf">
+        <span class="vorzeile"><span class="strich"></span>Leistungen</span>
+        <h2>Fliese, Platte, Mosaik — für jeden <em>Raum</em>.</h2>
+        <p>Ob einzelner Boden oder das ganze Bad: sauber vorbereitet, exakt verlegt, ordentlich verfugt.</p>
+      </div>
+      <div class="karten">
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8h10M7 12h10M7 16h6"/><path d="M12 2v4a2 2 0 0 1-2 2H6"/><rect x="4" y="4" width="16" height="16" rx="2"/></svg></span>
+          <h3>Bäder aus einer Hand</h3>
+          <p>Vom Boden bis zur Duschnische — Wand- und Bodenfliesen, sauber abgedichtet und exakt verfugt.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
+          <h3>Böden &amp; Wände</h3>
+          <p>Wohnräume, Flure, Küchen: großformatige Platten oder klassische Fliesen — passend zu Raum und Nutzung.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="12" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></span>
+          <h3>Mosaik &amp; Detail</h3>
+          <p>Mosaik, Bordüren und feine Übergänge — dort, wo es auf die saubere Handschrift ankommt.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></span>
+          <h3>Altbausanierung</h3>
+          <p>Alten Belag raus, Untergrund richten, neu aufbauen — Fliesenarbeiten bei der Sanierung von Bestandsgebäuden.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M6 20v-8h12v8"/><path d="M9 12V8h6v4"/><circle cx="12" cy="5" r="2"/></svg></span>
+          <h3>Terrasse &amp; Balkon</h3>
+          <p>Frostsichere Beläge für draußen — richtig aufgebaut, damit Nässe und Winter ihnen nichts anhaben.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <h3>Beratung &amp; Ausmaß</h3>
+          <p>Welche Fliese, welches Format, welcher Aufbau — ehrliche Beratung vor dem ersten Handschlag.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAND -->
+  <section class="band" id="online">
+    <div class="wrap">
+      <div class="zeigen">
+        <span class="vorzeile"><span class="strich"></span>Warum das online zählt</span>
+        <h2>45 Jahre Handwerk — die Seite sollte da <em>mithalten</em>.</h2>
+        <p>Wer heute einen Fliesenleger sucht, googelt „Fliesenleger in der Nähe" oder „Bad sanieren Böblingen" — meist am Handy. Ihre jetzige Seite ist mit einem Baukasten gebaut, und in der Galerie stehen noch die Muster-Beschriftungen des Baukastens („Bildtitel", „Untertitel hier einfügen"). Das wirkt unfertig — dabei steckt dahinter ein Betrieb mit über 45 Jahren Erfahrung.</p>
+        <p>Bei Fliesen entscheidet das Auge: Wer ein fertiges Bad oder einen verlegten Boden sieht, ruft eher an. Genau dafür ist eine klare, bildstarke Seite gemacht.</p>
+      </div>
+      <div class="tafel-liste zeigen">
+        <div class="tafel-zeile">
+          <span class="nr">1</span>
+          <div><b>Muster-Texte raus</b><span>„Bildtitel" und „Untertitel hier einfügen" gehören ersetzt durch echte Projekte — sonst sieht es aus wie im Bau.</span></div>
+        </div>
+        <div class="tafel-zeile">
+          <span class="nr">2</span>
+          <div><b>Ihre Arbeit als Galerie</b><span>Fertige Bäder und Böden in Bildern überzeugen mehr als jede Beschreibung.</span></div>
+        </div>
+        <div class="tafel-zeile">
+          <span class="nr">3</span>
+          <div><b>Erfahrung sichtbar machen</b><span>Familienbetrieb seit 1976 — dieses Pfund sollte ganz oben stehen, nicht untergehen.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE-PLATZHALTER -->
+  <section class="abschnitt" id="projekte" style="padding-bottom:0">
+    <div class="wrap">
+      <div class="kopf">
+        <span class="vorzeile"><span class="strich"></span>Ihre Projekte</span>
+        <h2>Hier stehen Ihre <em>Referenz-Bilder</em>.</h2>
+        <p>Ein paar Fotos fertiger Bäder, Böden und Mosaike machen die Seite sofort echt — die Plätze sind vorbereitet.</p>
+      </div>
+      <div class="galerie">
+        <div class="foto zeigen"><span>📷 Fertiges Bad mit Großformat-Fliesen</span></div>
+        <div class="foto zeigen"><span>📷 Bodenbelag Wohnraum / Flur</span></div>
+        <div class="foto zeigen"><span>📷 Mosaik-Detail Dusche</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BETRIEB -->
+  <section class="abschnitt ueber" id="betrieb">
+    <div class="wrap">
+      <div class="zeigen">
+        <span class="vorzeile"><span class="strich"></span>Der Betrieb</span>
+        <h2>Ein Familienbetrieb in <em>zweiter</em> Generation.</h2>
+        <p>rizzi – Die Fliesenlegerei wurde 1976 von Giuseppe Rizzi gegründet. Seit dem Jahr 2000 führt Sohn Christian Rizzi den Betrieb weiter — Fliesenarbeiten mit Qualität und Verlässlichkeit, wie man es aus einem Familienbetrieb erwartet.</p>
+        <p>Der Sitz ist in der Falkenstraße 19 in Weil im Schönbuch; gearbeitet wird im Ort und in der Umgebung im Kreis Böblingen. Bei rizzi haben Sie einen festen Ansprechpartner — vom Aufmaß bis zur letzten Fuge.</p>
+        <div class="werte">
+          <div class="wert"><span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg></span><div><b>Seit 1976</b><span class="t">Über 45 Jahre Erfahrung, zwei Generationen.</span></div></div>
+          <div class="wert"><span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Fester Ansprechpartner</b><span class="t">Christian Rizzi — vom Aufmaß bis zur Abnahme.</span></div></div>
+          <div class="wert"><span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span><div><b>Aus der Region</b><span class="t">Weil im Schönbuch &amp; Umgebung, Kreis Böblingen.</span></div></div>
+        </div>
+      </div>
+      <div class="ueber-bild zeigen">
+        <div class="platzhalter">📷 Hier kommt Ihr Foto hin — ein fertiges Bad, ein verlegter Boden oder Christian Rizzi bei der Arbeit. Ein echtes Bild macht sofort Vertrauen.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="abschnitt kontakt" id="kontakt" style="padding-top:0">
+    <div class="wrap">
+      <div class="tafel zeigen">
+        <h3>Kontakt &amp; Anfahrt</h3>
+        <ul class="kontakt-liste">
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><b>Adresse</b><span class="t">Falkenstraße 19, 71093 Weil im Schönbuch</span></div>
+          </li>
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></span>
+            <div><b>Telefon</b><a href="tel:+4971577055814">07157 7055814</a></div>
+          </li>
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+            <div><b>E-Mail</b><a href="mailto:info@fliesen-rizzi.de">info@fliesen-rizzi.de</a></div>
+          </li>
+        </ul>
+      </div>
+      <div class="tafel zeigen">
+        <h3>Bürozeiten</h3>
+        <ul class="zeiten">
+          <li><b>Montag – Freitag</b><span>9–17 Uhr</span></li>
+          <li><b>Samstag</b><span>geschlossen</span></li>
+          <li><b>Sonntag</b><span>geschlossen</span></li>
+        </ul>
+        <div class="hinweis-zeile">Die Zeiten stammen aus Ihrer bisherigen Website / einem Verzeichnis — bitte einmal bestätigen oder korrigieren, dann stehen hier garantiert die richtigen.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHLUSS -->
+  <section class="schluss">
+    <div class="inner">
+      <h2 class="zeigen">Neues Bad, neuer Boden? <em>Reden</em> wir drüber.</h2>
+      <p class="zeigen">Ein kurzer Anruf genügt — wir kommen zum Aufmaß und beraten Sie ehrlich.</p>
+      <a class="knopf knopf-voll zeigen" href="tel:+4971577055814">07157 7055814 anrufen</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 rizzi – Die Fliesenlegerei · Inh. Christian Rizzi · Falkenstraße 19 · Weil im Schönbuch</span>
+    <span><a href="https://schoenbuchdigital.github.io/impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="https://schoenbuchdigital.github.io/datenschutz.html">Datenschutz</a> <em style="opacity:.6">(Entwurf — eigenes Impressum folgt bei Beauftragung)</em></span>
+  </div>
+</footer>
+
+<div class="demo-hinweis">
+  Unverbindlicher Entwurf — erstellt von Schönbuch Digital, Weil im Schönbuch. Gefällt er Ihnen nicht, wird er gelöscht.
+</div>
+
+<script>
+  const beobachter = new IntersectionObserver(eintraege => {
+    eintraege.forEach(e => { if (e.isIntersecting) { e.target.classList.add('sichtbar'); beobachter.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.zeigen').forEach(el => beobachter.observe(el));
+</script>
+</body>
+</html>
