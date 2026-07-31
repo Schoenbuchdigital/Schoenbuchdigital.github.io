@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Südbaum — Baumfällung &amp; Baumpflege mit Seilklettertechnik · Dettenhausen</title>
+<meta name="description" content="Südbaum Baum- und Forstservice, Dettenhausen: Baumfällung mit Seilklettertechnik, Baumschnitt, Totholzentfernung, Spezialfällungen mit Kran. Forstwirt Alexander Adam — Raum Böblingen, Tübingen, Stuttgart, Reutlingen. Telefon 0172 7628795.">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root{
+    --tanne:#15251b;
+    --tanne-hell:#1e3226;
+    --moos:#2b4a36;
+    --harz:#d99a3d;
+    --harz-hell:#eab465;
+    --birke:#f2ede3;
+    --birke-grau:#a3a89b;
+    --linie:#31463a;
+    --display:"Fraunces",Georgia,serif;
+    --text:"Hanken Grotesk",Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--text);background:var(--tanne);color:var(--birke);line-height:1.66;overflow-x:hidden}
+  ::selection{background:var(--harz);color:var(--tanne)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  /* ENTWURF-Band */
+  .entwurf-band{
+    position:fixed;top:20px;right:-46px;z-index:1000;transform:rotate(40deg);
+    background:var(--harz);color:var(--tanne);font-weight:800;font-size:.72rem;
+    letter-spacing:.22em;text-transform:uppercase;padding:7px 58px;opacity:.95;pointer-events:none;
+    box-shadow:0 6px 18px -8px rgba(0,0,0,.6);
+  }
+
+  /* Topbar */
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+  .logo{display:flex;align-items:center;gap:13px;text-decoration:none;color:var(--birke)}
+  .logo .mark{width:44px;height:44px;flex-shrink:0;border-radius:10px;background:var(--harz);display:flex;align-items:center;justify-content:center;transform:rotate(-6deg)}
+  .logo .mark svg{width:25px;height:25px;stroke:var(--tanne)}
+  .logo .name{font-family:var(--display);font-size:1.42rem;font-weight:600;letter-spacing:-.01em;line-height:1}
+  .logo .name em{font-style:italic;color:var(--harz-hell)}
+  .logo .name small{display:block;font-family:var(--text);font-size:.64rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--birke-grau);margin-top:3px}
+  .topbar nav{display:flex;gap:26px;align-items:center}
+  .topbar nav a{color:var(--birke);text-decoration:none;font-weight:700;font-size:.92rem}
+  .topbar nav a:hover{color:var(--harz-hell)}
+  @media(max-width:820px){.topbar nav a:not(.cta){display:none}}
+  .cta{background:var(--harz);color:var(--tanne)!important;border-radius:8px;padding:11px 22px;transition:all .2s ease}
+  .cta:hover{background:var(--harz-hell)}
+
+  /* Hero */
+  .hero{position:relative;padding:88px 0 104px;overflow:hidden;border-bottom:1px solid var(--linie)}
+  .hero::before{
+    content:"";position:absolute;inset:0;opacity:.55;pointer-events:none;
+    background:
+      radial-gradient(52% 62% at 84% 8%,rgba(217,154,61,.2) 0%,transparent 60%),
+      radial-gradient(48% 58% at 6% 92%,rgba(43,74,54,.65) 0%,transparent 62%);
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;opacity:.045;pointer-events:none;
+    background-image:linear-gradient(rgba(242,237,227,.8) 1px,transparent 1px),linear-gradient(90deg,rgba(242,237,227,.8) 1px,transparent 1px);
+    background-size:44px 44px;
+  }
+  .hero .wrap{position:relative;z-index:2}
+  .vorzeile{display:inline-flex;align-items:center;gap:11px;font-weight:800;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--harz-hell);margin-bottom:22px;animation:auf .8s ease both}
+  .vorzeile .strich{width:32px;height:2px;background:var(--harz)}
+  .hero h1{
+    font-family:var(--display);font-weight:600;font-size:clamp(2.7rem,7.4vw,4.7rem);
+    line-height:1.04;letter-spacing:-.02em;max-width:16ch;margin-bottom:22px;animation:auf .8s .1s ease both;
+  }
+  .hero h1 em{font-style:italic;color:var(--harz-hell)}
+  .hero p.lead{font-size:1.14rem;max-width:54ch;color:var(--birke-grau);animation:auf .8s .2s ease both}
+  .hero-aktionen{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;animation:auf .8s .3s ease both}
+  .knopf{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1rem;border-radius:8px;padding:16px 32px;transition:all .2s ease}
+  .knopf-voll{background:var(--harz);color:var(--tanne);box-shadow:0 14px 34px -12px rgba(217,154,61,.5)}
+  .knopf-voll:hover{background:var(--harz-hell);transform:translateY(-2px)}
+  .knopf-zart{border:1.5px solid var(--linie);color:var(--birke)}
+  .knopf-zart:hover{border-color:var(--harz);color:var(--harz-hell)}
+  .hero .fakten{margin-top:32px;font-size:.92rem;font-weight:700;color:var(--birke-grau);display:flex;flex-wrap:wrap;align-items:center;gap:9px 18px;animation:auf .8s .4s ease both}
+  .hero .fakten span{display:inline-flex;align-items:center;gap:8px}
+  .hero .fakten .punkt{width:8px;height:8px;border-radius:2px;background:var(--harz);transform:rotate(45deg)}
+  @keyframes auf{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+  /* Abschnitt */
+  .abschnitt{padding:92px 0}
+  .kopf{max-width:62ch;margin:0 auto 52px;text-align:center}
+  .kopf h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,5vw,2.9rem);letter-spacing:-.02em;line-height:1.1;margin-bottom:12px}
+  .kopf h2 em{font-style:italic;color:var(--harz-hell)}
+  .kopf p{color:var(--birke-grau);font-size:1.05rem}
+
+  /* Karten */
+  .karten{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:860px){.karten{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.karten{grid-template-columns:1fr;max-width:440px;margin:0 auto}}
+  .karte{
+    background:var(--tanne-hell);border:1px solid var(--linie);border-radius:14px;padding:30px 26px;
+    transition:transform .2s ease,border-color .2s ease;
+  }
+  .karte:hover{transform:translateY(-5px);border-color:var(--harz)}
+  .karte .ikon{width:48px;height:48px;border-radius:10px;background:var(--moos);display:flex;align-items:center;justify-content:center;margin-bottom:18px;border:1px solid var(--linie);transform:rotate(-6deg)}
+  .karte .ikon svg{width:24px;height:24px;stroke:var(--harz-hell)}
+  .karte h3{font-family:var(--display);font-weight:600;font-size:1.26rem;letter-spacing:-.01em;margin-bottom:8px;color:#fff}
+  .karte p{font-size:.96rem;color:var(--birke-grau)}
+
+  /* Band */
+  .band{background:var(--tanne-hell);border-top:1px solid var(--linie);border-bottom:1px solid var(--linie);padding:88px 0}
+  .band .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:52px;align-items:center}
+  @media(max-width:840px){.band .wrap{grid-template-columns:1fr}}
+  .band h2{font-family:var(--display);font-weight:600;font-size:clamp(1.8rem,4.4vw,2.6rem);letter-spacing:-.02em;line-height:1.14;margin-bottom:14px;color:#fff}
+  .band h2 em{font-style:italic;color:var(--harz-hell)}
+  .band p{color:var(--birke-grau);font-size:1.03rem;margin-bottom:14px}
+  .tafel-liste{display:grid;gap:14px}
+  .tafel-zeile{display:flex;gap:16px;align-items:flex-start;background:var(--tanne);border:1px solid var(--linie);border-radius:12px;padding:20px 22px}
+  .tafel-zeile .nr{flex-shrink:0;width:38px;height:38px;border-radius:10px;background:var(--harz);color:var(--tanne);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:600;font-size:1.05rem;transform:rotate(-6deg)}
+  .tafel-zeile b{display:block;font-size:1.04rem;margin-bottom:2px;color:#fff}
+  .tafel-zeile span{font-size:.93rem;color:var(--birke-grau)}
+
+  /* Galerie */
+  .galerie{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+  @media(max-width:720px){.galerie{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.galerie{grid-template-columns:1fr}}
+  .foto{
+    border-radius:14px;border:1px dashed var(--linie);min-height:230px;
+    background:
+      radial-gradient(90% 90% at 30% 20%,rgba(43,74,54,.7) 0%,transparent 60%),
+      radial-gradient(80% 80% at 80% 90%,rgba(217,154,61,.16) 0%,transparent 55%),
+      var(--tanne-hell);
+    display:flex;align-items:flex-end;padding:18px;
+  }
+  .foto span{font-size:.85rem;font-weight:700;color:var(--birke-grau)}
+
+  /* Region */
+  .region-liste{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .region-liste span{border:1.5px solid var(--linie);border-radius:999px;padding:10px 22px;font-weight:700;font-size:.95rem;color:var(--birke)}
+  .region-liste span.hier{background:var(--harz);border-color:var(--harz);color:var(--tanne)}
+
+  /* Kontakt */
+  .kontakt{padding:92px 0}
+  .kontakt .wrap{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+  @media(max-width:840px){.kontakt .wrap{grid-template-columns:1fr}}
+  .kontakt h2{font-family:var(--display);font-weight:600;font-size:clamp(1.8rem,4.4vw,2.6rem);letter-spacing:-.02em;line-height:1.14;margin-bottom:14px;color:#fff}
+  .kontakt h2 em{font-style:italic;color:var(--harz-hell)}
+  .kontakt p.unter{color:var(--birke-grau);margin-bottom:26px}
+  .k-liste{list-style:none;display:grid;gap:16px}
+  .k-liste li{display:flex;gap:15px;align-items:flex-start}
+  .k-liste .ikon{flex-shrink:0;width:44px;height:44px;border-radius:10px;background:var(--tanne-hell);border:1px solid var(--linie);display:flex;align-items:center;justify-content:center}
+  .k-liste .ikon svg{width:21px;height:21px;stroke:var(--harz-hell)}
+  .k-liste b{display:block;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--birke-grau)}
+  .k-liste a{color:#fff;text-decoration:none;font-weight:700;font-size:1.06rem}
+  .k-liste a:hover{color:var(--harz-hell)}
+  .k-liste .t{color:#fff;font-weight:700;font-size:1.06rem}
+  .hinweis-zeile{margin-top:22px;font-size:.84rem;color:var(--birke-grau);background:var(--tanne-hell);border:1px dashed var(--linie);border-radius:10px;padding:12px 15px}
+  .tafel{background:var(--tanne-hell);border:1px solid var(--linie);border-radius:16px;padding:32px 30px}
+  .tafel h3{font-family:var(--display);font-weight:600;font-size:1.35rem;margin-bottom:18px;color:#fff}
+  .ablauf{list-style:none;display:grid;gap:14px}
+  .ablauf li{display:flex;gap:12px;align-items:flex-start;font-size:.98rem;color:var(--birke)}
+  .ablauf svg{flex-shrink:0;width:20px;height:20px;stroke:var(--harz);margin-top:3px}
+
+  /* Schluss */
+  .schluss{border-top:1px solid var(--linie);padding:100px 0;text-align:center;position:relative;overflow:hidden}
+  .schluss::before{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;background:radial-gradient(50% 70% at 50% 100%,rgba(217,154,61,.16) 0%,transparent 65%)}
+  .schluss .inner{position:relative;z-index:2;max-width:640px;margin:0 auto;padding:0 24px}
+  .schluss h2{font-family:var(--display);font-weight:600;font-size:clamp(2rem,5.4vw,3.1rem);letter-spacing:-.02em;line-height:1.1;margin-bottom:14px;color:#fff}
+  .schluss h2 em{font-style:italic;color:var(--harz-hell)}
+  .schluss p{color:var(--birke-grau);margin-bottom:30px}
+
+  /* Sichtbar-Animation */
+  .zeigen{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .zeigen.sichtbar{opacity:1;transform:none}
+
+  /* Footer */
+  footer{border-top:1px solid var(--linie);padding:30px 0 110px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:space-between;font-size:.88rem;color:var(--birke-grau)}
+  footer a{color:var(--birke-grau)}
+
+  /* Demo-Hinweisleiste */
+  .demo-hinweis{position:fixed;left:0;right:0;bottom:0;z-index:999;background:var(--harz);color:var(--tanne);text-align:center;padding:13px 20px;font-size:.92rem;font-weight:800}
+</style>
+</head>
+<body>
+
+<div class="entwurf-band">Entwurf</div>
+
+<header class="wrap">
+  <div class="topbar">
+    <a class="logo" href="#">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-7"/><path d="m17 8 -5-6-5 6"/><path d="m19 14 -7-8-7 8"/><path d="m21 19 -9-10-9 10"/></svg></span>
+      <span class="name">Süd<em>baum</em><small>Baum- &amp; Forstservice</small></span>
+    </a>
+    <nav>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#warum">Seilklettertechnik</a>
+      <a href="#region">Region</a>
+      <a href="#kontakt">Kontakt</a>
+      <a class="cta" href="tel:+491727628795">0172 7628795</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="vorzeile"><span class="strich"></span>Forstwirt Alexander Adam · Dettenhausen</span>
+      <h1>Bäume fällen, wo <em>kein Platz</em> zum Fallen ist.</h1>
+      <p class="lead">Südbaum holt Bäume dort herunter, wo es eng wird: im Vorgarten, über dem Carport, neben der Leitung. Mit Seilklettertechnik, Stück für Stück — statt mit einem großen Knall. Und wenn es ganz eng ist, mit dem Kran.</p>
+      <div class="hero-aktionen">
+        <a class="knopf knopf-voll" href="tel:+491727628795">Kurz durchrufen</a>
+        <a class="knopf knopf-zart" href="#leistungen">Was wir machen</a>
+      </div>
+      <div class="fakten">
+        <span><span class="punkt"></span>Forstwirt</span>
+        <span><span class="punkt"></span>Seilklettertechnik</span>
+        <span><span class="punkt"></span>Kran-Fällungen</span>
+        <span><span class="punkt"></span>Raum Böblingen · Tübingen · Stuttgart · Reutlingen</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <section class="abschnitt" id="leistungen">
+    <div class="wrap">
+      <div class="kopf zeigen">
+        <span class="vorzeile"><span class="strich"></span>Leistungen</span>
+        <h2>Vom einzelnen Ast bis zur <em>Spezialfällung</em></h2>
+        <p>Alles rund um den Baum — fachgerecht geplant, sauber ausgeführt, komplett aufgeräumt.</p>
+      </div>
+      <div class="karten">
+        <div class="karte zeigen">
+          <div class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 8V2h6v6"/><path d="M5 12V8h14v4"/><path d="M3 17v-5h18v5"/></svg></div>
+          <h3>Baumfällung mit Seilklettertechnik</h3>
+          <p>Wo kein Platz zum Fallen ist — z.&nbsp;B. in Vorgärten — wird der Baum erklettert und kontrolliert Stück für Stück abgetragen.</p>
+        </div>
+        <div class="karte zeigen">
+          <div class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12"/><path d="M18 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M15 6a9 9 0 0 0-9 9"/></svg></div>
+          <h3>Baumschnitt &amp; Einkürzungen</h3>
+          <p>Kronen pflegen, auslichten, einkürzen — damit der Baum gesund bleibt und niemandem auf das Dach wächst.</p>
+        </div>
+        <div class="karte zeigen">
+          <div class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 6-12 12"/><path d="m6 6 12 12"/></svg></div>
+          <h3>Totholz-Entfernung</h3>
+          <p>Abgestorbene Äste sind ein Sicherheitsrisiko für alles, was darunter steht und geht. Wir holen sie raus, bevor sie fallen.</p>
+        </div>
+        <div class="karte zeigen">
+          <div class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6"/><path d="m4.9 4.9 4.2 4.2"/><path d="M2 12h6"/><path d="m4.9 19.1 4.2-4.2"/><path d="M12 22v-6"/><path d="m19.1 19.1-4.2-4.2"/><path d="M22 12h-6"/><path d="m19.1 4.9-4.2 4.2"/></svg></div>
+          <h3>Kronenfällung</h3>
+          <p>Die Krone kommt kontrolliert herunter, der Stamm folgt in Etappen — sicher auch direkt an Haus und Straße.</p>
+        </div>
+        <div class="karte zeigen">
+          <div class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21V8l-6-5-6 5v13"/><path d="M4 21h18"/><path d="M11 21v-6h4v6"/></svg></div>
+          <h3>Spezialfällungen mit Kran</h3>
+          <p>Wenn selbst zum Klettern kein sicherer Weg bleibt, hebt der Kran die Baumteile über Haus und Garten hinweg.</p>
+        </div>
+        <div class="karte zeigen">
+          <div class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8V6a2 2 0 0 1 2-2h4"/><path d="M7 12v9"/><path d="M17 12v9"/></svg></div>
+          <h3>Holzeinschlag</h3>
+          <p>Forstarbeiten vom Fachmann: Holzeinschlag fachgerecht und effizient — vom Einzelbaum bis zum Bestand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WARUM SEILKLETTERTECHNIK -->
+  <section class="band" id="warum">
+    <div class="wrap">
+      <div class="zeigen">
+        <span class="vorzeile"><span class="strich"></span>Warum Südbaum</span>
+        <h2>Der Baum steht falsch?<br><em>Wir kommen trotzdem ran.</em></h2>
+        <p>Die meisten Problembäume stehen nicht auf der freien Wiese, sondern zwischen Haus, Zaun und Stromleitung. Genau dafür ist die Seilklettertechnik da: kein schweres Gerät im Beet, keine zerfahrene Wiese — nur Seil, Säge und Erfahrung.</p>
+        <p>Ausgeführt von einem ausgebildeten Forstwirt: Alexander Adam klettert, schneidet und fällt seit Jahren im Raum Böblingen, Tübingen, Stuttgart und Reutlingen.</p>
+      </div>
+      <div class="tafel-liste zeigen">
+        <div class="tafel-zeile"><span class="nr">1</span><div><b>Anschauen &amp; einschätzen</b><span>Kurzer Termin vor Ort: Was muss weg, was kann bleiben, wo liegt das Risiko?</span></div></div>
+        <div class="tafel-zeile"><span class="nr">2</span><div><b>Klarer Preis</b><span>Festes Angebot vor Beginn — keine Überraschungen hinterher.</span></div></div>
+        <div class="tafel-zeile"><span class="nr">3</span><div><b>Sichere Ausführung</b><span>Mit Seilklettertechnik oder Kran, abgesperrt und kontrolliert — Stück für Stück.</span></div></div>
+        <div class="tafel-zeile"><span class="nr">4</span><div><b>Aufgeräumt fertig</b><span>Auf Wunsch mit Abtransport — der Garten sieht danach besser aus als vorher.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section class="abschnitt">
+    <div class="wrap">
+      <div class="kopf zeigen">
+        <span class="vorzeile"><span class="strich"></span>Einblicke</span>
+        <h2>Arbeit, die man <em>sehen</em> kann</h2>
+        <p>Platz für Ihre echten Einsatzfotos — Kletterer in der Krone, Kran über dem Dach, das fertige Ergebnis.</p>
+      </div>
+      <div class="galerie">
+        <div class="foto zeigen"><span>Platzhalter — Seilkletterer in der Krone (Ihr Foto)</span></div>
+        <div class="foto zeigen"><span>Platzhalter — Kran-Fällung über dem Haus (Ihr Foto)</span></div>
+        <div class="foto zeigen"><span>Platzhalter — Vorher / Nachher im Vorgarten (Ihr Foto)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGION -->
+  <section class="abschnitt" id="region" style="padding-top:0">
+    <div class="wrap">
+      <div class="kopf zeigen">
+        <span class="vorzeile"><span class="strich"></span>Einsatzgebiet</span>
+        <h2>Von Dettenhausen aus <em>schnell vor Ort</em></h2>
+      </div>
+      <div class="region-liste zeigen">
+        <span class="hier">Dettenhausen</span>
+        <span>Raum Böblingen</span>
+        <span>Raum Tübingen</span>
+        <span>Raum Stuttgart</span>
+        <span>Raum Reutlingen</span>
+        <span>… und Umgebung</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="kontakt" id="kontakt">
+    <div class="wrap">
+      <div class="zeigen">
+        <span class="vorzeile"><span class="strich"></span>Kontakt</span>
+        <h2>Baum anschauen lassen — <em>kostet nichts</em></h2>
+        <p class="unter">Am schnellsten geht's per Anruf. Ein Foto vom Baum per E-Mail hilft bei der ersten Einschätzung.</p>
+        <ul class="k-liste">
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <div><b>Mobil</b><a href="tel:+491727628795">0172 7628795</a></div>
+          </li>
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6L22 7"/></svg></span>
+            <div><b>E-Mail</b><a href="mailto:suedbaum@t-online.de">suedbaum@t-online.de</a></div>
+          </li>
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><b>Adresse</b><span class="t">Stellestraße 16 · 72135 Dettenhausen</span></div>
+          </li>
+        </ul>
+        <div class="hinweis-zeile">Die Angaben stammen von Ihrer bisherigen Website und aus dem Gewerbeverzeichnis der Gemeinde Dettenhausen — Fotos, Referenzen und alles Weitere ergänzen wir zusammen.</div>
+      </div>
+      <div class="tafel zeigen">
+        <h3>So läuft Ihre Anfrage</h3>
+        <ul class="ablauf">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Kurz anrufen oder ein Foto vom Baum mailen.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Einschätzung vor Ort — was ist nötig, was kostet es.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Fällung oder Schnitt zum vereinbarten Termin.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Aufgeräumt übergeben — auf Wunsch mit Abtransport.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHLUSS -->
+  <section class="schluss">
+    <div class="inner">
+      <span class="vorzeile"><span class="strich"></span>Nächster Schritt</span>
+      <h2>Ein Baum macht Ihnen <em>Sorgen?</em></h2>
+      <p>Rufen Sie kurz durch — Sie sprechen direkt mit Alexander Adam.</p>
+      <a class="knopf knopf-voll zeigen" href="tel:+491727628795">0172 7628795 anrufen</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Südbaum Baum- und Forstservice · Alexander Adam · Stellestraße 16 · 72135 Dettenhausen</span>
+    <span><a href="https://schoenbuchdigital.github.io/impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="https://schoenbuchdigital.github.io/datenschutz.html">Datenschutz</a> <em style="opacity:.6">(Entwurf — eigenes Impressum folgt bei Beauftragung)</em></span>
+  </div>
+</footer>
+
+<div class="demo-hinweis">
+  Unverbindlicher Entwurf — erstellt von Schönbuch Digital, Weil im Schönbuch. Gefällt er Ihnen nicht, wird er gelöscht.
+</div>
+
+<script>
+  const beobachter = new IntersectionObserver(eintraege => {
+    eintraege.forEach(e => { if (e.isIntersecting) { e.target.classList.add('sichtbar'); beobachter.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.zeigen').forEach(el => beobachter.observe(el));
+</script>
+
+</body>
+</html>

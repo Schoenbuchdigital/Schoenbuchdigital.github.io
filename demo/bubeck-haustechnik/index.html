@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bubeck GmbH — Heizung, Klima &amp; Sanitär in Dettenhausen · Meisterbetrieb seit 1966</title>
+<meta name="description" content="Bubeck GmbH Dettenhausen: Heizungsbau, Solarthermie, Photovoltaik, Rohrleitungsbau und Wartung. Meisterbetrieb im HKS-Handwerk seit 1966, Breitwasenring 20. Telefon 07157 5671-0.">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root{
+    --nacht:#101a26;
+    --nacht-hell:#18283a;
+    --stahl:#22384d;
+    --kupfer:#e07a3f;
+    --kupfer-hell:#f49b64;
+    --schnee:#eef3f8;
+    --schnee-grau:#94a6b8;
+    --linie:#2b4359;
+    --display:"Fraunces",Georgia,serif;
+    --text:"Hanken Grotesk",Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--text);background:var(--nacht);color:var(--schnee);line-height:1.66;overflow-x:hidden}
+  ::selection{background:var(--kupfer);color:var(--nacht)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  /* ENTWURF-Band */
+  .entwurf-band{
+    position:fixed;top:20px;right:-46px;z-index:1000;transform:rotate(40deg);
+    background:var(--kupfer);color:var(--nacht);font-weight:800;font-size:.72rem;
+    letter-spacing:.22em;text-transform:uppercase;padding:7px 58px;opacity:.95;pointer-events:none;
+    box-shadow:0 6px 18px -8px rgba(0,0,0,.6);
+  }
+
+  /* Topbar */
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+  .logo{display:flex;align-items:center;gap:13px;text-decoration:none;color:var(--schnee)}
+  .logo .mark{width:44px;height:44px;flex-shrink:0;border-radius:10px;background:var(--kupfer);display:flex;align-items:center;justify-content:center;transform:rotate(-6deg)}
+  .logo .mark svg{width:25px;height:25px;stroke:var(--nacht)}
+  .logo .name{font-family:var(--display);font-size:1.42rem;font-weight:600;letter-spacing:-.01em;line-height:1}
+  .logo .name em{font-style:italic;color:var(--kupfer-hell)}
+  .logo .name small{display:block;font-family:var(--text);font-size:.64rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--schnee-grau);margin-top:3px}
+  .topbar nav{display:flex;gap:26px;align-items:center}
+  .topbar nav a{color:var(--schnee);text-decoration:none;font-weight:700;font-size:.92rem}
+  .topbar nav a:hover{color:var(--kupfer-hell)}
+  @media(max-width:900px){.topbar nav a:not(.cta){display:none}}
+  .cta{background:var(--kupfer);color:var(--nacht)!important;border-radius:8px;padding:11px 22px;transition:all .2s ease}
+  .cta:hover{background:var(--kupfer-hell)}
+
+  /* Hero */
+  .hero{position:relative;padding:88px 0 104px;overflow:hidden;border-bottom:1px solid var(--linie)}
+  .hero::before{
+    content:"";position:absolute;inset:0;opacity:.6;pointer-events:none;
+    background:
+      radial-gradient(54% 64% at 86% 6%,rgba(224,122,63,.22) 0%,transparent 62%),
+      radial-gradient(50% 60% at 4% 94%,rgba(34,56,77,.75) 0%,transparent 64%);
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;opacity:.04;pointer-events:none;
+    background-image:linear-gradient(rgba(238,243,248,.8) 1px,transparent 1px),linear-gradient(90deg,rgba(238,243,248,.8) 1px,transparent 1px);
+    background-size:44px 44px;
+  }
+  .hero .wrap{position:relative;z-index:2}
+  .vorzeile{display:inline-flex;align-items:center;gap:11px;font-weight:800;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--kupfer-hell);margin-bottom:22px;animation:auf .8s ease both}
+  .vorzeile .strich{width:32px;height:2px;background:var(--kupfer)}
+  .hero h1{
+    font-family:var(--display);font-weight:600;font-size:clamp(2.7rem,7.4vw,4.7rem);
+    line-height:1.04;letter-spacing:-.02em;max-width:15ch;margin-bottom:22px;animation:auf .8s .1s ease both;
+  }
+  .hero h1 em{font-style:italic;color:var(--kupfer-hell)}
+  .hero p.lead{font-size:1.14rem;max-width:56ch;color:var(--schnee-grau);animation:auf .8s .2s ease both}
+  .hero-aktionen{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;animation:auf .8s .3s ease both}
+  .knopf{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1rem;border-radius:8px;padding:16px 32px;transition:all .2s ease}
+  .knopf-voll{background:var(--kupfer);color:var(--nacht);box-shadow:0 14px 34px -12px rgba(224,122,63,.55)}
+  .knopf-voll:hover{background:var(--kupfer-hell);transform:translateY(-2px)}
+  .knopf-zart{border:1.5px solid var(--linie);color:var(--schnee)}
+  .knopf-zart:hover{border-color:var(--kupfer);color:var(--kupfer-hell)}
+  .hero .fakten{margin-top:32px;font-size:.92rem;font-weight:700;color:var(--schnee-grau);display:flex;flex-wrap:wrap;align-items:center;gap:9px 18px;animation:auf .8s .4s ease both}
+  .hero .fakten span{display:inline-flex;align-items:center;gap:8px}
+  .hero .fakten .punkt{width:8px;height:8px;border-radius:2px;background:var(--kupfer);transform:rotate(45deg)}
+  @keyframes auf{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+  /* Abschnitt */
+  .abschnitt{padding:92px 0}
+  .kopf{max-width:62ch;margin:0 auto 52px;text-align:center}
+  .kopf h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,5vw,2.9rem);letter-spacing:-.02em;line-height:1.1;margin-bottom:12px}
+  .kopf h2 em{font-style:italic;color:var(--kupfer-hell)}
+  .kopf p{color:var(--schnee-grau);font-size:1.05rem}
+
+  /* Karten */
+  .karten{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:860px){.karten{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.karten{grid-template-columns:1fr;max-width:440px;margin:0 auto}}
+  .karte{
+    background:var(--nacht-hell);border:1px solid var(--linie);border-radius:14px;padding:30px 26px;
+    transition:transform .2s ease,border-color .2s ease;
+  }
+  .karte:hover{transform:translateY(-5px);border-color:var(--kupfer)}
+  .karte .ikon{width:48px;height:48px;border-radius:10px;background:var(--stahl);display:flex;align-items:center;justify-content:center;margin-bottom:18px;border:1px solid var(--linie);transform:rotate(-6deg)}
+  .karte .ikon svg{width:24px;height:24px;stroke:var(--kupfer-hell);fill:none}
+  .karte h3{font-family:var(--display);font-weight:600;font-size:1.26rem;letter-spacing:-.01em;margin-bottom:8px;color:#fff}
+  .karte p{font-size:.96rem;color:var(--schnee-grau)}
+
+  /* Band */
+  .band{background:var(--nacht-hell);border-top:1px solid var(--linie);border-bottom:1px solid var(--linie);padding:88px 0}
+  .band .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:52px;align-items:center}
+  @media(max-width:840px){.band .wrap{grid-template-columns:1fr}}
+  .band h2{font-family:var(--display);font-weight:600;font-size:clamp(1.8rem,4.4vw,2.6rem);letter-spacing:-.02em;line-height:1.14;margin-bottom:14px;color:#fff}
+  .band h2 em{font-style:italic;color:var(--kupfer-hell)}
+  .band p{color:var(--schnee-grau);font-size:1.03rem;margin-bottom:14px}
+  .tafel-liste{display:grid;gap:14px}
+  .tafel-zeile{display:flex;gap:16px;align-items:flex-start;background:var(--nacht);border:1px solid var(--linie);border-radius:12px;padding:20px 22px}
+  .tafel-zeile .nr{flex-shrink:0;width:38px;height:38px;border-radius:10px;background:var(--kupfer);color:var(--nacht);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:600;font-size:1.05rem;transform:rotate(-6deg)}
+  .tafel-zeile b{display:block;font-size:1.04rem;margin-bottom:2px;color:#fff}
+  .tafel-zeile span{font-size:.93rem;color:var(--schnee-grau)}
+
+  /* Zeitleiste */
+  .zeitleiste{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:8px}
+  @media(max-width:860px){.zeitleiste{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.zeitleiste{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+  .stein{background:var(--nacht-hell);border:1px solid var(--linie);border-radius:14px;padding:24px 22px;border-top:3px solid var(--kupfer)}
+  .stein b{display:block;font-family:var(--display);font-size:1.5rem;font-weight:600;color:var(--kupfer-hell);margin-bottom:6px}
+  .stein span{font-size:.93rem;color:var(--schnee-grau)}
+
+  /* Galerie */
+  .galerie{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+  @media(max-width:720px){.galerie{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.galerie{grid-template-columns:1fr}}
+  .foto{
+    border-radius:14px;border:1px dashed var(--linie);min-height:230px;
+    background:
+      radial-gradient(90% 90% at 30% 20%,rgba(34,56,77,.8) 0%,transparent 60%),
+      radial-gradient(80% 80% at 80% 90%,rgba(224,122,63,.16) 0%,transparent 55%),
+      var(--nacht-hell);
+    display:flex;align-items:flex-end;padding:18px;
+  }
+  .foto span{font-size:.85rem;font-weight:700;color:var(--schnee-grau)}
+
+  /* Partner */
+  .partner-liste{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .partner-liste span{border:1.5px solid var(--linie);border-radius:999px;padding:10px 22px;font-weight:700;font-size:.95rem;color:var(--schnee)}
+  .partner-liste span.hier{background:var(--kupfer);border-color:var(--kupfer);color:var(--nacht)}
+
+  /* Kontakt */
+  .kontakt{padding:92px 0}
+  .kontakt .wrap{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+  @media(max-width:840px){.kontakt .wrap{grid-template-columns:1fr}}
+  .kontakt h2{font-family:var(--display);font-weight:600;font-size:clamp(1.8rem,4.4vw,2.6rem);letter-spacing:-.02em;line-height:1.14;margin-bottom:14px;color:#fff}
+  .kontakt h2 em{font-style:italic;color:var(--kupfer-hell)}
+  .kontakt p.unter{color:var(--schnee-grau);margin-bottom:26px}
+  .k-liste{list-style:none;display:grid;gap:16px}
+  .k-liste li{display:flex;gap:15px;align-items:flex-start}
+  .k-liste .ikon{flex-shrink:0;width:44px;height:44px;border-radius:10px;background:var(--nacht-hell);border:1px solid var(--linie);display:flex;align-items:center;justify-content:center}
+  .k-liste .ikon svg{width:21px;height:21px;stroke:var(--kupfer-hell);fill:none}
+  .k-liste b{display:block;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--schnee-grau)}
+  .k-liste a{color:#fff;text-decoration:none;font-weight:700;font-size:1.06rem}
+  .k-liste a:hover{color:var(--kupfer-hell)}
+  .k-liste .t{color:#fff;font-weight:700;font-size:1.06rem}
+  .hinweis-zeile{margin-top:22px;font-size:.84rem;color:var(--schnee-grau);background:var(--nacht-hell);border:1px dashed var(--linie);border-radius:10px;padding:12px 15px}
+  .tafel{background:var(--nacht-hell);border:1px solid var(--linie);border-radius:16px;padding:32px 30px}
+  .tafel h3{font-family:var(--display);font-weight:600;font-size:1.35rem;margin-bottom:18px;color:#fff}
+  .ablauf{list-style:none;display:grid;gap:14px}
+  .ablauf li{display:flex;gap:12px;align-items:flex-start;font-size:.98rem;color:var(--schnee)}
+  .ablauf svg{flex-shrink:0;width:20px;height:20px;stroke:var(--kupfer);fill:none;margin-top:3px}
+
+  /* Schluss */
+  .schluss{border-top:1px solid var(--linie);padding:100px 0;text-align:center;position:relative;overflow:hidden}
+  .schluss::before{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;background:radial-gradient(50% 70% at 50% 100%,rgba(224,122,63,.18) 0%,transparent 65%)}
+  .schluss .inner{position:relative;z-index:2;max-width:640px;margin:0 auto;padding:0 24px}
+  .schluss h2{font-family:var(--display);font-weight:600;font-size:clamp(2rem,5.4vw,3.1rem);letter-spacing:-.02em;line-height:1.1;margin-bottom:14px;color:#fff}
+  .schluss h2 em{font-style:italic;color:var(--kupfer-hell)}
+  .schluss p{color:var(--schnee-grau);margin-bottom:30px}
+
+  /* Sichtbar-Animation */
+  .zeigen{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .zeigen.sichtbar{opacity:1;transform:none}
+
+  /* Footer */
+  footer{border-top:1px solid var(--linie);padding:30px 0 110px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:space-between;font-size:.88rem;color:var(--schnee-grau)}
+  footer a{color:var(--schnee-grau)}
+
+  /* Demo-Hinweisleiste */
+  .demo-hinweis{position:fixed;left:0;right:0;bottom:0;z-index:999;background:var(--kupfer);color:var(--nacht);text-align:center;padding:13px 20px;font-size:.92rem;font-weight:800}
+
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.zeigen{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="entwurf-band">Entwurf</div>
+
+<header class="wrap">
+  <div class="topbar">
+    <a class="logo" href="#">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span>
+      <span class="name">Bu<em>beck</em><small>Heizung · Klima · Sanitär</small></span>
+    </a>
+    <nav>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#waerme">Solar &amp; Wärme</a>
+      <a href="#betrieb">Betrieb</a>
+      <a href="#kontakt">Kontakt</a>
+      <a class="cta" href="tel:+4971575671-0">07157 5671-0</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="vorzeile"><span class="strich"></span>Meisterbetrieb Dettenhausen · seit 1966</span>
+      <h1>Wärme, die <em>seit 1966</em> hält.</h1>
+      <p class="lead">Heizung, Klima, Sanitär, Solarthermie und Photovoltaik — aus einer Hand, aus Dettenhausen. Für Privatleute, Architekten, Gemeinden und Industrie, seit der Gründung mit Schwerpunkt auf Energieberatung und -planung.</p>
+      <div class="hero-aktionen">
+        <a class="knopf knopf-voll" href="tel:+4971575671-0">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          Beratung anfragen
+        </a>
+        <a class="knopf knopf-zart" href="#leistungen">Leistungen ansehen</a>
+      </div>
+      <p class="fakten">
+        <span><span class="punkt"></span>Meisterbetrieb im HKS-Handwerk</span>
+        <span><span class="punkt"></span>Familienbetrieb in zweiter Generation</span>
+        <span><span class="punkt"></span>Beratung, Planung, Montage, Wartung</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <section class="abschnitt" id="leistungen">
+    <div class="wrap">
+      <div class="kopf">
+        <span class="vorzeile"><span class="strich"></span>Leistungen</span>
+        <h2>Alles rund um <em>Wärme und Wasser</em>.</h2>
+        <p>Von der Zentralheizung über die Solaranlage bis zur Wartung — was im Haus mit Wärme, Luft und Wasser zu tun hat, kommt bei Bubeck aus einer Hand.</p>
+      </div>
+      <div class="karten">
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span>
+          <h3>Heizungsbau</h3>
+          <p>Zentralheizungen, Gasbrennwerttechnik, Holz- und Ölfeuerung — geplant, montiert und eingestellt vom Meisterbetrieb.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4"/></svg></span>
+          <h3>Solarthermie</h3>
+          <p>Thermische Solaranlagen mit CPC-Kollektor bis zum SonnenEnergieHaus — Wärme von der Sonne, ganzjährig nutzbar.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14h16l-2-8H6l-2 8z"/><path d="M12 6v8M4 14l-2 4h20l-2-4M9 18l-1 3M15 18l1 3"/></svg></span>
+          <h3>Photovoltaik</h3>
+          <p>Strom vom eigenen Dach — Planung und Montage, passend zur vorhandenen Heiztechnik gedacht.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h4a3 3 0 0 1 3 3v4a3 3 0 0 0 3 3h4"/><rect x="17" y="14" width="5" height="6" rx="1"/><rect x="2" y="4" width="5" height="6" rx="1"/></svg></span>
+          <h3>Rohrleitungsbau</h3>
+          <p>Leitungen für Wärme und Wasser — im Neubau, bei der Sanierung und im gewerblichen Bereich.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 8 8h8l-4 6"/><path d="M5 14c0 4 3 7 7 7s7-3 7-7"/></svg></span>
+          <h3>Holzpellets &amp; Co.</h3>
+          <p>Weitere Energiequellen im Blick: Holzpellets und alles, was den Verbrauch und die CO₂-Bilanz senkt.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0 5 5l-9.4 9.4a2.8 2.8 0 0 1-4-4l8.4-10.4z"/></svg></span>
+          <h3>Wartung &amp; Instandhaltung</h3>
+          <p>Damit die Anlage hält: regelmäßige Wartung und Instandhaltung an Ihrer Heizung — vom selben Betrieb, der sie kennt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAND -->
+  <section class="band" id="waerme">
+    <div class="wrap">
+      <div>
+        <span class="vorzeile"><span class="strich"></span>Energie mit Plan</span>
+        <h2>Beraten wurde hier schon, <em>bevor es Mode war</em>.</h2>
+        <p>Edmund Bubeck hat den Betrieb 1966 gegründet und sich damals schon auf Energieberatung und -planung spezialisiert — zu einer Zeit, als Heizöl noch niemanden nervös machte.</p>
+        <p>Geblieben ist die Denkweise: Erst schauen, was das Haus braucht, dann die Technik dazu aussuchen. Ob Zentralheizung, Klima- und Lüftungsanlage, Holz-, Gas- oder Ölfeuerung.</p>
+      </div>
+      <div class="tafel-liste">
+        <div class="tafel-zeile zeigen">
+          <span class="nr">1</span>
+          <div><b>Anschauen</b><span>Ein Termin vor Ort: Was ist verbaut, was verbraucht es, was soll es künftig können?</span></div>
+        </div>
+        <div class="tafel-zeile zeigen">
+          <span class="nr">2</span>
+          <div><b>Planen</b><span>Vorschlag mit klaren Zahlen — Technik, Aufwand, Kosten. Auch für Architekten und Gemeinden.</span></div>
+        </div>
+        <div class="tafel-zeile zeigen">
+          <span class="nr">3</span>
+          <div><b>Bauen &amp; betreuen</b><span>Montage durch den eigenen Betrieb — und danach die Wartung von denselben Leuten.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BETRIEB / GESCHICHTE -->
+  <section class="abschnitt" id="betrieb">
+    <div class="wrap">
+      <div class="kopf">
+        <span class="vorzeile"><span class="strich"></span>Der Betrieb</span>
+        <h2>Zwei Generationen, <em>ein Ort</em>.</h2>
+        <p>Aus der Werkstatt in der Silberstraße wurde eine Halle im Breitwasenring — die Familie ist dieselbe geblieben.</p>
+      </div>
+      <div class="zeitleiste">
+        <div class="stein zeigen"><b>1966</b><span>Heizungsbaumeister Edmund Bubeck gründet den Betrieb in der Silberstraße 4.</span></div>
+        <div class="stein zeigen"><b>1978</b><span>Umbau und Erweiterung am alten Standort — eine Sandsteintafel erinnert bis heute daran.</span></div>
+        <div class="stein zeigen"><b>1979</b><span>Sohn Norbert Bubeck steigt in den Betrieb ein.</span></div>
+        <div class="stein zeigen"><b>2000</b><span>Norbert Bubeck übernimmt die Firma — im selben Jahr Umzug in den Breitwasenring 20.</span></div>
+      </div>
+
+      <div class="kopf" style="margin-top:72px">
+        <span class="vorzeile"><span class="strich"></span>Referenzen</span>
+        <h2>Platz für <em>Ihre Anlagen</em>.</h2>
+        <p>Hier gehören Fotos Ihrer eigenen Baustellen und Anlagen hin — Heizraum, Solardach, fertige Installation.</p>
+      </div>
+      <div class="galerie">
+        <div class="foto zeigen"><span>Platzhalter — z.&nbsp;B. ein fertiger Heizraum (Ihr Foto)</span></div>
+        <div class="foto zeigen"><span>Platzhalter — z.&nbsp;B. Kollektoren auf dem Dach (Ihr Foto)</span></div>
+        <div class="foto zeigen"><span>Platzhalter — z.&nbsp;B. das Team oder die Halle im Breitwasenring (Ihr Foto)</span></div>
+      </div>
+
+      <div class="kopf" style="margin-top:72px;margin-bottom:26px">
+        <span class="vorzeile"><span class="strich"></span>Partner</span>
+        <h2>Womit hier <em>gearbeitet</em> wird.</h2>
+      </div>
+      <div class="partner-liste zeigen">
+        <span class="hier">Paradigma</span>
+        <span>Buderus</span>
+        <span>Grundfos</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="kontakt" id="kontakt">
+    <div class="wrap">
+      <div class="zeigen">
+        <span class="vorzeile"><span class="strich"></span>Kontakt</span>
+        <h2>Heizung macht Sorgen? <em>Kurz anrufen.</em></h2>
+        <p class="unter">Ob Neubau, Sanierung oder eine Anlage, die nicht mehr will — ein Anruf genügt für den ersten Termin.</p>
+        <ul class="k-liste">
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></span>
+            <div><b>Telefon</b><a href="tel:+4971575671-0">07157 5671-0</a></div>
+          </li>
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></span>
+            <div><b>E-Mail</b><a href="mailto:service@bubeck-shk.de">service@bubeck-shk.de</a></div>
+          </li>
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><b>Adresse</b><span class="t">Breitwasenring 20 · 72135 Dettenhausen</span></div>
+          </li>
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></span>
+            <div><b>Fax</b><span class="t">07157 5671-20</span></div>
+          </li>
+        </ul>
+        <div class="hinweis-zeile">Die Angaben stammen aus dem Impressum Ihrer bisherigen Website. Öffnungszeiten, Notdienst und Referenzfotos ergänzen wir zusammen — erfunden wird hier nichts.</div>
+      </div>
+      <div class="tafel zeigen">
+        <h3>So läuft Ihre Anfrage</h3>
+        <ul class="ablauf">
+          <li><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Anrufen oder kurz mailen — was ist verbaut, was ist das Problem?</li>
+          <li><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Termin vor Ort: Anlage anschauen, Bedarf klären.</li>
+          <li><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Angebot mit klaren Zahlen — Technik, Aufwand, Kosten.</li>
+          <li><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Montage zum vereinbarten Termin, Wartung danach inklusive Ansprechpartner.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHLUSS -->
+  <section class="schluss">
+    <div class="inner">
+      <span class="vorzeile"><span class="strich"></span>Nächster Schritt</span>
+      <h2>Sechzig Jahre Erfahrung, <em>ein Anruf entfernt.</em></h2>
+      <p>Sie sprechen direkt mit dem Betrieb — nicht mit einer Hotline.</p>
+      <a class="knopf knopf-voll zeigen" href="tel:+4971575671-0">07157 5671-0 anrufen</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Bubeck GmbH · Geschäftsführer Norbert Bubeck · Breitwasenring 20 · 72135 Dettenhausen</span>
+    <span><a href="https://schoenbuchdigital.github.io/impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="https://schoenbuchdigital.github.io/datenschutz.html">Datenschutz</a> <em style="opacity:.6">(Entwurf — eigenes Impressum folgt bei Beauftragung)</em></span>
+  </div>
+</footer>
+
+<div class="demo-hinweis">
+  Unverbindlicher Entwurf — erstellt von Schönbuch Digital, Weil im Schönbuch. Gefällt er Ihnen nicht, wird er gelöscht.
+</div>
+
+<script>
+  const beobachter = new IntersectionObserver(eintraege => {
+    eintraege.forEach(e => { if (e.isIntersecting) { e.target.classList.add('sichtbar'); beobachter.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.zeigen').forEach(el => beobachter.observe(el));
+</script>
+
+</body>
+</html>
