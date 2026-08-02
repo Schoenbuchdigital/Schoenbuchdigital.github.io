@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veschperbrettle Hausmacher &amp; Co. — Gaststätte &amp; Partyservice in Dettenhausen</title>
+<meta name="description" content="Veschperbrettle Hausmacher &amp; Co., Dettenhausen: schwäbische Küche, Hausmacherprodukte aus eigener Schlachtung und Partyservice für 8 bis 350 Gäste. Im Fuchswasen 1, Telefon 07157 539832.">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root{
+    --holz:#2a1c14;
+    --holz-hell:#3a281d;
+    --rinde:#4d3626;
+    --senf:#d8a13c;
+    --senf-hell:#eec173;
+    --paprika:#a83a25;
+    --leinen:#f7f0e4;
+    --leinen-grau:#b3a693;
+    --linie:#503a2a;
+    --display:"Fraunces",Georgia,serif;
+    --text:"Hanken Grotesk",Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--text);background:var(--holz);color:var(--leinen);line-height:1.66;overflow-x:hidden}
+  ::selection{background:var(--senf);color:var(--holz)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  .entwurf-band{
+    position:fixed;top:20px;right:-46px;z-index:1000;transform:rotate(40deg);
+    background:var(--paprika);color:#fff;font-weight:800;font-size:.72rem;
+    letter-spacing:.22em;text-transform:uppercase;padding:7px 58px;opacity:.96;pointer-events:none;
+    box-shadow:0 6px 18px -8px rgba(0,0,0,.6);
+  }
+
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+  .logo{display:flex;align-items:center;gap:13px;text-decoration:none;color:var(--leinen)}
+  .logo .mark{width:46px;height:46px;flex-shrink:0;border-radius:11px;background:var(--senf);display:flex;align-items:center;justify-content:center;transform:rotate(-5deg)}
+  .logo .mark svg{width:25px;height:25px;stroke:var(--holz)}
+  .logo .name{font-family:var(--display);font-size:1.4rem;font-weight:600;letter-spacing:-.01em;line-height:1}
+  .logo .name em{font-style:italic;color:var(--senf-hell)}
+  .logo .name small{display:block;font-family:var(--text);font-size:.61rem;font-weight:700;letter-spacing:.19em;text-transform:uppercase;color:var(--leinen-grau);margin-top:4px}
+  .topbar nav{display:flex;gap:24px;align-items:center}
+  .topbar nav a{color:var(--leinen);text-decoration:none;font-weight:700;font-size:.92rem}
+  .topbar nav a:hover{color:var(--senf-hell)}
+  @media(max-width:880px){.topbar nav a:not(.cta){display:none}}
+  .cta{background:var(--senf);color:var(--holz)!important;border-radius:8px;padding:11px 22px;transition:all .2s ease}
+  .cta:hover{background:var(--senf-hell)}
+
+  /* Hero */
+  .hero{position:relative;padding:84px 0 96px;overflow:hidden;border-bottom:1px solid var(--linie)}
+  .hero::before{
+    content:"";position:absolute;inset:0;opacity:.6;pointer-events:none;
+    background:
+      radial-gradient(50% 60% at 86% 6%,rgba(216,161,60,.22) 0%,transparent 62%),
+      radial-gradient(46% 56% at 4% 94%,rgba(168,58,37,.24) 0%,transparent 60%);
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;opacity:.05;pointer-events:none;
+    background-image:repeating-linear-gradient(90deg,rgba(247,240,228,.9) 0 1px,transparent 1px 26px);
+  }
+  .hero .wrap{position:relative;z-index:2}
+  .vorzeile{display:inline-flex;align-items:center;gap:11px;font-weight:800;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--senf-hell);margin-bottom:20px;animation:auf .8s ease both}
+  .vorzeile .strich{width:32px;height:2px;background:var(--senf)}
+  .hero h1{
+    font-family:var(--display);font-weight:600;font-size:clamp(2.6rem,7.2vw,4.6rem);
+    line-height:1.05;letter-spacing:-.02em;max-width:16ch;margin-bottom:22px;animation:auf .8s .1s ease both;
+  }
+  .hero h1 em{font-style:italic;color:var(--senf-hell)}
+  .hero p.lead{font-size:1.14rem;max-width:54ch;color:var(--leinen-grau);animation:auf .8s .2s ease both}
+  .hero-aktionen{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;animation:auf .8s .3s ease both}
+  .knopf{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1rem;border-radius:9px;padding:16px 32px;transition:all .2s ease}
+  .knopf-voll{background:var(--senf);color:var(--holz);box-shadow:0 14px 34px -14px rgba(216,161,60,.55)}
+  .knopf-voll:hover{background:var(--senf-hell);transform:translateY(-2px)}
+  .knopf-zart{border:1.5px solid var(--linie);color:var(--leinen)}
+  .knopf-zart:hover{border-color:var(--senf);color:var(--senf-hell)}
+  .hero .fakten{margin-top:32px;font-size:.92rem;font-weight:700;color:var(--leinen-grau);display:flex;flex-wrap:wrap;align-items:center;gap:9px 18px;animation:auf .8s .4s ease both}
+  .hero .fakten span{display:inline-flex;align-items:center;gap:8px}
+  .hero .fakten .punkt{width:8px;height:8px;border-radius:2px;background:var(--senf);transform:rotate(45deg)}
+  @keyframes auf{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+  .abschnitt{padding:88px 0}
+  .kopf{max-width:62ch;margin:0 auto 50px;text-align:center}
+  .kopf h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,5vw,2.85rem);letter-spacing:-.02em;line-height:1.12;margin-bottom:12px}
+  .kopf h2 em{font-style:italic;color:var(--senf-hell)}
+  .kopf p{color:var(--leinen-grau);font-size:1.05rem}
+
+  /* Speisekarte-Vorschau */
+  .karte-liste{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:0 auto}
+  @media(max-width:760px){.karte-liste{grid-template-columns:1fr;max-width:470px}}
+  .gericht{
+    background:var(--holz-hell);border:1px solid var(--linie);border-radius:14px;padding:26px 26px;
+    transition:transform .2s ease,border-color .2s ease;
+  }
+  .gericht:hover{transform:translateY(-4px);border-color:var(--senf)}
+  .gericht h3{font-family:var(--display);font-weight:600;font-size:1.24rem;margin-bottom:7px;color:#fff}
+  .gericht p{font-size:.95rem;color:var(--leinen-grau)}
+  .hinweis-karte{margin-top:26px;text-align:center;font-size:.94rem;color:var(--leinen-grau)}
+  .hinweis-karte b{color:var(--senf-hell)}
+
+  /* Partyservice-Band */
+  .band{background:var(--rinde);border-top:1px solid var(--linie);border-bottom:1px solid var(--linie);padding:88px 0}
+  .band .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:52px;align-items:center}
+  @media(max-width:860px){.band .wrap{grid-template-columns:1fr}}
+  .band h2{font-family:var(--display);font-weight:600;font-size:clamp(1.8rem,4.4vw,2.6rem);letter-spacing:-.02em;line-height:1.14;margin-bottom:14px;color:#fff}
+  .band h2 em{font-style:italic;color:var(--senf-hell)}
+  .band p{color:#ddd0bd;font-size:1.03rem;margin-bottom:14px}
+  .gaeste{display:flex;align-items:baseline;gap:12px;margin:22px 0 6px}
+  .gaeste b{font-family:var(--display);font-size:3.1rem;font-weight:600;color:var(--senf-hell);line-height:1}
+  .gaeste span{font-size:1rem;color:#ddd0bd;font-weight:700}
+  .tafel-liste{display:grid;gap:14px}
+  .tafel-zeile{display:flex;gap:16px;align-items:flex-start;background:var(--holz);border:1px solid var(--linie);border-radius:12px;padding:20px 22px}
+  .tafel-zeile .nr{flex-shrink:0;width:38px;height:38px;border-radius:10px;background:var(--senf);color:var(--holz);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:600;font-size:1.05rem;transform:rotate(-5deg)}
+  .tafel-zeile b{display:block;font-size:1.04rem;margin-bottom:2px;color:#fff}
+  .tafel-zeile span{font-size:.93rem;color:#ddd0bd}
+
+  /* Anlaesse */
+  .anlaesse{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:940px;margin:0 auto}
+  @media(max-width:820px){.anlaesse{grid-template-columns:1fr 1fr}}
+  @media(max-width:460px){.anlaesse{grid-template-columns:1fr;max-width:340px}}
+  .anlass{background:var(--holz-hell);border:1px solid var(--linie);border-radius:13px;padding:24px 20px;text-align:center}
+  .anlass svg{width:28px;height:28px;stroke:var(--senf-hell);fill:none;margin-bottom:12px}
+  .anlass b{display:block;font-family:var(--display);font-size:1.1rem;font-weight:600;margin-bottom:5px;color:#fff}
+  .anlass span{font-size:.9rem;color:var(--leinen-grau)}
+
+  /* Kontakt */
+  .kontakt{padding:88px 0}
+  .kontakt .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+  @media(max-width:860px){.kontakt .wrap{grid-template-columns:1fr}}
+  .kontakt h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,4.6vw,2.7rem);letter-spacing:-.02em;line-height:1.12;margin-bottom:10px}
+  .kontakt h2 em{font-style:italic;color:var(--senf-hell)}
+  .kontakt p.unter{color:var(--leinen-grau);margin-bottom:26px}
+  .k-liste{list-style:none;display:grid;gap:16px}
+  .k-liste li{display:flex;gap:15px;align-items:center}
+  .k-liste .ikon{width:44px;height:44px;flex-shrink:0;border-radius:11px;background:var(--holz-hell);border:1px solid var(--linie);display:flex;align-items:center;justify-content:center}
+  .k-liste .ikon svg{width:21px;height:21px;stroke:var(--senf-hell);fill:none}
+  .k-liste b{display:block;font-size:.73rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--leinen-grau)}
+  .k-liste a{color:var(--leinen);text-decoration:none;font-weight:700;font-size:1.06rem}
+  .k-liste a:hover{color:var(--senf-hell)}
+  .k-liste .t{font-weight:700;font-size:1.02rem}
+  .hinweis-zeile{margin-top:26px;font-size:.87rem;color:var(--leinen-grau);border-left:3px solid var(--senf);padding-left:14px;line-height:1.55}
+  .tafel{background:var(--holz-hell);border:1px solid var(--linie);border-radius:16px;padding:32px 30px}
+  .tafel h3{font-family:var(--display);font-weight:600;font-size:1.3rem;margin-bottom:18px;color:#fff}
+  .zeiten{list-style:none;display:grid;gap:12px}
+  .zeiten li{display:flex;justify-content:space-between;gap:14px;font-size:.97rem;padding-bottom:12px;border-bottom:1px dashed var(--linie)}
+  .zeiten li:last-child{border-bottom:0;padding-bottom:0}
+  .zeiten span:first-child{font-weight:700}
+  .zeiten span:last-child{color:var(--leinen-grau);text-align:right}
+
+  .schluss{background:var(--rinde);text-align:center;padding:82px 24px}
+  .schluss .inner{max-width:640px;margin:0 auto}
+  .schluss .vorzeile{justify-content:center}
+  .schluss h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,5vw,2.8rem);letter-spacing:-.02em;line-height:1.12;margin-bottom:12px;color:#fff}
+  .schluss h2 em{font-style:italic;color:var(--senf-hell)}
+  .schluss p{color:#ddd0bd;margin-bottom:30px}
+
+  footer{background:#1d130d;color:#8d7f6e;padding:30px 0;font-size:.86rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:space-between;align-items:center}
+  footer a{color:var(--leinen-grau);text-decoration:none}
+  footer a:hover{color:var(--senf-hell)}
+
+  .demo-hinweis{
+    background:var(--paprika);color:#fff;text-align:center;padding:15px 24px;
+    font-size:.9rem;font-weight:600;line-height:1.5;
+  }
+
+  .zeigen{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .zeigen.sichtbar{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<div class="entwurf-band">Entwurf</div>
+
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="logo" href="#">
+        <span class="mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18l-1.5 8a2 2 0 0 1-2 1.7H6.5a2 2 0 0 1-2-1.7Z"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </span>
+        <span class="name">Veschper<em>brettle</em><small>Hausmacher &amp; Co. · Dettenhausen</small></span>
+      </a>
+      <nav>
+        <a href="#kueche">Küche</a>
+        <a href="#partyservice">Partyservice</a>
+        <a href="#kontakt">Öffnungszeiten</a>
+        <a class="cta" href="tel:+497157539832">Tisch reservieren</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="vorzeile"><span class="strich"></span>Schwäbisch · Hausmacher · Dettenhausen</span>
+      <h1>Vesper, wie es <em>gehören</em> tut</h1>
+      <p class="lead">Schwäbische Küche und Hausmacherprodukte aus eigener Schlachtung — in der Gaststätte Im Fuchswasen, und auf Wunsch bei Ihnen zu Hause: Partyservice für acht bis 350 Gäste.</p>
+      <div class="hero-aktionen">
+        <a class="knopf knopf-voll" href="tel:+497157539832">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          07157 539832
+        </a>
+        <a class="knopf knopf-zart" href="#partyservice">Partyservice anfragen</a>
+      </div>
+      <div class="fakten">
+        <span><i class="punkt"></i>Eigene Schlachtung</span>
+        <span><i class="punkt"></i>Partyservice ab 8 Personen</span>
+        <span><i class="punkt"></i>Nahe der Neuen Messe Stuttgart</span>
+        <span><i class="punkt"></i>Gutscheine</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- KUECHE -->
+  <section class="abschnitt" id="kueche">
+    <div class="wrap">
+      <div class="kopf zeigen">
+        <span class="vorzeile"><span class="strich"></span>Aus der Küche</span>
+        <h2>Hausmacher heißt: <em>selber gemacht</em></h2>
+        <p>Was auf dem Brettle liegt, kommt aus der eigenen Schlachtung — nicht aus dem Großhandelskarton.</p>
+      </div>
+      <div class="karte-liste">
+        <div class="gericht zeigen">
+          <h3>Das Veschperbrettle</h3>
+          <p>Der Klassiker des Hauses: Hausmacher Wurst und Schinken, Brot dazu — so, wie man hier vespert.</p>
+        </div>
+        <div class="gericht zeigen">
+          <h3>Schwäbische Spezialitäten</h3>
+          <p>Die Gerichte, für die man in die Region fährt. Wechselnd, je nach Saison und Vorrat.</p>
+        </div>
+        <div class="gericht zeigen">
+          <h3>Hausmacherprodukte zum Mitnehmen</h3>
+          <p>Wurst und Schinken gibt es auch für daheim — fragen Sie einfach, was gerade da ist.</p>
+        </div>
+        <div class="gericht zeigen">
+          <h3>Gutscheine</h3>
+          <p>Für Geburtstage und alle, die schon alles haben. Gibt es direkt im Haus.</p>
+        </div>
+      </div>
+      <p class="hinweis-karte zeigen"><b>Die vollständige Speise- und Getränkekarte</b> steht hier künftig direkt auf der Seite — lesbar am Handy, ohne PDF-Download.</p>
+    </div>
+  </section>
+
+  <!-- PARTYSERVICE -->
+  <section class="band" id="partyservice">
+    <div class="wrap">
+      <div class="zeigen">
+        <span class="vorzeile"><span class="strich"></span>Partyservice</span>
+        <h2>Feiern — und <em>selbst mitfeiern</em></h2>
+        <div class="gaeste"><b>8 – 350</b><span>Gäste, bei Ihnen zu Hause<br>oder in der Firma</span></div>
+        <p>Speisen nach Wahl, auf Wunsch mit Personal. Und wenn gegrillt wird, steht jemand von uns am Grill — nicht der Gastgeber.</p>
+        <p>Wir besprechen vorher in Ruhe, was zum Anlass und zum Budget passt.</p>
+      </div>
+      <div class="tafel-liste zeigen">
+        <div class="tafel-zeile"><span class="nr">1</span><div><b>Anrufen</b><span>Anlass, Gästezahl, Termin — mehr braucht es fürs Erste nicht.</span></div></div>
+        <div class="tafel-zeile"><span class="nr">2</span><div><b>Zusammenstellen</b><span>Ein Vorschlag, zugeschnitten auf Ihre Feier.</span></div></div>
+        <div class="tafel-zeile"><span class="nr">3</span><div><b>Liefern</b><span>Pünktlich, angerichtet, auf Wunsch mit Personal.</span></div></div>
+        <div class="tafel-zeile"><span class="nr">4</span><div><b>Abholen</b><span>Geschirr und Zubehör holen wir wieder ab.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANLAESSE -->
+  <section class="abschnitt">
+    <div class="wrap">
+      <div class="kopf zeigen">
+        <span class="vorzeile"><span class="strich"></span>Anlässe</span>
+        <h2>Wofür man uns <em>bucht</em></h2>
+      </div>
+      <div class="anlaesse">
+        <div class="anlass zeigen">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-7-9a4 4 0 0 1 7-2.65A4 4 0 0 1 19 12c0 4.65-7 9-7 9Z"/></svg>
+          <b>Hochzeiten</b><span>Vom Sektempfang bis zum Mitternachtsvesper.</span>
+        </div>
+        <div class="anlass zeigen">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21h16v-9H4Z"/><path d="M12 12V8"/><path d="M8 8h8a2 2 0 0 0 0-4c-2.5 0-4 4-4 4s-1.5-4-4-4a2 2 0 0 0 0 4Z"/></svg>
+          <b>Geburtstage</b><span>Runde Zahlen schmecken besser mit Hausmacher.</span>
+        </div>
+        <div class="anlass zeigen">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 9h.01M15 9h.01M9 13h.01M15 13h.01"/></svg>
+          <b>Firmenfeiern</b><span>Auch kurzfristig, auch im Betrieb.</span>
+        </div>
+        <div class="anlass zeigen">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M15.5 20a5 5 0 0 1 5.5-4.9"/></svg>
+          <b>Familienfeiern</b><span>Ab acht Personen — auch im kleinen Kreis.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="kontakt" id="kontakt">
+    <div class="wrap">
+      <div class="zeigen">
+        <span class="vorzeile"><span class="strich"></span>Kontakt</span>
+        <h2>Tisch frei? <em>Kurz anrufen</em></h2>
+        <p class="unter">Für Reservierungen und Partyservice-Anfragen am besten telefonisch — dann ist alles gleich besprochen.</p>
+        <ul class="k-liste">
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <div><b>Telefon</b><a href="tel:+497157539832">07157 539832</a></div>
+          </li>
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6L22 7"/></svg></span>
+            <div><b>E-Mail</b><a href="mailto:info@veschperbrettle.de">info@veschperbrettle.de</a></div>
+          </li>
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><b>Adresse</b><span class="t">Im Fuchswasen 1 · 72135 Dettenhausen</span></div>
+          </li>
+        </ul>
+        <div class="hinweis-zeile">Die Angaben stammen von Ihrer bisherigen Website und aus dem Gewerbeverzeichnis der Gemeinde Dettenhausen. Speisekarte, Fotos und Ihre Galerie übernehmen wir zusammen — die Karte künftig als Text auf der Seite statt als PDF.</div>
+      </div>
+      <div class="tafel zeigen">
+        <h3>Öffnungszeiten</h3>
+        <ul class="zeiten">
+          <li><span>Montag – Freitag</span><span>ab 15:30<br>Küche 17:30 – 22:00</span></li>
+          <li><span>Samstag</span><span>ab 17:00<br>Küche 17:30 – 22:00</span></li>
+          <li><span>Sonntag</span><span>10:00 – 14:30<br>und ab 16:00</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHLUSS -->
+  <section class="schluss">
+    <div class="inner">
+      <span class="vorzeile"><span class="strich"></span>Nächster Schritt</span>
+      <h2>Hunger — oder <em>eine Feier geplant?</em></h2>
+      <p>Ein Anruf genügt. Sie sprechen direkt mit dem Haus.</p>
+      <a class="knopf knopf-voll zeigen" href="tel:+497157539832">07157 539832 anrufen</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Veschperbrettle Hausmacher &amp; Co. · Andy Lutz · Im Fuchswasen 1 · 72135 Dettenhausen</span>
+    <span><a href="https://schoenbuchdigital.github.io/impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="https://schoenbuchdigital.github.io/datenschutz.html">Datenschutz</a> <em style="opacity:.6">(Entwurf — eigenes Impressum folgt bei Beauftragung)</em></span>
+  </div>
+</footer>
+
+<div class="demo-hinweis">
+  Unverbindlicher Entwurf — erstellt von Schönbuch Digital, Weil im Schönbuch. Gefällt er Ihnen nicht, wird er gelöscht.
+</div>
+
+<script>
+  const beobachter = new IntersectionObserver(eintraege => {
+    eintraege.forEach(e => { if (e.isIntersecting) { e.target.classList.add('sichtbar'); beobachter.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.zeigen').forEach(el => beobachter.observe(el));
+</script>
+
+</body>
+</html>

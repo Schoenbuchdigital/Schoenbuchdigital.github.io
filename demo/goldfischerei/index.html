@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goldfischerei — Goldschmiede in Dettenhausen · Verlobungsringe, Anfertigungen, Reparaturen</title>
+<meta name="description" content="Goldfischerei Goldschmiede, Franziska Fischer, Dettenhausen: Schmuck nach Maß, Verlobungs- und Trauringe, Reparaturen und das Umarbeiten von Erbstücken. Beratung zu Diamanten. Termin unter 0176 63784755.">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root{
+    --nacht:#191419;
+    --nacht-hell:#241d25;
+    --pflaume:#3a2b3b;
+    --gold:#c9a227;
+    --gold-hell:#e6c65c;
+    --champagner:#f6efe2;
+    --perle:#c3b6bd;
+    --linie:#3c303d;
+    --display:"Fraunces",Georgia,serif;
+    --text:"Hanken Grotesk",Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--text);background:var(--nacht);color:var(--champagner);line-height:1.68;overflow-x:hidden}
+  ::selection{background:var(--gold);color:var(--nacht)}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+  .entwurf-band{
+    position:fixed;top:20px;right:-46px;z-index:1000;transform:rotate(40deg);
+    background:var(--gold);color:var(--nacht);font-weight:800;font-size:.72rem;
+    letter-spacing:.22em;text-transform:uppercase;padding:7px 58px;opacity:.95;pointer-events:none;
+    box-shadow:0 6px 18px -8px rgba(0,0,0,.7);
+  }
+
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+  .logo{display:flex;align-items:center;gap:13px;text-decoration:none;color:var(--champagner)}
+  .logo .mark{width:46px;height:46px;flex-shrink:0;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center}
+  .logo .mark svg{width:23px;height:23px;stroke:var(--gold-hell)}
+  .logo .name{font-family:var(--display);font-size:1.44rem;font-weight:600;letter-spacing:.01em;line-height:1}
+  .logo .name em{font-style:italic;color:var(--gold-hell)}
+  .logo .name small{display:block;font-family:var(--text);font-size:.61rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--perle);margin-top:4px}
+  .topbar nav{display:flex;gap:26px;align-items:center}
+  .topbar nav a{color:var(--champagner);text-decoration:none;font-weight:700;font-size:.92rem}
+  .topbar nav a:hover{color:var(--gold-hell)}
+  @media(max-width:860px){.topbar nav a:not(.cta){display:none}}
+  .cta{background:var(--gold);color:var(--nacht)!important;border-radius:999px;padding:11px 24px;transition:all .2s ease}
+  .cta:hover{background:var(--gold-hell)}
+
+  /* Hero */
+  .hero{position:relative;padding:76px 0 96px;overflow:hidden;text-align:center}
+  .hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(40% 46% at 50% 0%,rgba(201,162,39,.20) 0%,transparent 66%),
+      radial-gradient(50% 50% at 50% 110%,rgba(58,43,59,.85) 0%,transparent 62%);
+  }
+  .hero .wrap{position:relative;z-index:2}
+  .vorzeile{display:inline-flex;align-items:center;gap:11px;font-weight:800;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-hell);margin-bottom:22px;animation:auf .8s ease both}
+  .vorzeile .strich{width:28px;height:1px;background:var(--gold)}
+  .hero h1{
+    font-family:var(--display);font-weight:600;font-size:clamp(2.5rem,7vw,4.4rem);
+    line-height:1.08;letter-spacing:-.015em;max-width:16ch;margin:0 auto 22px;animation:auf .8s .1s ease both;
+  }
+  .hero h1 em{font-style:italic;color:var(--gold-hell)}
+  .hero p.lead{font-size:1.13rem;max-width:52ch;margin:0 auto;color:var(--perle);animation:auf .8s .2s ease both}
+  .hero-aktionen{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;justify-content:center;animation:auf .8s .3s ease both}
+  .knopf{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1rem;border-radius:999px;padding:16px 34px;transition:all .2s ease}
+  .knopf-voll{background:var(--gold);color:var(--nacht);box-shadow:0 14px 36px -14px rgba(201,162,39,.65)}
+  .knopf-voll:hover{background:var(--gold-hell);transform:translateY(-2px)}
+  .knopf-zart{border:1px solid var(--linie);color:var(--champagner)}
+  .knopf-zart:hover{border-color:var(--gold);color:var(--gold-hell)}
+  .hero .fakten{margin-top:34px;font-size:.9rem;font-weight:700;color:var(--perle);display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:9px 18px;animation:auf .8s .4s ease both}
+  .hero .fakten span{display:inline-flex;align-items:center;gap:8px}
+  .hero .fakten .punkt{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+  @keyframes auf{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+  .trenner{height:1px;background:linear-gradient(90deg,transparent,var(--linie) 18%,var(--linie) 82%,transparent)}
+
+  .abschnitt{padding:88px 0}
+  .kopf{max-width:60ch;margin:0 auto 50px;text-align:center}
+  .kopf h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,5vw,2.8rem);letter-spacing:-.015em;line-height:1.14;margin-bottom:12px}
+  .kopf h2 em{font-style:italic;color:var(--gold-hell)}
+  .kopf p{color:var(--perle);font-size:1.04rem}
+
+  .karten{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:880px;margin:0 auto}
+  @media(max-width:720px){.karten{grid-template-columns:1fr;max-width:460px}}
+  .karte{
+    background:var(--nacht-hell);border:1px solid var(--linie);border-radius:16px;padding:32px 28px;
+    transition:transform .2s ease,border-color .2s ease;
+  }
+  .karte:hover{transform:translateY(-5px);border-color:var(--gold)}
+  .karte .ikon{width:46px;height:46px;border-radius:50%;background:var(--pflaume);display:flex;align-items:center;justify-content:center;margin-bottom:18px;border:1px solid var(--linie)}
+  .karte .ikon svg{width:22px;height:22px;stroke:var(--gold-hell)}
+  .karte h3{font-family:var(--display);font-weight:600;font-size:1.28rem;margin-bottom:8px;color:#fff}
+  .karte p{font-size:.96rem;color:var(--perle)}
+
+  /* Erbstueck-Band */
+  .band{background:var(--pflaume);border-top:1px solid var(--linie);border-bottom:1px solid var(--linie);padding:86px 0}
+  .band .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:52px;align-items:center}
+  @media(max-width:860px){.band .wrap{grid-template-columns:1fr}}
+  .band h2{font-family:var(--display);font-weight:600;font-size:clamp(1.8rem,4.4vw,2.5rem);letter-spacing:-.015em;line-height:1.16;margin-bottom:14px;color:#fff}
+  .band h2 em{font-style:italic;color:var(--gold-hell)}
+  .band p{color:#d9cdd3;font-size:1.02rem;margin-bottom:14px}
+  .tafel-liste{display:grid;gap:13px}
+  .tafel-zeile{display:flex;gap:16px;align-items:flex-start;background:var(--nacht);border:1px solid var(--linie);border-radius:13px;padding:19px 22px}
+  .tafel-zeile .nr{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:var(--gold);color:var(--nacht);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:600;font-size:1rem}
+  .tafel-zeile b{display:block;font-size:1.02rem;margin-bottom:2px;color:#fff}
+  .tafel-zeile span{font-size:.92rem;color:var(--perle)}
+
+  /* Kontakt */
+  .kontakt{padding:88px 0}
+  .kontakt .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+  @media(max-width:860px){.kontakt .wrap{grid-template-columns:1fr}}
+  .kontakt h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,4.6vw,2.6rem);letter-spacing:-.015em;line-height:1.14;margin-bottom:10px}
+  .kontakt h2 em{font-style:italic;color:var(--gold-hell)}
+  .kontakt p.unter{color:var(--perle);margin-bottom:26px}
+  .k-liste{list-style:none;display:grid;gap:16px}
+  .k-liste li{display:flex;gap:15px;align-items:center}
+  .k-liste .ikon{width:44px;height:44px;flex-shrink:0;border-radius:50%;background:var(--nacht-hell);border:1px solid var(--linie);display:flex;align-items:center;justify-content:center}
+  .k-liste .ikon svg{width:20px;height:20px;stroke:var(--gold-hell);fill:none}
+  .k-liste b{display:block;font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--perle)}
+  .k-liste a{color:var(--champagner);text-decoration:none;font-weight:700;font-size:1.06rem}
+  .k-liste a:hover{color:var(--gold-hell)}
+  .k-liste .t{font-weight:700;font-size:1.02rem}
+  .hinweis-zeile{margin-top:26px;font-size:.86rem;color:var(--perle);border-left:2px solid var(--gold);padding-left:14px;line-height:1.55}
+  .tafel{background:var(--nacht-hell);border:1px solid var(--linie);border-radius:17px;padding:32px 30px}
+  .tafel h3{font-family:var(--display);font-weight:600;font-size:1.3rem;margin-bottom:18px;color:#fff}
+  .zeiten{list-style:none;display:grid;gap:11px}
+  .zeiten li{display:flex;justify-content:space-between;gap:14px;font-size:.97rem;padding-bottom:11px;border-bottom:1px dashed var(--linie)}
+  .zeiten li:last-child{border-bottom:0;padding-bottom:0}
+  .zeiten span:first-child{font-weight:700}
+  .zeiten span:last-child{color:var(--perle)}
+  .barriere{margin-top:20px;font-size:.9rem;color:var(--perle);display:flex;gap:10px;align-items:flex-start}
+  .barriere svg{width:19px;height:19px;flex-shrink:0;stroke:var(--gold-hell);fill:none;margin-top:3px}
+
+  .schluss{background:var(--pflaume);text-align:center;padding:82px 24px;border-top:1px solid var(--linie)}
+  .schluss .inner{max-width:620px;margin:0 auto}
+  .schluss .vorzeile{justify-content:center}
+  .schluss h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,5vw,2.7rem);letter-spacing:-.015em;line-height:1.14;margin-bottom:12px;color:#fff}
+  .schluss h2 em{font-style:italic;color:var(--gold-hell)}
+  .schluss p{color:#d9cdd3;margin-bottom:30px}
+
+  footer{background:#120e12;color:#8b7f86;padding:30px 0;font-size:.86rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:space-between;align-items:center}
+  footer a{color:var(--perle);text-decoration:none}
+  footer a:hover{color:var(--gold-hell)}
+
+  .demo-hinweis{
+    background:var(--gold);color:var(--nacht);text-align:center;padding:15px 24px;
+    font-size:.9rem;font-weight:700;line-height:1.5;
+  }
+
+  .zeigen{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .zeigen.sichtbar{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<div class="entwurf-band">Entwurf</div>
+
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="logo" href="#">
+        <span class="mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 4 5-4 13-4-13Z"/><path d="M8 8h8"/><path d="m12 3-4 5M12 3l4 5"/></svg>
+        </span>
+        <span class="name">Gold<em>fischerei</em><small>Goldschmiede · Dettenhausen</small></span>
+      </a>
+      <nav>
+        <a href="#arbeiten">Arbeiten</a>
+        <a href="#erbstuecke">Erbstücke</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="cta" href="tel:+4917663784755">Termin</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="vorzeile"><span class="strich"></span>Goldschmiedemeisterliches Handwerk</span>
+      <h1>Schmuck, der <em>zu einem Menschen</em> gehört</h1>
+      <p class="lead">Anfertigungen nach Maß, Verlobungs- und Trauringe, Reparaturen und das Umarbeiten von Erbstücken — in der eigenen Werkstatt in Dettenhausen, von Hand.</p>
+      <div class="hero-aktionen">
+        <a class="knopf knopf-voll" href="tel:+4917663784755">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          0176 63784755
+        </a>
+        <a class="knopf knopf-zart" href="#arbeiten">Was möglich ist</a>
+      </div>
+      <div class="fakten">
+        <span><i class="punkt"></i>Eigene Werkstatt</span>
+        <span><i class="punkt"></i>Beratung zu Diamanten</span>
+        <span><i class="punkt"></i>Termine auch nach Vereinbarung</span>
+        <span><i class="punkt"></i>Barrierefrei</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="trenner"></div>
+
+  <!-- ARBEITEN -->
+  <section class="abschnitt" id="arbeiten">
+    <div class="wrap">
+      <div class="kopf zeigen">
+        <span class="vorzeile"><span class="strich"></span>Arbeiten</span>
+        <h2>In allen Farben <em>und Facetten</em></h2>
+        <p>Vier Wege, wie aus einer Idee ein Schmuckstück wird — oder aus einem alten wieder ein getragenes.</p>
+      </div>
+      <div class="karten">
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="14" r="6"/><path d="m9 8 3-5 3 5"/></svg></span>
+          <h3>Verlobungs- &amp; Trauringe</h3>
+          <p>Gemeinsam entworfen, in der Werkstatt gefertigt. Inklusive ehrlicher Beratung zu Diamanten — Größe ist nicht alles.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z"/></svg></span>
+          <h3>Neuanfertigung</h3>
+          <p>Ein Entwurf, der sonst niemandem gehört. Vom ersten Gespräch bis zum fertigen Stück in einer Hand.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <h3>Reparaturen</h3>
+          <p>Gerissene Ketten, verbogene Fassungen, Ringgrößen ändern. Vieles ist in wenigen Tagen wieder heil.</p>
+        </div>
+        <div class="karte zeigen">
+          <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 3v6h6"/><circle cx="12" cy="12" r="3"/></svg></span>
+          <h3>Umarbeiten</h3>
+          <p>Aus dem Schmuck der Großmutter wird etwas, das man wirklich trägt — mit ihren Steinen, in neuer Form.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ERBSTUECKE -->
+  <section class="band" id="erbstuecke">
+    <div class="wrap">
+      <div class="zeigen">
+        <span class="vorzeile"><span class="strich"></span>Erbstücke</span>
+        <h2>Der Ring liegt seit Jahren <em>in der Schublade</em></h2>
+        <p>Fast jede Familie hat so ein Stück: zu wertvoll zum Weggeben, zu altmodisch zum Tragen. Genau daraus lässt sich etwas machen, das täglich am Finger ist — die Steine bleiben, die Form wird neu.</p>
+        <p>Bringen Sie das Stück einfach mit. Angeschaut und besprochen wird es kostenlos.</p>
+      </div>
+      <div class="tafel-liste zeigen">
+        <div class="tafel-zeile"><span class="nr">1</span><div><b>Anschauen</b><span>Material, Steine, Zustand — und was Ihnen daran wichtig ist.</span></div></div>
+        <div class="tafel-zeile"><span class="nr">2</span><div><b>Entwerfen</b><span>Ein, zwei Vorschläge, wie es künftig aussehen könnte.</span></div></div>
+        <div class="tafel-zeile"><span class="nr">3</span><div><b>Preis</b><span>Feststehend, bevor irgendetwas angefasst wird.</span></div></div>
+        <div class="tafel-zeile"><span class="nr">4</span><div><b>Fertigen</b><span>In der Werkstatt hier im Ort — nicht irgendwo im Versand.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="kontakt" id="kontakt">
+    <div class="wrap">
+      <div class="zeigen">
+        <span class="vorzeile"><span class="strich"></span>Kontakt</span>
+        <h2>Am liebsten <em>persönlich</em></h2>
+        <p class="unter">Schmuck bespricht man schlecht per Formular. Ein Anruf oder eine WhatsApp genügt — dann finden wir einen Termin.</p>
+        <ul class="k-liste">
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <div><b>Telefon &amp; WhatsApp</b><a href="tel:+4917663784755">0176 63784755</a></div>
+          </li>
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><b>Werkstatt</b><span class="t">Mühlweg 10 · 72135 Dettenhausen</span></div>
+          </li>
+          <li>
+            <span class="ikon"><svg viewBox="0 0 24 24" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6L22 7"/></svg></span>
+            <div><b>E-Mail</b><span class="t">richten wir mit der neuen Adresse ein</span></div>
+          </li>
+        </ul>
+        <div class="hinweis-zeile">Die Angaben stammen aus dem Gewerbeverzeichnis der Gemeinde Dettenhausen. Fotos Ihrer Arbeiten, Ihr Instagram-Auftritt und eine E-Mail-Adresse unter eigener Internetadresse ergänzen wir zusammen.</div>
+      </div>
+      <div class="tafel zeigen">
+        <h3>Öffnungszeiten</h3>
+        <ul class="zeiten">
+          <li><span>Montag – Freitag</span><span>13:00 – 17:00</span></li>
+          <li><span>Samstag &amp; Sonntag</span><span>nach Vereinbarung</span></li>
+          <li><span>Termine außerhalb</span><span>gerne — kurz anrufen</span></li>
+        </ul>
+        <div class="barriere">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5l3 3"/></svg>
+          <span>Der Zugang ist mit Kinderwagen und Rollstuhl möglich.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHLUSS -->
+  <section class="schluss">
+    <div class="inner">
+      <span class="vorzeile"><span class="strich"></span>Nächster Schritt</span>
+      <h2>Eine Idee — oder <em>eine Schublade</em>?</h2>
+      <p>Rufen Sie kurz an. Sie sprechen direkt mit Franziska Fischer.</p>
+      <a class="knopf knopf-voll zeigen" href="tel:+4917663784755">0176 63784755 anrufen</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Goldfischerei · Franziska Fischer · Mühlweg 10 · 72135 Dettenhausen</span>
+    <span><a href="https://schoenbuchdigital.github.io/impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="https://schoenbuchdigital.github.io/datenschutz.html">Datenschutz</a> <em style="opacity:.6">(Entwurf — eigenes Impressum folgt bei Beauftragung)</em></span>
+  </div>
+</footer>
+
+<div class="demo-hinweis">
+  Unverbindlicher Entwurf — erstellt von Schönbuch Digital, Weil im Schönbuch. Gefällt er Ihnen nicht, wird er gelöscht.
+</div>
+
+<script>
+  const beobachter = new IntersectionObserver(eintraege => {
+    eintraege.forEach(e => { if (e.isIntersecting) { e.target.classList.add('sichtbar'); beobachter.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.zeigen').forEach(el => beobachter.observe(el));
+</script>
+
+</body>
+</html>
